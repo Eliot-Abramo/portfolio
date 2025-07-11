@@ -5,87 +5,15 @@
   --bg: #112240;
   --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: var(--font);
-  background-color: var(--bg);
-  color: var(--light);
-  line-height: 1.6;
-}
-
-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--primary);
-}
-
-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-}
-
-header nav a {
-  color: var(--light);
-  text-decoration: none;
-}
-
-.hero {
-  min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2rem;
-}
-
-.btn {
-  margin-top: 1rem;
-  padding: 0.7rem 1.5rem;
-  background: var(--secondary);
-  color: var(--primary);
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-section {
-  padding: 4rem 2rem;
-}
-
-.project-list,
-.repo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.project-card,
-.repo-card {
-  background: var(--primary);
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: var(--primary);
-}
-
-@media (max-width: 600px) {
-  header nav ul {
-    flex-direction: column;
-  }
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--light);line-height:1.6}
+header nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:var(--primary)}
+header nav ul{list-style:none;display:flex;gap:1rem}
+header nav a{color:var(--light);text-decoration:none}
+.hero{min-height:60vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem}
+.btn{margin-top:1rem;padding:.7rem 1.5rem;background:var(--secondary);color:var(--primary);border:none;border-radius:5px;text-decoration:none;font-weight:bold}
+section{padding:4rem 2rem}
+.project-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:1rem}
+.project-card{background:var(--primary);padding:1rem;border-radius:8px}
+footer{text-align:center;padding:1rem;background:var(--primary)}
+@media(max-width:600px){header nav ul{flex-direction:column}}
