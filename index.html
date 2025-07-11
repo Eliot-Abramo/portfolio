@@ -1,13 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eliot Abramo | Engineering Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50 dark:bg-neutral-900">
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+<body>
+  <header>
+    <div class="container">
+      <h1>Eliot Abramo</h1>
+      <nav>
+        <a href="#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Engineering Project Portfolio</h2>
+      <p>A curated selection of embedded systems, avionics, and research work.</p>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <div class="container grid">
+
+      <div class="card">
+        <h3>BroCo – ROS 2 Bridge</h3>
+        <p>Full‑duplex bridge linking ESP32 avionics nodes to a ROS 2 network, using custom-framed packets with CRC error checking.</p>
+        <div class="tags"><span>Embedded</span><span>ROS 2</span><span>C++</span></div>
+        <a href="https://github.com/Eliot-Abramo/microcontrolleur" class="btn" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="card">
+        <h3>Avionics‑COTS Communication Stack</h3>
+        <p>Real‑time, zero‑copy communication stack for rover avionics. Supports UART/SPI with deterministic latency and automatic transport failover.</p>
+        <div class="tags"><span>Embedded</span><span>SPI</span><span>UART</span></div>
+        <a href="https://github.com/Eliot-Abramo/avionics_cots" class="btn" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="card">
+        <h3>ERC_AV_SW</h3>
+        <p>Flight‑software skeleton and CI pipeline for the EPFL Rocket Team ERC avionics board.</p>
+        <div class="tags"><span>Flight SW</span><span>CI/CD</span></div>
+        <a href="https://github.com/Eliot-Abramo/ERC_AV_SW" class="btn" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="card">
+        <h3>Microcontroller Experiments</h3>
+        <p>Collection of low‑level firmware experiments, peripheral drivers, and RTOS playgrounds targeting STM32 and ESP32 MCUs.</p>
+        <div class="tags"><span>C</span><span>RTOS</span><span>HAL</span></div>
+        <a href="https://github.com/Eliot-Abramo/microcontrolleur" class="btn" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="card">
+        <h3>Master Thesis – Analog Neurons</h3>
+        <p>Exploration of physical nonlinearities for low‑power deep learning. Includes microwave metasurface activations and optical GELU emulation.</p>
+        <div class="tags"><span>Research</span><span>RF</span><span>Optics</span></div>
+        <a href="thesis_abramo.pdf" class="btn" target="_blank">Read PDF</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Eliot Abramo — Built with ❤️ and GitHub Pages.
+  </footer>
 </body>
 </html>
