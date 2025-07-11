@@ -8,65 +8,87 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Eliot Abramo</h1>
-      <nav>
-        <a href="#projects">Projects</a>
-      </nav>
+
+<header>
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;">
+    <h1 style="font-size:1.4rem;">Eliot Abramo</h1>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="ABRAMO_RESUME.pdf" target="_blank">CV</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h2>Embedded Systems & Avionics Engineer</h2>
+    <p>Creating robust firmware and hardware solutions for robotics, aerospace, and low‑power AI.</p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2>Highlighted Projects</h2>
+
+    <div class="card">
+      <h3>BroCo – ROS 2 Serial Bridge</h3>
+      <p>Full‑duplex ESP32 ↔ ROS 2 bridge using custom‑framed packets with CRC checks. Enables autonomous rover nodes to speak ROS topics over low‑bandwidth radio.</p>
+      <div class="tags"><span>Embedded</span><span>ROS 2</span><span>C++</span></div>
+      <a href="https://github.com/Eliot-Abramo/microcontrolleur" class="btn" target="_blank">GitHub ↗</a>
     </div>
-  </header>
 
-  <section class="hero">
-    <div class="container">
-      <h2>Engineering Project Portfolio</h2>
-      <p>A curated selection of embedded systems, avionics, and research work.</p>
+    <div class="card">
+      <h3>Avionics‑COTS Communication Stack</h3>
+      <p>Deterministic, zero‑copy UART/SPI comms layer with automatic transport fail‑over. Powers the EPFL Xplore rover avionics.</p>
+      <div class="tags"><span>SPI</span><span>UART</span><span>Real‑Time</span></div>
+      <a href="https://github.com/Eliot-Abramo/avionics_cots" class="btn" target="_blank">GitHub ↗</a>
     </div>
-  </section>
 
-  <section id="projects" class="projects">
-    <div class="container grid">
-
-      <div class="card">
-        <h3>BroCo – ROS 2 Bridge</h3>
-        <p>Full‑duplex bridge linking ESP32 avionics nodes to a ROS 2 network, using custom-framed packets with CRC error checking.</p>
-        <div class="tags"><span>Embedded</span><span>ROS 2</span><span>C++</span></div>
-        <a href="https://github.com/Eliot-Abramo/microcontrolleur" class="btn" target="_blank">View on GitHub</a>
-      </div>
-
-      <div class="card">
-        <h3>Avionics‑COTS Communication Stack</h3>
-        <p>Real‑time, zero‑copy communication stack for rover avionics. Supports UART/SPI with deterministic latency and automatic transport failover.</p>
-        <div class="tags"><span>Embedded</span><span>SPI</span><span>UART</span></div>
-        <a href="https://github.com/Eliot-Abramo/avionics_cots" class="btn" target="_blank">View on GitHub</a>
-      </div>
-
-      <div class="card">
-        <h3>ERC_AV_SW</h3>
-        <p>Flight‑software skeleton and CI pipeline for the EPFL Rocket Team ERC avionics board.</p>
-        <div class="tags"><span>Flight SW</span><span>CI/CD</span></div>
-        <a href="https://github.com/Eliot-Abramo/ERC_AV_SW" class="btn" target="_blank">View on GitHub</a>
-      </div>
-
-      <div class="card">
-        <h3>Microcontroller Experiments</h3>
-        <p>Collection of low‑level firmware experiments, peripheral drivers, and RTOS playgrounds targeting STM32 and ESP32 MCUs.</p>
-        <div class="tags"><span>C</span><span>RTOS</span><span>HAL</span></div>
-        <a href="https://github.com/Eliot-Abramo/microcontrolleur" class="btn" target="_blank">View on GitHub</a>
-      </div>
-
-      <div class="card">
-        <h3>Master Thesis – Analog Neurons</h3>
-        <p>Exploration of physical nonlinearities for low‑power deep learning. Includes microwave metasurface activations and optical GELU emulation.</p>
-        <div class="tags"><span>Research</span><span>RF</span><span>Optics</span></div>
-        <a href="thesis_abramo.pdf" class="btn" target="_blank">Read PDF</a>
-      </div>
-
+    <div class="card">
+      <h3>ERC_AV_SW Flight Software</h3>
+      <p>Lightweight flight‑software skeleton and CI pipeline for a rocket avionics board. Includes HAL drivers, telemetry, and hardware‑in‑the‑loop tests.</p>
+      <div class="tags"><span>Flight SW</span><span>CI/CD</span></div>
+      <a href="https://github.com/Eliot-Abramo/ERC_AV_SW" class="btn" target="_blank">GitHub ↗</a>
     </div>
-  </section>
 
-  <footer>
-    &copy; 2025 Eliot Abramo — Built with ❤️ and GitHub Pages.
-  </footer>
+    <div class="card">
+      <h3>Microcontroller Experiments</h3>
+      <p>Collection of low‑level firmware experiments on STM32 & ESP32 MCUs—covering RTOS scheduling, DMA drivers, and peripheral optimisation.</p>
+      <div class="tags"><span>C</span><span>RTOS</span><span>HAL</span></div>
+      <a href="https://github.com/Eliot-Abramo/microcontrolleur" class="btn" target="_blank">GitHub ↗</a>
+    </div>
+
+    <div class="card">
+      <h3>Master Thesis — Analog Neurons</h3>
+      <p>Research on physical nonlinearities for low‑power deep learning: GHz metasurface phase shifters & optical GELU emulation.</p>
+      <div class="tags"><span>Research</span><span>RF</span><span>Optics</span></div>
+      <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read Thesis ↗</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <div class="about">
+      <div class="about-text">
+        <p>I’m an <strong>Electrical & Electronics Engineering</strong> graduate from EPFL with a passion for pushing hardware to its limits – whether that’s squeezing micro‑amp budgets from CubeSat payload controllers or designing CRC‑validated SPI stacks that shrug off Mars‑rover EM noise.</p>
+        <p>Recent roles include <em>Embedded Systems Engineer</em> at <strong>Spacelocker</strong> (CubeSat data‑handling), <em>Lead System Engineer</em> for the <strong>EPFL Xplore Rover</strong>, and research on analog neural networks at EPFL’s Laboratory of Wave Engineering.</p>
+        <p>Fluent in <strong>C/C++</strong>, <strong>Rust</strong>, Python, and KiCad; comfortable from schematic capture to HAL drivers and CI pipelines. Bilingual English–French, conversational Spanish.</p>
+        <p>Outside the lab you’ll find me racing quadcopters or teaching high‑school robotics teams.</p>
+      </div>
+      <div class="about-actions">
+        <a href="ABRAMO_RESUME.pdf" class="btn" target="_blank">Download CV ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Eliot Abramo — Hosted on GitHub Pages.
+</footer>
+
 </body>
 </html>

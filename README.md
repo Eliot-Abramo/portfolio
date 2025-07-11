@@ -1,27 +1,30 @@
-# Eliot Abramo – Engineering Portfolio
+# Eliot Abramo — Professional Portfolio
 
-This is the source for my **GitHub Pages** portfolio.  
-To spin up your own copy:
+Static site built with plain HTML/CSS for lightning‑fast loads and easy GitHub Pages hosting.
+
+## Deploy
 
 ```bash
-# Clone your empty portfolio repository
 git clone https://github.com/<your‑username>/<portfolio-repo>.git
 cd <portfolio-repo>
-
-# Copy everything in this folder into the repo root
-cp -r /path/to/portfolio_site/* .
-
+unzip ../portfolio_site_v2.zip -d .
 git add .
-git commit -m "Initial portfolio site"
+git commit -m "Deploy v2 portfolio"
 git push origin main
 ```
 
-Then enable **GitHub Pages** under **Settings → Pages → Source → Branch: `main` / root**.  
-Your site should be live in a minute at:
+Enable **Pages** under *Settings → Pages → Source → `main` / root*.  
+Custom domain? Add a `CNAME` file pointing to your domain and configure DNS A/ALIAS or CNAME records.
 
-```
-https://<your‑username>.github.io/<portfolio-repo>/
-```
+## Customise
 
-Edit `index.html` to add or reorder projects, tweak styles in `style.css`, and commit the changes.  
-Happy hacking!
+* `index.html` — edit project cards or About section.
+* `style.css` — adjust colors, fonts, spacing.
+* `ABRAMO_RESUME.pdf` & `THESIS_ABRAMO.pdf` — replace to update docs.
+
+## Stack
+
+* No JavaScript, no build step
+* Responsive CSS (Flexbox) and dark theme
+* Fonts via Google Fonts (Inter)
+* Hosted free on GitHub Pages
