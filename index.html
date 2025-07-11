@@ -1,68 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Your Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
 </head>
-<body>
-<header>
-  <nav>
-    <div class="logo">Your&nbsp;Name</div>
-    <ul>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-  <section id="home" class="hero">
-    <h1>Your Name</h1>
-    <p>Embedded Systems &amp; Robotics Engineer</p>
-    <a href="#projects" class="btn">See My Work</a>
-  </section>
-
-  <section id="projects">
-    <h2>Featured Projects</h2>
-    <div class="project-list">
-
-      <div class="project-card">
-        <h3>Avionics‑COTS Communication Stack</h3>
-        <p>Deterministic, zero‑copy UART/SPI protocol with compile‑time safety and static routing.</p>
-        <p><strong>Tech:</strong> C++17, ESP32, PlatformIO</p>
-        <a href="#" data-github="YOUR_GITHUB_USERNAME/avionics_cots" class="repo-link">GitHub Repo</a>
-        <a href="readmes/README_avionics_cots.md" target="_blank">Detailed README</a>
-      </div>
-
-      <div class="project-card">
-        <h3>BroCo – ROS 2 Bridge</h3>
-        <p>Full‑duplex gateway translating Avionics‑COTS frames into ROS 2 topics with type‑safe dispatch.</p>
-        <p><strong>Tech:</strong> C++17, ROS 2 Foxy, ESP32, Raspberry Pi 5</p>
-        <a href="#" data-github="YOUR_GITHUB_USERNAME/ERC_EL_BroCo" class="repo-link">GitHub Repo</a>
-        <a href="readmes/README_broco_detailed.md" target="_blank">Detailed README</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>About</h2>
-    <p>Insert a short bio here...</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">/yourprofile</a></p>
-  </section>
-</main>
-
-<footer>
-  <p>&copy; <span id="year"></span> Your Name</p>
-</footer>
+<body class="bg-gray-50 dark:bg-neutral-900">
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
