@@ -1,30 +1,22 @@
-# Eliot Abramo — Professional Portfolio
+# Eliot Abramo — Multi‑page Portfolio
 
-Static site built with plain HTML/CSS for lightning‑fast loads and easy GitHub Pages hosting.
+Static site with **Home / Projects / About** pages and image placeholders in `/img`.
 
 ## Deploy
 
 ```bash
-git clone https://github.com/<your‑username>/<portfolio-repo>.git
-cd <portfolio-repo>
-unzip ../portfolio_site_v2.zip -d .
+git clone https://github.com/<user>/<repo>.git
+cd <repo>
+unzip ../portfolio_site_v3.zip -d .
 git add .
-git commit -m "Deploy v2 portfolio"
+git commit -m "Deploy portfolio v3"
 git push origin main
 ```
 
-Enable **Pages** under *Settings → Pages → Source → `main` / root*.  
-Custom domain? Add a `CNAME` file pointing to your domain and configure DNS A/ALIAS or CNAME records.
+Enable **Pages** → branch `main` / root.
 
 ## Customise
 
-* `index.html` — edit project cards or About section.
-* `style.css` — adjust colors, fonts, spacing.
-* `ABRAMO_RESUME.pdf` & `THESIS_ABRAMO.pdf` — replace to update docs.
-
-## Stack
-
-* No JavaScript, no build step
-* Responsive CSS (Flexbox) and dark theme
-* Fonts via Google Fonts (Inter)
-* Hosted free on GitHub Pages
+* Replace images in `/img` with real project screenshots (keep same filenames or update paths).
+* Edit text in HTML files.
+* Tweak styles in `style.css`.
