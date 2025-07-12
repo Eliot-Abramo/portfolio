@@ -1,16 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About | Eliot Abramo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Eliot Abramo</title>
+
+<!-- fonts + site-wide stylesheet -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* ---------- COSMIC BACKDROP ---------- */
+body{
+  margin:0;
+  font-family:Inter,system-ui,sans-serif;
+  color:#c9d1d9;
+  background:#090a0f;        /* fallback */
+  overflow-x:hidden;
+}
+body::before{               /* subtle nebula tint */
+  content:"";
+  position:fixed;inset:0;
+  background:radial-gradient(ellipse at 50% 120%,#27364c 0%,#0d1117 60%,#090a0f 100%);
+  z-index:-40;
+}
+/* three parallax star layers generated via box-shadow */
+.stars,.stars2,.stars3{
+  position:fixed;inset:0;
+  pointer-events:none;
+  z-index:-30;
+  animation:starScroll linear infinite;
+}
+.stars  {animation-duration:120s;}
+.stars2 {animation-duration:200s;}
+.stars3 {animation-duration:320s;}
+
+.stars::before,.stars2::before,.stars3::before{
+  content:"";
+  position:absolute;top:50%;left:50%;
+  width:1px;height:1px;background:transparent;
+  transform:translate(-50%,-50%) scale(var(--scale,1));
+  /* random starfield via box-shadow clones */
+  box-shadow:
+     0   0 #fff,   230px -400px #7ad1ff, -340px -190px #fff,
+   500px 120px #7ad1ff,  -600px 240px #fff,  700px -120px #fff,
+   -720px 380px #7ad1ff,  340px 440px #fff, -240px 540px #7ad1ff,
+    420px -500px #fff,   -480px 600px #fff, 660px 620px #7ad1ff,
+   -820px -420px #fff,   200px 780px #7ad1ff, -900px 140px #fff;
+}
+.stars2::before{--scale:2;}
+.stars3::before{--scale:3;}
+
+@keyframes starScroll{
+  from{transform:translateY(0);}
+  to  {transform:translateY(600px);}
+}
+
+/* ---------- LAYOUT ---------- */
+.about-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:repeat(3,auto);
+  gap:2rem;
+  position:relative;
+  margin:0 auto 4rem;
+  max-width:1100px;
+}
+.about-card{
+  background:var(--card-bg,#161b22);
+  border:1px solid #30363d;
+  border-radius:12px;
+  padding:1.2rem;
+  font-size:.9rem;
+  backdrop-filter:blur(2px);
+  transition:filter .3s;
+}
+.about-card h3{margin:.3rem 0 .6rem;color:var(--accent,#58a6ff);font-size:1.15rem;}
+.about-card:hover{filter:brightness(1.15);}
+
+.portrait-frame{
+  position:relative;width:260px;height:260px;
+}
+.portrait-frame img{width:100%;height:100%;object-fit:cover;border-radius:8px;}
+.portrait-frame::before{
+  content:"";position:absolute;inset:0;border:3px solid var(--accent,#58a6ff);
+  filter:blur(1.2px);animation:pulse 4s ease-in-out infinite;
+}
+@keyframes pulse{50%{transform:scale(1.05);}}
+
+/* ---------- PCB LINES ---------- */
+.pcb-svg{position:absolute;inset:0;pointer-events:none;z-index:-1;}
+.trace{
+  stroke:var(--accent,#58a6ff);
+  stroke-width:3;
+  fill:none;
+  stroke-linecap:round;
+  filter:drop-shadow(0 0 4px var(--accent,#58a6ff));
+  stroke-dasharray:1200;
+  stroke-dashoffset:1200;
+}
+.pad{fill:#feca57;}
+.dot{fill:#feca57;opacity:.85;}
+
+.about-card[data-t="t1"]:hover~.pcb-svg #t1,
+.about-card[data-t="t2"]:hover~.pcb-svg #t2,
+.about-card[data-t="t3"]:hover~.pcb-svg #t3,
+.about-card[data-t="t4"]:hover~.pcb-svg #t4{
+  stroke:#00e5ff;
+  filter:drop-shadow(0 0 6px #00e5ff);
+}
+.about-card:hover~.pcb-svg .dot{opacity:.3;}
+
+@media(max-width:920px){
+  .about-grid{grid-template-columns:1fr;}
+  .portrait-frame{width:220px;height:220px;}
+}
+</style>
 </head>
+
 <body>
+<!-- star layers -->
+<div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
+
 <header>
   <div class="container">
-    <h1 style="font-size:1.4rem;">Eliot Abramo</h1>
+    <h1 style="font-size:1.4rem;">Eliot Abramo</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -20,44 +136,74 @@
   </div>
 </header>
 
-<section class="hero">
-  <div class="container">
-    <h2>About Me</h2>
-  </div>
-</section>
+<!-- push whole block downward -->
+<section style="margin-top:160px;">
+  <div class="container" style="position:relative;">
 
-<section>
-  <div class="container about reveal" style="gap:2rem;">
-    <img src="img/face.jpg" alt="Eliot Abramo portrait" class="about-photo">
-    <div class="about-text">
-      <p>I am currently pursuing a Bachelor's degree in Electrical & Electronic Engineering at EPFL, where I've developed interdisciplinary expertise combining robust embedded systems engineering and advanced research into analog computing architectures.</p>
-        <div class="about-item reveal">
-          <h3>Embedded Systems Leadership</h3>
-          <p>In my role as Lead System Engineer for the EPFL Xplore Rover, I've engineered the embedded electronics framework for a Mars-inspired rover designed for European Space Agency-sponsored competitions. Central to my work has been architecting a resilient, CRC-hardened SPI and serial communication stack capable of fault-tolerant data exchange under intense electromagnetic interference. Leveraging STM32 and ESP32 microcontrollers, I designed and validated real-time embedded firmware optimized for deterministic and rapid performance. Furthermore, orchestrating subsystem integration across mechanical, software, and autonomy teams—totaling over 120 student engineers—I have ensured seamless interoperability, from sensor acquisition and actuator control to autonomous navigation and scientific data management.</p>
-        </div>
-        <div class="about-item reveal">
-          <h3>Analog Computing Research</h3>
-          <p>Parallel to my embedded systems expertise, my research at EPFL’s Laboratory of Wave Engineering has positioned me at the cutting edge of analog computing research for ultra-low-power artificial intelligence. For my bachelor thesis, I conceptualized, designed, and experimentally validated two analog devices: a binary-tunable metasurface at 2.4 GHz, utilizing coupled resonators and PIN-diodes to perform precise electromagnetic phase modulation, and an optical GELU emulator that replicates complex neural activation functions through structured incoherent light and Fresnel transmission optics. These innovations involved intricate electromagnetic modeling through CST finite-element simulations, high-frequency microwave circuit design, rigorous VNA-based experimental characterization, and extensive data analysis in Python and C++.</p>
-        </div>
-        <div class="about-item reveal">
-          <h3>Collaborative Impact</h3>
-          <p>Beyond academia, I've engaged in international collaborative research initiatives, including the design and presentation of an environmental sensing platform at the United Nations Geneva Forum. My active involvement in student engineering communities and leadership roles in IEEE-affiliated competitions highlights my ability not only to engineer precise technical solutions but also to effectively communicate complex ideas and lead diverse, interdisciplinary teams.</p>
-        </div>
-        <div class="about-item reveal">
-          <h3>Competencies</h3>
-          <p>I am proficient in embedded software development (C/C++, Rust), electromagnetic simulation (CST), analog and digital hardware design (KiCad), and rigorous automated validation through GitHub Actions and continuous integration frameworks. Fluent in English and French, with conversational proficiency in Spanish, I excel at navigating cross-cultural collaborative environments.</p>
-        </div>
+    <!-- PCB SVG -->
+    <svg class="pcb-svg" viewBox="0 0 1200 900"
+         xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+      <!-- pads -->
+      <circle class="pad" cx="600" cy="500" r="6"/>
+      <circle class="pad" cx="260" cy="240" r="6"/>
+      <circle class="pad" cx="940" cy="240" r="6"/>
+      <circle class="pad" cx="260" cy="760" r="6"/>
+      <circle class="pad" cx="940" cy="760" r="6"/>
 
-      <div style="margin-top:1.2rem;">
-        <a href="ABRAMO_RESUME.pdf" class="btn" target="_blank">Download CV ↗</a>
+      <!-- traces -->
+      <path id="t1" class="trace" d="M600 500 H260 V240"/>
+      <path id="t2" class="trace" d="M600 500 H940 V240"/>
+      <path id="t3" class="trace" d="M600 500 H260 V760"/>
+      <path id="t4" class="trace" d="M600 500 H940 V760"/>
+
+      <!-- draw (5 s each) -->
+      <animate xlink:href="#t1" id="d1" attributeName="stroke-dashoffset" from="1200" to="0" dur="5s" fill="freeze"/>
+      <animate xlink:href="#t2" id="d2" attributeName="stroke-dashoffset" from="1200" to="0" dur="5s" begin="d1.end" fill="freeze"/>
+      <animate xlink:href="#t3" id="d3" attributeName="stroke-dashoffset" from="1200" to="0" dur="5s" begin="d2.end" fill="freeze"/>
+      <animate xlink:href="#t4" id="d4" attributeName="stroke-dashoffset" from="1200" to="0" dur="5s" begin="d3.end" fill="freeze"/>
+
+      <!-- electrons -->
+      <circle r="4" class="dot"><animateMotion dur="6s" begin="d1.end+.3s" repeatCount="indefinite"><mpath xlink:href="#t1"/></animateMotion></circle>
+      <circle r="4" class="dot"><animateMotion dur="6s" begin="d2.end+.3s" repeatCount="indefinite"><mpath xlink:href="#t2"/></animateMotion></circle>
+      <circle r="4" class="dot"><animateMotion dur="6s" begin="d3.end+.3s" repeatCount="indefinite"><mpath xlink:href="#t3"/></animateMotion></circle>
+      <circle r="4" class="dot"><animateMotion dur="6s" begin="d4.end+.3s" repeatCount="indefinite"><mpath xlink:href="#t4"/></animateMotion></circle>
+    </svg>
+
+    <!-- GRID ---------------------------------------------------- -->
+    <div class="about-grid">
+      <article class="about-card" data-t="t1" style="grid-column:1;grid-row:1;">
+        <h3>Embedded Systems Leadership</h3>
+        <p>Lead System Engineer for the EPFL Xplore Rover: CRC-hardened SPI / serial stack &amp; deterministic firmware on STM32 / ESP32, coordinating 120-member team from sensors to autonomous navigation.</p>
+      </article>
+
+      <article class="about-card" data-t="t2" style="grid-column:3;grid-row:1;">
+        <h3>Analog Computing Research</h3>
+        <p>Designed a binary-tunable 2.4 GHz metasurface and an optical GELU emulator—CST FEM simulation, microwave PCB design, VNA characterisation, and Python / C++ pipelines—for ultra-low-power neural hardware.</p>
+      </article>
+
+      <div style="grid-column:2;grid-row:2;justify-self:center;align-self:center;">
+        <div class="portrait-frame"><img src="img/face.jpg" alt="Eliot Abramo"></div>
       </div>
+
+      <article class="about-card" data-t="t3" style="grid-column:1;grid-row:3;">
+        <h3>Collaborative Impact</h3>
+        <p>Environmental-sensing platform presented at the UN Geneva Forum and leadership in IEEE competitions—demonstrating mission-critical hardware delivery and team stewardship.</p>
+      </article>
+
+      <article class="about-card" data-t="t4" style="grid-column:3;grid-row:3;">
+        <h3>Core Competencies</h3>
+        <p>C / C++, Rust • KiCad PCB • CST EM simulation • FreeRTOS / Zephyr • GitHub Actions • Fluent English &amp; French, conversational Spanish.</p>
+      </article>
+    </div>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <a class="btn" href="ABRAMO_RESUME.pdf" target="_blank">Download CV ↗</a>
     </div>
   </div>
 </section>
 
-<footer>
-  &copy; 2025 Eliot Abramo — GitHub Pages.
-</footer>
+<footer><span style="font-size:.85rem;">© 2025 Eliot Abramo — GitHub Pages</span></footer>
 <script src="script.js"></script>
 </body>
 </html>
