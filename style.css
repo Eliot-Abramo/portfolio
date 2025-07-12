@@ -60,3 +60,56 @@ section{padding:2rem 1.5rem;}
 @media(min-width:700px){.about{flex-direction:row;}.about-text{flex:2;}.about-actions{flex:1;}}
 
 footer{text-align:center;padding:2rem 1.5rem;border-top:1px solid #30363d;font-size:.85rem;}
+/* ------- Enhanced animations & parallax ------- */
+
+/* Hero blob elements */
+.hero .blob{
+  position:absolute;
+  border-radius:50%;
+  opacity:0.7;
+  mix-blend-mode:screen;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  animation:blobFloat 20s ease-in-out infinite alternate;
+}
+
+.hero .blob.blob1{
+  width:600px;height:600px;
+  background:radial-gradient(circle at 30% 30%,#58a6ff 0%,transparent 60%);
+  top:20%;left:20%;
+  animation-delay:-2s;
+}
+.hero .blob.blob2{
+  width:500px;height:500px;
+  background:radial-gradient(circle at 70% 70%,#ff66d7 0%,transparent 60%);
+  top:70%;left:80%;
+  animation-delay:-4s;
+}
+
+@keyframes blobFloat{
+  0%{transform:translate(-50%,-50%) scale(1);}
+  100%{transform:translate(-45%,-48%) scale(1.15);}
+}
+
+/* Parallax hover effect from JS */
+.blob.parallax{
+  transition:transform .15s ease-out;
+}
+
+/* Fade‑in animation for scroll */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all .6s cubic-bezier(.215,.61,.355,1);
+}
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .hero .blob,
+  .tagline,
+  .reveal{animation:none;transition:none;}
+}

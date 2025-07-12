@@ -16,3 +16,9 @@ git push
 Enable GitHub Pages → branch `main` / root.
 
 Replace placeholder images in `/img`.
+
+### What’s new in v5
+* Parallax gradient blobs in hero
+* Typewriter tagline
+* Scroll‑reveal animations for project cards
+* All pure CSS + tiny vanilla JS (<2 KB)
