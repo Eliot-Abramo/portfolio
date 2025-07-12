@@ -10,21 +10,24 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+html {
+  font-size: 93%;
+}
+
 /* ---------- COSMIC BACKDROP ---------- */
 body{
   margin:0;
   font-family:Inter,system-ui,sans-serif;
   color:#c9d1d9;
-  background:#090a0f;        /* fallback */
+  background:#090a0f;
   overflow-x:hidden;
 }
-body::before{               /* subtle nebula tint */
+body::before{
   content:"";
   position:fixed;inset:0;
   background:radial-gradient(ellipse at 50% 120%,#27364c 0%,#0d1117 60%,#090a0f 100%);
   z-index:-40;
 }
-/* three parallax star layers generated via box-shadow */
 .stars,.stars2,.stars3{
   position:fixed;inset:0;
   pointer-events:none;
@@ -32,15 +35,13 @@ body::before{               /* subtle nebula tint */
   animation:starScroll linear infinite;
 }
 .stars  {animation-duration:120s;}
-.stars2 {animation-duration:200s;}
-.stars3 {animation-duration:320s;}
-
+.stars2 {animation-duration:160s;}
+.stars3 {animation-duration:180s;}
 .stars::before,.stars2::before,.stars3::before{
   content:"";
   position:absolute;top:50%;left:50%;
   width:1px;height:1px;background:transparent;
   transform:translate(-50%,-50%) scale(var(--scale,1));
-  /* random starfield via box-shadow clones */
   box-shadow:
      0   0 #fff,   230px -400px #7ad1ff, -340px -190px #fff,
    500px 120px #7ad1ff,  -600px 240px #fff,  700px -120px #fff,
@@ -50,7 +51,6 @@ body::before{               /* subtle nebula tint */
 }
 .stars2::before{--scale:2;}
 .stars3::before{--scale:3;}
-
 @keyframes starScroll{
   from{transform:translateY(0);}
   to  {transform:translateY(600px);}
@@ -61,25 +61,24 @@ body::before{               /* subtle nebula tint */
   display:grid;
   grid-template-columns:repeat(3,1fr);
   grid-template-rows:repeat(3,auto);
-  gap:2rem;
+  gap:1.5rem;
   position:relative;
   margin:0 auto 4rem;
-  max-width:1100px;
+  max-width:1000px;
 }
 .about-card{
   background:var(--card-bg,#161b22);
   border:1px solid #30363d;
   border-radius:12px;
-  padding:1.2rem;
-  font-size:.9rem;
+  padding:1rem;
+  font-size:.85rem;
   backdrop-filter:blur(2px);
   transition:filter .3s;
 }
 .about-card h3{margin:.3rem 0 .6rem;color:var(--accent,#58a6ff);font-size:1.15rem;}
 .about-card:hover{filter:brightness(1.15);}
-
 .portrait-frame{
-  position:relative;width:260px;height:260px;
+  position:relative;width:240px;height:240px;
 }
 .portrait-frame img{width:100%;height:100%;object-fit:cover;border-radius:8px;}
 .portrait-frame::before{
@@ -101,7 +100,6 @@ body::before{               /* subtle nebula tint */
 }
 .pad{fill:#feca57;}
 .dot{fill:#feca57;opacity:.85;}
-
 .about-card[data-t="t1"]:hover~.pcb-svg #t1,
 .about-card[data-t="t2"]:hover~.pcb-svg #t2,
 .about-card[data-t="t3"]:hover~.pcb-svg #t3,
@@ -119,7 +117,6 @@ body::before{               /* subtle nebula tint */
 </head>
 
 <body>
-<!-- star layers -->
 <div class="stars"></div>
 <div class="stars2"></div>
 <div class="stars3"></div>
@@ -136,41 +133,30 @@ body::before{               /* subtle nebula tint */
   </div>
 </header>
 
-<!-- push whole block downward -->
 <section style="margin-top:160px;">
   <div class="container" style="position:relative;">
-
-    <!-- PCB SVG -->
     <svg class="pcb-svg" viewBox="0 0 1200 900"
          xmlns="http://www.w3.org/2000/svg"
          xmlns:xlink="http://www.w3.org/1999/xlink">
-      <!-- pads -->
       <circle class="pad" cx="600" cy="500" r="6"/>
       <circle class="pad" cx="260" cy="240" r="6"/>
       <circle class="pad" cx="940" cy="240" r="6"/>
       <circle class="pad" cx="260" cy="760" r="6"/>
       <circle class="pad" cx="940" cy="760" r="6"/>
-
-      <!-- traces -->
       <path id="t1" class="trace" d="M600 500 H260 V240"/>
       <path id="t2" class="trace" d="M600 500 H940 V240"/>
       <path id="t3" class="trace" d="M600 500 H260 V760"/>
       <path id="t4" class="trace" d="M600 500 H940 V760"/>
-
-      <!-- draw (5 s each) -->
       <animate xlink:href="#t1" id="d1" attributeName="stroke-dashoffset" from="1200" to="0" dur="5s" fill="freeze"/>
-      <animate xlink:href="#t2" id="d2" attributeName="stroke-dashoffset" from="1200" to="0" dur="5s" begin="d1.end" fill="freeze"/>
-      <animate xlink:href="#t3" id="d3" attributeName="stroke-dashoffset" from="1200" to="0" dur="5s" begin="d2.end" fill="freeze"/>
-      <animate xlink:href="#t4" id="d4" attributeName="stroke-dashoffset" from="1200" to="0" dur="5s" begin="d3.end" fill="freeze"/>
-
-      <!-- electrons -->
-      <circle r="4" class="dot"><animateMotion dur="6s" begin="d1.end+.3s" repeatCount="indefinite"><mpath xlink:href="#t1"/></animateMotion></circle>
-      <circle r="4" class="dot"><animateMotion dur="6s" begin="d2.end+.3s" repeatCount="indefinite"><mpath xlink:href="#t2"/></animateMotion></circle>
-      <circle r="4" class="dot"><animateMotion dur="6s" begin="d3.end+.3s" repeatCount="indefinite"><mpath xlink:href="#t3"/></animateMotion></circle>
-      <circle r="4" class="dot"><animateMotion dur="6s" begin="d4.end+.3s" repeatCount="indefinite"><mpath xlink:href="#t4"/></animateMotion></circle>
+      <animate xlink:href="#t2" id="d2" attributeName="stroke-dashoffset" from="1200" to="0" begin="d1.begin+0.5s" dur="5s" fill="freeze"/>
+      <animate xlink:href="#t3" id="d3" attributeName="stroke-dashoffset" from="1200" to="0" begin="d2.begin+0.5s" dur="5s" fill="freeze"/>
+      <animate xlink:href="#t4" id="d4" attributeName="stroke-dashoffset" from="1200" to="0" begin="d3.begin+0.5s" dur="5s" fill="freeze"/>
+      <circle r="4" class="dot"><animateMotion dur="3s" begin="d1.end+.1s" repeatCount="indefinite"><mpath xlink:href="#t1"/></animateMotion></circle>
+      <circle r="4" class="dot"><animateMotion dur="3s" begin="d2.end+.1s" repeatCount="indefinite"><mpath xlink:href="#t2"/></animateMotion></circle>
+      <circle r="4" class="dot"><animateMotion dur="3s" begin="d3.end+.1s" repeatCount="indefinite"><mpath xlink:href="#t3"/></animateMotion></circle>
+      <circle r="4" class="dot"><animateMotion dur="3s" begin="d4.end+.1s" repeatCount="indefinite"><mpath xlink:href="#t4"/></animateMotion></circle>
     </svg>
 
-    <!-- GRID ---------------------------------------------------- -->
     <div class="about-grid">
       <article class="about-card" data-t="t1" style="grid-column:1;grid-row:1;">
         <h3>Embedded Systems Leadership</h3>
