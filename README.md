@@ -22,3 +22,9 @@ Replace placeholder images in `/img`.
 * Typewriter tagline
 * Scroll‑reveal animations for project cards
 * All pure CSS + tiny vanilla JS (<2 KB)
+
+
+v7 fixes:
+* Face photo now neat circular crop (object‑fit:cover).
+* About section rewritten using only user‑provided documents.
+* Gallery images render once you place any *.jpg/ *.png inside /gallery at repo root; hover‑zoom preserved.
