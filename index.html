@@ -39,6 +39,7 @@
 <section class="reveal">
   <div class="container">
     <h3 style="margin-bottom:1rem;">Photo Highlights</h3>
+
     <div class="gallery-wrapper">
       <div class="scroll-track">
           <img src="gallery/photo2.jpg" alt="Gallery image">
@@ -63,12 +64,17 @@
           <img src="gallery/photo11.jpeg" alt="Gallery image">
           <img src="gallery/photo12.jpeg" alt="Gallery image">
           <img src="gallery/photo13.jpeg" alt="Gallery image">
-      </div>
+        </div>
     </div>
   </div>
 </section>
 
-
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const t=document.querySelector('.scroll-track');
+  t.innerHTML += t.innerHTML;          // duplicate children
+});
+</script>
 
 
 <footer>
