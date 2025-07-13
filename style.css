@@ -31,6 +31,16 @@ header nav a:hover{opacity:.85}
 }
 .btn:hover{opacity:.85}
 
+/* ------- Slim footer (old style) ------- */
+footer{
+  padding:2rem 0;              /* top-bottom spacing */
+  text-align:center;
+  font-size:.85rem;
+  color:#8b949e;               /* muted grey */
+  background:transparent;      /* no dark bar */
+  border:none;                 /* remove bottom border line */
+}
+
 /* ========================================================= */
 /*  HERO BANNER BLOBS                                         */
 /* ========================================================= */
@@ -101,7 +111,7 @@ header nav a:hover{opacity:.85}
 .scroll-track{
   display:flex;
   gap:1rem;
-  animation:galleryScroll 10s linear infinite;
+  animation:galleryScroll 7s linear infinite;
 }
 .scroll-track img{
   height:180px;                /* adjust as needed */
@@ -131,3 +141,23 @@ header nav a:hover{opacity:.85}
 }
 .contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--accent);}
 .contact-form .btn{width:100%;text-align:center;font-size:1.05rem;}
+
+
+/* ---------- Type-writer headline (restored) ---------- */
+.tagline{
+  overflow:hidden;
+  border-right:.15em solid var(--accent);   /* cursor */
+  white-space:nowrap;
+  font-size:1.25rem;
+  max-width:32ch;                           /* final width */
+  margin:0 auto;
+  animation:
+    typing 4.5s steps(35,end) .6s both,     /* type-out */
+    blink  .75s step-end infinite;          /* cursor blink */
+}
+
+@keyframes typing{
+  from{max-width:0}
+  to  {max-width:32ch}
+}
+@keyframes blink{50%{border-color:transparent}}
