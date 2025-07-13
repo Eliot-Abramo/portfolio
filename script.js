@@ -21,3 +21,19 @@ document.addEventListener('DOMContentLoaded',()=>{
   },{threshold:.15});
   revealEls.forEach(el=>obs.observe(el));
 });
+
+/* make entire project card clickable */
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.projects-grid .card').forEach(card => {
+    const link = card.querySelector('a.btn[href^="http"]');
+    if (!link) return;
+
+    card.style.cursor = 'pointer';
+
+    card.addEventListener('click', e => {
+      /* ignore clicks on existing links/buttons */
+      if (e.target.closest('a')) return;
+      window.open(link.href, '_blank');
+    });
+  });
+});

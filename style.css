@@ -10,12 +10,14 @@
   --max-width:960px;
   font-family:"Inter",sans-serif;
 }
-
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);line-height:1.6;}
 a{color:var(--accent);text-decoration:none;}
 img{max-width:100%;display:block}
 
+/* --------------------------------------------------------- */
+/*  HEADER / FOOTER                                           */
+/* --------------------------------------------------------- */
 header,footer{background:var(--card-bg);border-bottom:1px solid #30363d;}
 header{position:sticky;top:0;z-index:100;}
 .container{max-width:var(--max-width);margin:0 auto;padding:1rem 1.5rem;}
@@ -31,32 +33,35 @@ header nav a:hover{opacity:.85}
 }
 .btn:hover{opacity:.85}
 
-/* ------- Slim footer (old style) ------- */
+/* slim footer */
 footer{
-  padding:2rem 0;              /* top-bottom spacing */
-  text-align:center;
-  font-size:.85rem;
-  color:#8b949e;               /* muted grey */
-  background:transparent;      /* no dark bar */
-  border:none;                 /* remove bottom border line */
+  padding:2rem 0;text-align:center;font-size:.85rem;
+  color:#8b949e;background:transparent;border:none;
 }
 
 /* ========================================================= */
-/*  HERO BANNER BLOBS                                         */
+/*  HERO BANNER + TYPEWRITER                                  */
 /* ========================================================= */
 .hero{position:relative;padding:6rem 1.5rem;text-align:center;overflow:hidden}
 .hero h2{font-size:2.8rem;margin-bottom:1rem}
 .hero:before{
-  content:"";position:absolute;top:-60%;left:-60%;
-  width:220%;height:220%;
+  content:"";position:absolute;top:-60%;left:-60%;width:220%;height:220%;
   background:
     radial-gradient(at 15% 25%,var(--accent) 0%,transparent 60%),
     radial-gradient(at 85% 75%,#ff66d7 0%,transparent 60%);
-  filter:blur(140px);
-  animation:blobMove 18s ease-in-out infinite alternate;
+  filter:blur(140px);animation:blobMove 18s ease-in-out infinite alternate;
   z-index:-1;
 }
 @keyframes blobMove{0%{transform:translate(0,0) scale(1);}100%{transform:translate(10%,5%) scale(1.1);}}
+
+/* type-writer line */
+.tagline{
+  overflow:hidden;border-right:.15em solid var(--accent);
+  white-space:nowrap;font-size:1.25rem;max-width:32ch;margin:0 auto;
+  animation:typing 4.5s steps(35,end) .6s both,blink .75s step-end infinite;
+}
+@keyframes typing{from{max-width:0}to{max-width:32ch}}
+@keyframes blink{50%{border-color:transparent}}
 
 /* ========================================================= */
 /*  TAG PILLS                                                 */
@@ -71,93 +76,57 @@ footer{
   display:grid;
   gap:2rem;
   grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-  position:relative;          /* allows raised hover */
 }
+@media(min-width:1024px){.projects-grid{grid-template-columns:repeat(3,1fr);}}
+
+/* card (scoped) */
 .projects-grid .card{
-  background:#0e1117;
-  border:1px solid #30363d;
-  border-radius:10px;
-  padding:1.2rem;
-  display:flex;
-  flex-direction:column;
-  gap:.9rem;
-  transform-origin:center top;
+  background:#0e1117;border:1px solid #30363d;border-radius:10px;
+  padding:1.4rem 1.2rem 4.6rem;          /* room for legend & button */
+  display:flex;flex-direction:column;gap:.9rem;
+  overflow:visible;transform-origin:center top;
   transition:transform .25s ease,box-shadow .25s ease;
 }
 .projects-grid .card:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 14px var(--accent);
-  z-index:5;
+  transform:scale(1.08);box-shadow:0 0 14px var(--accent);z-index:5;
 }
 
-/* ---------- GitHub-style Language widget ------------------ */
-.lang-widget {margin-top:1.6rem;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+/* ---------- GitHub-style Language widget ----------------- */
+.lang-widget {margin-top:1.6rem;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
 .lang-title  {font-weight:600;font-size:1rem;margin:0 0 .5rem}
 .lang-bar    {position:relative;height:8px;width:100%;background:#2f363d;border-radius:6px;overflow:hidden}
 .lang-slice  {position:absolute;top:0;height:100%}
-.lang-legend {margin:.6rem 0 0;display:flex;flex-wrap:wrap;gap:.3rem 1.25rem;font-size:.87rem;line-height:1.35}
-.lang-dot    {width:12px;height:12px;border-radius:50%;display:inline-block;margin-right:.35rem}
+
+.lang-legend{
+  margin:.6rem 0 0;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,max-content)); /* wider cells */
+  gap:.35rem 1.25rem;
+  font-size:.87rem;
+  line-height:1.35;
+}
+.lang-dot{width:12px;height:12px;border-radius:50%;display:inline-block;margin-right:.35rem}
 
 /* ========================================================= */
-/*  HOME-PAGE  “INFINITE” GALLERY  (restored)                 */
+/*  HOME-PAGE “INFINITE” GALLERY                             */
 /* ========================================================= */
-.gallery-wrapper{
-  overflow:hidden;
-  width:100%;
-  border-radius:12px;
-  box-shadow:0 0 12px rgba(0,0,0,.25);
-  margin-top:1.2rem;
-}
-.scroll-track{
-  display:flex;
-  gap:1rem;
-  animation:galleryScroll 7s linear infinite;
-}
-.scroll-track img{
-  height:180px;                /* adjust as needed */
-  flex-shrink:0;
-  object-fit:cover;
-  border-radius:8px;
-}
-@keyframes galleryScroll{
-  from{transform:translateX(0);}
-  to  {transform:translateX(-50%);}  /* second set of images makes it seamless */
-}
+.gallery-wrapper{overflow:hidden;width:100%;border-radius:12px;box-shadow:0 0 12px rgba(0,0,0,.25);margin-top:1.2rem;}
+.scroll-track{display:flex;gap:1rem;animation:galleryScroll 7s linear infinite;}
+.scroll-track img{height:180px;flex-shrink:0;object-fit:cover;border-radius:8px;transition:transform .3s;}
+.scroll-track img:hover{transform:scale(1.05);}
+@keyframes galleryScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* ========================================================= */
 /*  CONTACT PAGE                                              */
 /* ========================================================= */
-.contact-hero{text-align:center;margin:4rem auto 3rem;}
-.contact-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;}
+.contact-hero{text-align:center;margin:4rem auto 3rem}
+.contact-hero h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700}
 
-.contact-form{
-  max-width:700px;margin:0 auto 6rem;
-  display:flex;flex-direction:column;gap:1.6rem;
-}
-.contact-form label{display:flex;flex-direction:column;gap:.4rem;font-weight:500;}
+.contact-form{max-width:700px;margin:0 auto 6rem;display:flex;flex-direction:column;gap:1.6rem}
+.contact-form label{display:flex;flex-direction:column;gap:.4rem;font-weight:500}
 .contact-form input,.contact-form textarea{
   padding:.9rem 1rem;border:1px solid #30363d;border-radius:6px;
   background:#0e1117;color:#c9d1d9;font-size:1rem;resize:vertical;
 }
-.contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--accent);}
-.contact-form .btn{width:100%;text-align:center;font-size:1.05rem;}
-
-
-/* ---------- Type-writer headline (restored) ---------- */
-.tagline{
-  overflow:hidden;
-  border-right:.15em solid var(--accent);   /* cursor */
-  white-space:nowrap;
-  font-size:1.25rem;
-  max-width:32ch;                           /* final width */
-  margin:0 auto;
-  animation:
-    typing 4.5s steps(35,end) .6s both,     /* type-out */
-    blink  .75s step-end infinite;          /* cursor blink */
-}
-
-@keyframes typing{
-  from{max-width:0}
-  to  {max-width:32ch}
-}
-@keyframes blink{50%{border-color:transparent}}
+.contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--accent)}
+.contact-form .btn{width:100%;text-align:center;font-size:1.05rem}
