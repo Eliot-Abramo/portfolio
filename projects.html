@@ -32,79 +32,115 @@
 <section>
   <div class="container projects-grid">
 
+    <!-- BroCo – ROS 2 Serial Bridge -->
     <div class="card reveal" data-repo="Eliot-Abramo/ERC_EL_BroCo">
       <img src="img/project1.png" alt="BroCo image">
       <div class="card-content">
         <h3>BroCo – ROS 2 Serial Bridge</h3>
         <p>Full-duplex ESP32 ↔ ROS 2 bridge with CRC-framed packets, enabling rover nodes to publish ROS topics over low-bandwidth radio.</p>
         <div class="tags"><span>Embedded</span><span>ROS 2</span><span>C++</span></div>
-        <div class="lang-bar"></div>                <!-- language bar -->
+        
+        <!-- static language widget -->
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left:   0%; width: 53.6%; background:#f34b7d;"></div>
+            <div class="lang-slice" style="left: 53.6%; width: 23.1%; background:#3572A5;"></div>
+            <div class="lang-slice" style="left: 76.7%; width: 12.7%; background:#89e051;"></div>
+            <div class="lang-slice" style="left: 89.4%; width:  7.4%; background:#384d54;"></div>
+            <div class="lang-slice" style="left: 96.8%; width:  3.2%; background:#00a9cf;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 53.6%</span>
+            <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 23.1%</span>
+            <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 12.7%</span>
+            <span><span class="lang-dot" style="background:#384d54"></span><strong>Dockerfile</strong> 7.4%</span>
+            <span><span class="lang-dot" style="background:#00a9cf"></span><strong>CMake</strong> 3.2%</span>
+          </div>
+        </div>
+
         <a href="https://github.com/Eliot-Abramo/ERC_EL_BroCo" class="btn" target="_blank">GitHub ↗</a>
       </div>
     </div>
 
+    <!-- Avionics-COTS Communication Stack -->
     <div class="card reveal" data-repo="Eliot-Abramo/avionics_cots">
       <img src="img/project2.png" alt="Avionics COTS image">
       <div class="card-content">
         <h3>Avionics-COTS Communication Stack</h3>
         <p>Deterministic UART/SPI stack with zero-copy buffers and transport fail-over, powering EPFL Xplore rover avionics.</p>
         <div class="tags"><span>SPI</span><span>UART</span><span>Real-Time</span></div>
-        <div class="lang-bar"></div>
+        
+        <!-- static language widget -->
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left:   0%; width: 96.4%; background:#f34b7d;"></div>
+            <div class="lang-slice" style="left: 96.4%; width:  3.2%; background:#89e051;"></div>
+            <div class="lang-slice" style="left: 99.6%; width:  0.4%; background:#555555;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 96.4%</span>
+            <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 3.2%</span>
+            <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 0.4%</span>
+          </div>
+        </div>
+
         <a href="https://github.com/Eliot-Abramo/avionics_cots" class="btn" target="_blank">GitHub ↗</a>
       </div>
     </div>
 
+    <!-- ERC_AV_SW Flight Software -->
     <div class="card reveal" data-repo="Eliot-Abramo/ERC_AV_SW">
       <img src="img/project3.png" alt="ERC AV SW image">
       <div class="card-content">
         <h3>ERC_AV_SW Flight Software</h3>
         <p>Flight-software skeleton and CI pipeline for a rocket avionics board, including HAL drivers, telemetry, and HIL tests.</p>
         <div class="tags"><span>Flight SW</span><span>CI/CD</span></div>
-        <div class="lang-bar"></div>
+        
+        <!-- static language widget -->
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left:   0%; width: 98.0%; background:#555555;"></div>
+            <div class="lang-slice" style="left: 98.0%; width:  1.4%; background:#f34b7d;"></div>
+            <div class="lang-slice" style="left: 99.4%; width:  0.6%; background:#cccccc;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 98.0%</span>
+            <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 1.4%</span>
+            <span><span class="lang-dot" style="background:#cccccc"></span><strong>Other</strong> 0.6%</span>
+          </div>
+        </div>
+
         <a href="https://github.com/Eliot-Abramo/ERC_AV_SW" class="btn" target="_blank">GitHub ↗</a>
       </div>
     </div>
 
+    <!-- Microcontroller Experiments -->
     <div class="card reveal" data-repo="Eliot-Abramo/microcontrolleur">
       <img src="img/project4.png" alt="MCU experiments">
       <div class="card-content">
         <h3>Microcontroller Experiments</h3>
         <p>Collection of low-level firmware experiments on STM32 &amp; ESP32—covering RTOS scheduling, DMA drivers, and peripheral optimisation.</p>
         <div class="tags"><span>C</span><span>RTOS</span><span>HAL</span></div>
-        <div class="lang-bar"></div>
+        
+        <!-- static language widget -->
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left: 0%; width:100%; background:#cccc00;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#cccc00"></span><strong>Assembly</strong> 100.0%</span>
+          </div>
+        </div>
+
         <a href="https://github.com/Eliot-Abramo/microcontrolleur" class="btn" target="_blank">GitHub ↗</a>
       </div>
     </div>
 
-    <!-- <div class="card reveal" data-repo="THESIS_ABRAMO.pdf">
-      <img src="img/project5.png" alt="Thesis image">
-      <div class="card-content">
-        <h3>Master Thesis — Analog Neurons</h3>
-        <p>Research on physical nonlinearities for low-power deep learning: GHz metasurface phase shifters &amp; optical GELU emulation.</p>
-        <div class="tags"><span>Research</span><span>RF</span><span>Optics</span></div>
-        <div class="lang-bar"></div>
-        <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read Thesis ↗</a>
-      </div>
-    </div>
- -->
-
-    <!-- Thesis card — primary click opens PDF, language bar still loads -->
-  <!-- <div class="card reveal" data-repo="Eliot-Abramo/ERC_EL_BroCo">
-    <img src="img/project5.png" alt="Thesis image">
-
-    <div class="card-content">
-      <h3>Master Thesis — Analog Neurons</h3>
-      <p>Research on physical nonlinearities for low-power deep learning: GHz metasurface phase shifters &amp; optical GELU emulation.</p>
-
-      <div class="tags">
-        <span>Research</span><span>RF</span><span>Optics</span>
-      </div>
-      <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read Thesis ↗</a>
-      <a href="https://github.com/Eliot-Abramo/ERC_EL_BroCo" class="btn" target="_blank">GitHub ↗</a>
-    </div>
-  </div> -->
-<!-- Thesis card – click-anywhere opens the PDF; language bar loads -->
-<div class="card reveal"
+    <div class="card reveal"
      data-repo="Eliot-Abramo/ERC_EL_BroCo"  
      onclick="if(!event.target.closest('a')) window.open('THESIS_ABRAMO.pdf','_blank');">
 
@@ -118,7 +154,23 @@
       <span>Research</span><span>RF</span><span>Optics</span>
     </div>
 
-    <div class="lang-bar"></div>   <!-- placeholder for language slices -->
+    <div class="lang-widget">
+      <div class="lang-title">Languages</div>
+      <div class="lang-bar">
+        <div class="lang-slice" style="left:   0%; width: 53.6%; background:#f34b7d;"></div>
+        <div class="lang-slice" style="left: 53.6%; width: 23.1%; background:#3572A5;"></div>
+        <div class="lang-slice" style="left: 76.7%; width: 12.7%; background:#89e051;"></div>
+        <div class="lang-slice" style="left: 89.4%; width:  7.4%; background:#384d54;"></div>
+        <div class="lang-slice" style="left: 96.8%; width:  3.2%; background:#00a9cf;"></div>
+      </div>
+      <div class="lang-legend">
+        <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 53.6%</span>
+        <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 23.1%</span>
+        <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 12.7%</span>
+        <span><span class="lang-dot" style="background:#384d54"></span><strong>Dockerfile</strong> 7.4%</span>
+        <span><span class="lang-dot" style="background:#00a9cf"></span><strong>CMake</strong> 3.2%</span>
+      </div>
+    </div>
 
     <!-- buttons: PDF first (primary), GitHub second -->
     <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read&nbsp;Thesis&nbsp;↗</a>
@@ -126,21 +178,38 @@
   </div>
 </div>
 
-<div class="card reveal" data-repo="YourUsername/RealTime-Fractal-Pong">
-  <img src="img/fractal-pong.png" alt="Real-Time Fractal Pong image">
-  <div class="card-content">
-    <h3>Real-Time Fractal Pong</h3>
-    <p>A high-performance FPGA demo combining live Mandelbrot fractals with a playable Pong game, fully implemented in VHDL on the PYNQ-Z2 platform. Features pipelined fixed-point fractal generation, dual-port BRAM framebuffer, clock-domain crossing, and advanced FSM-driven game logic.</p>
-    <div class="tags">
-      <span>VHDL</span>
-      <span>FPGA</span>
-      <span>Fractals</span>
-      <span>PYNQ-Z2</span>
+<!-- Real-Time Fractal Pong card with static language widget -->
+    <div class="card reveal" data-repo="Eliot-Abramo/Best_DSD_Team">
+      <img src="img/project5.png" alt="Real-Time Fractal Pong image">
+      <div class="card-content">
+        <h3>Real-Time Fractal Pong</h3>
+        <p>A high-performance FPGA demo combining live Mandelbrot fractals with a playable Pong game, fully implemented in VHDL on the PYNQ-Z2 platform. Features pipelined fixed-point fractal generation, dual-port BRAM framebuffer, clock-domain crossing, and advanced FSM-driven game logic.</p>
+        <div class="tags">
+          <span>VHDL</span>
+          <span>FPGA</span>
+          <span>Fractals</span>
+          <span>PYNQ-Z2</span>
+        </div>
+
+        <!-- static language widget -->
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left: 0%;    width: 98.0%; background: #adb2cb;"></div>
+            <div class="lang-slice" style="left: 98.0%; width: 1.5%;  background: #89e051;"></div>
+            <div class="lang-slice" style="left: 99.5%; width: 0.5%;  background: #e4cc98;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background: #adb2cb;"></span><strong>VHDL</strong> 98.0%</span>
+            <span><span class="lang-dot" style="background: #89e051;"></span><strong>Shell</strong> 1.5%</span>
+            <span><span class="lang-dot" style="background: #e4cc98;"></span><strong>Tcl</strong> 0.5%</span>
+          </div>
+        </div>
+
+        <a href="https://github.com/Eliot-Abramo/Best_DSD_Team" class="btn" target="_blank">GitHub ↗</a>
+      </div>
     </div>
-    <div class="lang-bar"></div>
-    <a href="https://github.com/YourUsername/RealTime-Fractal-Pong" class="btn" target="_blank">GitHub ↗</a>
-  </div>
-</div>
+
 
 
   </div>
@@ -150,9 +219,7 @@
   &copy; 2025 Eliot Abramo — GitHub Pages.
 </footer>
 
-<!-- Existing JS -->
+<!-- keep scripts for other dynamic behaviors -->
 <script src="script.js"></script>
-<!-- NEW: GitHub language-bar script -->
-<script src="assets/js/lang-bars.js" defer></script>
 </body>
 </html>
