@@ -6,6 +6,12 @@
   <title>Eliot Abramo | Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Reserve spot for runaway button */
+    #runaway-placeholder { display: none; }
+    /* Smooth movement for runaway button */
+    #runaway-btn { transition: left 0.5s ease-out, top 0.5s ease-out; cursor: default; }
+  </style>
 </head>
 <body>
   <header>
@@ -24,18 +30,14 @@
   <section class="hero">
     <div class="blob blob1"></div>
     <div class="blob blob2"></div>
-
     <div class="container" style="position: relative;">
       <h2>Hi, I’m <span style="color:var(--accent);">Eliot Abramo</span>.</h2>
       <p class="tagline">Building reliable tech for rockets &amp; robots.</p>
-
-      <!-- Centered buttons as a unit -->
-      <div id="btn-group" style="margin-top:2.5rem; display: flex; justify-content: center; align-items: center; gap: 1rem;">
+      <div id="btn-group" style="margin-top:2.5rem; display:flex; justify-content:center; align-items:center; gap:1rem;">
         <a href="projects.html" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">See My Work ↗</a>
-        <a href="contact.html" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">Contact Me</a>
-        <!-- Placeholder for layout, initially hidden -->
-        <span class="btn" id="runaway-placeholder" style="display:none; font-size:1rem; padding:.75rem 1.5rem;"></span>
-        <a href="javascript:void(0)" id="runaway-btn" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">Book a Call</a>
+        <a href="contact.html" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">Contact Me ↗</a>
+        <span id="runaway-placeholder" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;"></span>
+        <a id="runaway-btn" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">Book a Call ↗</a>
       </div>
     </div>
   </section>
@@ -56,7 +58,6 @@
           <img src="gallery/photo11.jpeg" alt="Gallery image">
           <img src="gallery/photo12.jpeg" alt="Gallery image">
           <img src="gallery/photo13.jpeg" alt="Gallery image">
-          <!-- duplicated images for infinite scroll -->
           <img src="gallery/photo2.jpg" alt="Gallery image">
           <img src="gallery/photo3.jpeg" alt="Gallery image">
           <img src="gallery/photo4.jpeg" alt="Gallery image">
@@ -82,53 +83,54 @@
       const runBtn = document.getElementById('runaway-btn');
       const placeholder = document.getElementById('runaway-placeholder');
       const hero = document.querySelector('.hero');
+      const galleryRect = document.querySelector('.reveal').getBoundingClientRect();
       const padding = 20;
       const threshold = 150;
-      const chaseDistance = 100;
+      const chaseDist = 100;
+      let detached = false;
 
-      // Smooth chase effect
-      runBtn.style.transition = 'left 0.5s ease-out, top 0.5s ease-out';
-
-      runBtn.addEventListener('mouseenter', (e) => {
-        // measure original button size and show placeholder
+      hero.addEventListener('mousemove', (e) => {
         const btnRect = runBtn.getBoundingClientRect();
-        placeholder.style.display = 'inline-block';
-        placeholder.style.width = btnRect.width + 'px';
-        placeholder.style.height = btnRect.height + 'px';
-        placeholder.style.visibility = 'hidden';
+        const centerX = btnRect.left + btnRect.width / 2;
+        const centerY = btnRect.top + btnRect.height / 2;
+        const dx = centerX - e.clientX;
+        const dy = centerY - e.clientY;
+        const dist = Math.hypot(dx, dy);
 
-        // calculate chase movement
-        const heroRect = hero.getBoundingClientRect();
-        const deltaX = (btnRect.left + btnRect.width/2) - e.clientX;
-        const deltaY = (btnRect.top + btnRect.height/2) - e.clientY;
-        const distance = Math.hypot(deltaX, deltaY);
-        if (distance < threshold) {
-          const minX = heroRect.left + padding;
-          const maxX = heroRect.right - btnRect.width - padding;
-          const minY = heroRect.top + heroRect.height/2;
-          const maxY = heroRect.bottom - btnRect.height - padding;
+        if (dist < threshold) {
+          // Detach on first chase
+          if (!detached) {
+            placeholder.style.display = 'inline-block';
+            placeholder.style.width = btnRect.width + 'px';
+            placeholder.style.height = btnRect.height + 'px';
+            placeholder.style.visibility = 'hidden';
+            runBtn.style.position = 'fixed';
+            runBtn.style.left = btnRect.left + 'px';
+            runBtn.style.top = btnRect.top + 'px';
+            detached = true;
+          }
+          // Calculate new position
+          let newX = btnRect.left + (dx / dist) * chaseDist;
+          let newY = btnRect.top + (dy / dist) * chaseDist;
 
-          const moveX = (deltaX / distance) * chaseDistance;
-          const moveY = (deltaY / distance) * chaseDistance;
-          let newX = btnRect.left + moveX;
-          let newY = btnRect.top + moveY;
+          // Wrap horizontally
+          const minX = padding;
+          const maxX = window.innerWidth - btnRect.width - padding;
+          if (newX < minX) newX = maxX;
+          else if (newX > maxX) newX = minX;
 
-          newX = Math.min(Math.max(newX, minX), maxX);
+          // Clamp vertically above gallery
+          const minY = hero.getBoundingClientRect().top + padding;
+          const maxY = galleryRect.top - btnRect.height - padding;
           newY = Math.min(Math.max(newY, minY), maxY);
 
-          // detach button from flow
-          runBtn.style.position = 'fixed';
-          runBtn.style.left = `${newX}px`;
-          runBtn.style.top = `${newY}px`;
+          runBtn.style.left = newX + 'px';
+          runBtn.style.top = newY + 'px';
         }
       });
     });
   </script>
-
   <script src="script.js"></script>
-
-  <footer>
-    &copy; 2025 Eliot Abramo
-  </footer>
+  <footer>&copy; 2025 Eliot Abramo</footer>
 </body>
 </html>
