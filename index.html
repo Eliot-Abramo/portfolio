@@ -8,40 +8,43 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <div class="container">
-    <h1 style="font-size:1.4rem;">Eliot Abramo</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="ABRAMO_RESUME.pdf" target="_blank">CV</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-
-      <div class="blob blob1"></div>
-      <div class="blob blob2"></div>
-
-  <div class="container">
-    <h2>Hi, I’m <span style="color:var(--accent);">Eliot Abramo</span>.</h2>
-    <p class="tagline">Building reliable tech for rockets &amp; robots.</p>
-    <div style="margin-top:2.5rem;">
-      <a href="projects.html" class="btn" style="font-size:1rem;padding:.75rem 1.5rem;">See My Work ↗</a>
+  <header>
+    <div class="container">
+      <h1 style="font-size:1.4rem;">Eliot Abramo</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="ABRAMO_RESUME.pdf" target="_blank">CV</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
+  <section class="hero">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
 
-<section class="reveal">
-  <div class="container">
-    <h3 style="margin-bottom:1rem;">Photo Highlights</h3>
+    <div class="container" style="position: relative;">
+      <h2>Hi, I’m <span style="color:var(--accent);">Eliot Abramo</span>.</h2>
+      <p class="tagline">Building reliable tech for rockets &amp; robots.</p>
 
-    <div class="gallery-wrapper">
-      <div class="scroll-track">
+      <!-- Centered buttons as a unit -->
+      <div id="btn-group" style="margin-top:2.5rem; display: flex; justify-content: center; align-items: center; gap: 1rem;">
+        <a href="projects.html" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">See My Work ↗</a>
+        <a href="contact.html" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">Contact Me</a>
+        <!-- Placeholder for layout, initially hidden -->
+        <span class="btn" id="runaway-placeholder" style="display:none; font-size:1rem; padding:.75rem 1.5rem;"></span>
+        <a href="javascript:void(0)" id="runaway-btn" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">Book a Call</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="container">
+      <h3 style="margin-bottom:1rem;">Photo Highlights</h3>
+      <div class="gallery-wrapper">
+        <div class="scroll-track">
           <img src="gallery/photo2.jpg" alt="Gallery image">
           <img src="gallery/photo3.jpeg" alt="Gallery image">
           <img src="gallery/photo4.jpeg" alt="Gallery image">
@@ -53,6 +56,7 @@
           <img src="gallery/photo11.jpeg" alt="Gallery image">
           <img src="gallery/photo12.jpeg" alt="Gallery image">
           <img src="gallery/photo13.jpeg" alt="Gallery image">
+          <!-- duplicated images for infinite scroll -->
           <img src="gallery/photo2.jpg" alt="Gallery image">
           <img src="gallery/photo3.jpeg" alt="Gallery image">
           <img src="gallery/photo4.jpeg" alt="Gallery image">
@@ -65,21 +69,66 @@
           <img src="gallery/photo12.jpeg" alt="Gallery image">
           <img src="gallery/photo13.jpeg" alt="Gallery image">
         </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
-  const t=document.querySelector('.scroll-track');
-  t.innerHTML += t.innerHTML;          // duplicate children
-});
-</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Duplicate gallery for infinite scroll
+      const track = document.querySelector('.scroll-track');
+      track.innerHTML += track.innerHTML;
 
+      const runBtn = document.getElementById('runaway-btn');
+      const placeholder = document.getElementById('runaway-placeholder');
+      const hero = document.querySelector('.hero');
+      const padding = 20;
+      const threshold = 150;
+      const chaseDistance = 100;
 
-<footer>
-  &copy; 2025 Eliot Abramo
-</footer>
+      // Smooth chase effect
+      runBtn.style.transition = 'left 0.5s ease-out, top 0.5s ease-out';
+
+      runBtn.addEventListener('mouseenter', (e) => {
+        // measure original button size and show placeholder
+        const btnRect = runBtn.getBoundingClientRect();
+        placeholder.style.display = 'inline-block';
+        placeholder.style.width = btnRect.width + 'px';
+        placeholder.style.height = btnRect.height + 'px';
+        placeholder.style.visibility = 'hidden';
+
+        // calculate chase movement
+        const heroRect = hero.getBoundingClientRect();
+        const deltaX = (btnRect.left + btnRect.width/2) - e.clientX;
+        const deltaY = (btnRect.top + btnRect.height/2) - e.clientY;
+        const distance = Math.hypot(deltaX, deltaY);
+        if (distance < threshold) {
+          const minX = heroRect.left + padding;
+          const maxX = heroRect.right - btnRect.width - padding;
+          const minY = heroRect.top + heroRect.height/2;
+          const maxY = heroRect.bottom - btnRect.height - padding;
+
+          const moveX = (deltaX / distance) * chaseDistance;
+          const moveY = (deltaY / distance) * chaseDistance;
+          let newX = btnRect.left + moveX;
+          let newY = btnRect.top + moveY;
+
+          newX = Math.min(Math.max(newX, minX), maxX);
+          newY = Math.min(Math.max(newY, minY), maxY);
+
+          // detach button from flow
+          runBtn.style.position = 'fixed';
+          runBtn.style.left = `${newX}px`;
+          runBtn.style.top = `${newY}px`;
+        }
+      });
+    });
+  </script>
+
   <script src="script.js"></script>
+
+  <footer>
+    &copy; 2025 Eliot Abramo
+  </footer>
 </body>
 </html>
