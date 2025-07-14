@@ -7,9 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Reserve spot for runaway button */
+    /* Reserve spot for the runaway button */
     #runaway-placeholder { display: none; }
-    /* Smooth movement for runaway button */
+    /* Smooth movement for the runaway button */
     #runaway-btn { transition: left 0.5s ease-out, top 0.5s ease-out; cursor: default; }
   </style>
 </head>
@@ -31,13 +31,13 @@
     <div class="blob blob1"></div>
     <div class="blob blob2"></div>
     <div class="container" style="position: relative;">
-      <h2>Hi, I’m <span style="color:var(--accent);">Eliot Abramo</span>.</h2>
+      <h2>Hi, I’m <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener"><span style="color:var(--accent);">Eliot Abramo</span></a>.</h2>
       <p class="tagline">Building reliable tech for rockets &amp; robots.</p>
       <div id="btn-group" style="margin-top:2.5rem; display:flex; justify-content:center; align-items:center; gap:1rem;">
         <a href="projects.html" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">See My Work ↗</a>
-        <a href="contact.html" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">Contact Me ↗</a>
+        <a href="contact.html" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">Contact Me</a>
         <span id="runaway-placeholder" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;"></span>
-        <a id="runaway-btn" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">Book a Call ↗</a>
+        <a id="runaway-btn" class="btn" style="font-size:1rem; padding:.75rem 1.5rem; transition:left 0.5s ease-out, top 0.5s ease-out;">Book a Call</a>
       </div>
     </div>
   </section>
@@ -76,7 +76,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Duplicate gallery for infinite scroll
       const track = document.querySelector('.scroll-track');
       track.innerHTML += track.innerHTML;
 
@@ -84,9 +83,7 @@
       const placeholder = document.getElementById('runaway-placeholder');
       const hero = document.querySelector('.hero');
       const galleryRect = document.querySelector('.reveal').getBoundingClientRect();
-      const padding = 20;
-      const threshold = 150;
-      const chaseDist = 100;
+      const padding = 20, threshold = 150, chaseDist = 100;
       let detached = false;
 
       hero.addEventListener('mousemove', (e) => {
@@ -98,7 +95,6 @@
         const dist = Math.hypot(dx, dy);
 
         if (dist < threshold) {
-          // Detach on first chase
           if (!detached) {
             placeholder.style.display = 'inline-block';
             placeholder.style.width = btnRect.width + 'px';
@@ -109,17 +105,14 @@
             runBtn.style.top = btnRect.top + 'px';
             detached = true;
           }
-          // Calculate new position
           let newX = btnRect.left + (dx / dist) * chaseDist;
           let newY = btnRect.top + (dy / dist) * chaseDist;
 
-          // Wrap horizontally
           const minX = padding;
           const maxX = window.innerWidth - btnRect.width - padding;
           if (newX < minX) newX = maxX;
           else if (newX > maxX) newX = minX;
 
-          // Clamp vertically above gallery
           const minY = hero.getBoundingClientRect().top + padding;
           const maxY = galleryRect.top - btnRect.height - padding;
           newY = Math.min(Math.max(newY, minY), maxY);
