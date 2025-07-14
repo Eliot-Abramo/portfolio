@@ -76,7 +76,7 @@
       </div>
     </div>
 
-    <div class="card reveal" data-repo="Eliot-Abramo/thesis_analog_neurons">
+    <!-- <div class="card reveal" data-repo="THESIS_ABRAMO.pdf">
       <img src="img/project5.png" alt="Thesis image">
       <div class="card-content">
         <h3>Master Thesis — Analog Neurons</h3>
@@ -86,6 +86,47 @@
         <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read Thesis ↗</a>
       </div>
     </div>
+ -->
+
+    <!-- Thesis card — primary click opens PDF, language bar still loads -->
+  <!-- <div class="card reveal" data-repo="Eliot-Abramo/ERC_EL_BroCo">
+    <img src="img/project5.png" alt="Thesis image">
+
+    <div class="card-content">
+      <h3>Master Thesis — Analog Neurons</h3>
+      <p>Research on physical nonlinearities for low-power deep learning: GHz metasurface phase shifters &amp; optical GELU emulation.</p>
+
+      <div class="tags">
+        <span>Research</span><span>RF</span><span>Optics</span>
+      </div>
+      <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read Thesis ↗</a>
+      <a href="https://github.com/Eliot-Abramo/ERC_EL_BroCo" class="btn" target="_blank">GitHub ↗</a>
+    </div>
+  </div> -->
+<!-- Thesis card – click-anywhere opens the PDF; language bar loads -->
+<div class="card reveal"
+     data-repo="Eliot-Abramo/ERC_EL_BroCo"  
+     onclick="if(!event.target.closest('a')) window.open('THESIS_ABRAMO.pdf','_blank');">
+
+  <img src="img/project5.png" alt="Thesis image">
+
+  <div class="card-content">
+    <h3>Master Thesis — Analog Neurons</h3>
+    <p>Research on physical nonlinearities for low-power deep learning: GHz metasurface phase shifters &amp; optical GELU emulation.</p>
+
+    <div class="tags">
+      <span>Research</span><span>RF</span><span>Optics</span>
+    </div>
+
+    <div class="lang-bar"></div>   <!-- placeholder for language slices -->
+
+    <!-- buttons: PDF first (primary), GitHub second -->
+    <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read&nbsp;Thesis&nbsp;↗</a>
+    <a href="https://github.com/Eliot-Abramo/ERC_EL_BroCo" class="btn" target="_blank">GitHub&nbsp;↗</a>
+  </div>
+</div>
+
+
 
   </div>
 </section>
