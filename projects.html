@@ -37,7 +37,7 @@
       <img src="img/project1.png" alt="BroCo image">
       <div class="card-content">
         <h3>BroCo – ROS 2 Serial Bridge</h3>
-        <p>Full-duplex ESP32 ↔ ROS 2 bridge with CRC-framed packets, enabling rover nodes to publish ROS topics over low-bandwidth radio.</p>
+        <p>Full custom ESP32 ↔ ROS 2 bridge with CRC-framed packets, enabling rover nodes to leverage ROS for high speed, reliable communicaiton in an embedded architecture.</p>
         <div class="tags"><span>Embedded</span><span>ROS 2</span><span>C++</span></div>
         
         <!-- static language widget -->
@@ -62,6 +62,76 @@
         <a href="https://github.com/Eliot-Abramo/ERC_EL_BroCo" class="btn" target="_blank">GitHub ↗</a>
       </div>
     </div>
+
+
+<!-- Galaxy-Detect: FPGA + ARM Radio Astronomy Accelerator -->
+<div class="card reveal" data-repo="Eliot-Abramo/lab_hw_sw_final.git">
+  <img src="img/galaxy-detect.png" alt="Galaxy-Detect Project Image">
+  <div class="card-content">
+    <h3>Galaxy-Detect: FPGA + ARM Radio Astronomy Accelerator</h3>
+    <p>Real-time FFT and convolution pipeline on PYNQ-Z2 and ARM Cortex-A53, designed for high-throughput radio-telescope stream processing using Vitis and AXI-stream hardware chaining.</p>
+    <div class="tags">
+      <span>FPGA</span><span>Vitis</span><span>AXI</span><span>ARM</span><span>HLS</span>
+    </div>
+
+    <!-- static language widget -->
+    <div class="lang-widget">
+      <div class="lang-title">Languages</div>
+      <div class="lang-bar">
+        <div class="lang-slice" style="left:   0%; width: 42.8%; background:#f1e05a;"></div> <!-- Verilog -->
+        <div class="lang-slice" style="left: 42.8%; width: 26.2%; background:#adb2cb;"></div> <!-- VHDL -->
+        <div class="lang-slice" style="left: 69.0%; width: 17.1%; background:#f34b7d;"></div> <!-- C++ -->
+        <div class="lang-slice" style="left: 86.1%; width:  5.6%; background:#555555;"></div> <!-- C -->
+        <div class="lang-slice" style="left: 91.7%; width:  2.8%; background:#3572A5;"></div> <!-- Python -->
+        <div class="lang-slice" style="left: 94.5%; width:  2.0%; background:#427819;"></div> <!-- Makefile -->
+        <div class="lang-slice" style="left: 96.5%; width:  3.5%; background:#cccccc;"></div> <!-- Other -->
+      </div>
+      <div class="lang-legend">
+        <span><span class="lang-dot" style="background:#f1e05a"></span><strong>Verilog</strong> 42.8%</span>
+        <span><span class="lang-dot" style="background:#adb2cb"></span><strong>VHDL</strong> 26.2%</span>
+        <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 17.1%</span>
+        <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 5.6%</span>
+        <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 2.8%</span>
+        <span><span class="lang-dot" style="background:#427819"></span><strong>Makefile</strong> 2.0%</span>
+        <span><span class="lang-dot" style="background:#cccccc"></span><strong>Other</strong> 3.5%</span>
+      </div>
+    </div>
+
+    <a href="https://github.com/Eliot-Abramo/lab_hw_sw_final.git" class="btn" target="_blank">GitHub ↗</a>
+  </div>
+</div>
+
+<!-- Thesis LWE -->
+<div class="card reveal"
+     data-repo="Eliot-Abramo/ERC_EL_BroCo"  
+     onclick="if(!event.target.closest('a')) window.open('THESIS_ABRAMO.pdf','_blank');">
+  <img src="img/project5.png" alt="Thesis image">
+
+  <div class="card-content">
+    <h3>Research Analog Neural Networks</h3>
+    <p>Research on physical nonlinearities for low-power deep learning: GHz metasurface phase shifters &amp; optical GELU emulation.</p>
+
+    <div class="tags">
+      <span>Research</span><span>RF</span><span>Optics</span>
+    </div>
+
+    <div class="lang-widget">
+      <div class="lang-title">Languages</div>
+      <div class="lang-bar">
+        <div class="lang-slice" style="left:   0%; width: 98.1%; background:#F37626;"></div> <!-- Jupyter Notebook -->
+        <div class="lang-slice" style="left: 98.1%; width:  1.9%; background:#3572A5;"></div> <!-- Python -->
+      </div>
+      <div class="lang-legend">
+        <span><span class="lang-dot" style="background:#F37626"></span><strong>Jupyter Notebook</strong> 98.1%</span>
+        <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 1.9%</span>
+      </div>
+    </div>
+
+    <!-- buttons: PDF first (primary), GitHub second -->
+    <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read&nbsp;Thesis&nbsp;↗</a>
+    <a href="https://github.com/Eliot-Abramo/LWE_rgb_matrix.git" class="btn" target="_blank">GitHub&nbsp;↗</a>
+  </div>
+</div>
 
     <!-- Avionics-COTS Communication Stack -->
     <div class="card reveal" data-repo="Eliot-Abramo/avionics_cots">
@@ -90,49 +160,9 @@
       </div>
     </div>
 
-
-
-    <!-- Thesis LWE -->
-    <div class="card reveal"
-     data-repo="Eliot-Abramo/ERC_EL_BroCo"  
-     onclick="if(!event.target.closest('a')) window.open('THESIS_ABRAMO.pdf','_blank');">
-  <img src="img/project5.png" alt="Thesis image">
-
-  <div class="card-content">
-    <h3>Master Thesis — Analog Neurons</h3>
-    <p>Research on physical nonlinearities for low-power deep learning: GHz metasurface phase shifters &amp; optical GELU emulation.</p>
-
-    <div class="tags">
-      <span>Research</span><span>RF</span><span>Optics</span>
-    </div>
-
-    <div class="lang-widget">
-      <div class="lang-title">Languages</div>
-      <div class="lang-bar">
-        <div class="lang-slice" style="left:   0%; width: 53.6%; background:#f34b7d;"></div>
-        <div class="lang-slice" style="left: 53.6%; width: 23.1%; background:#3572A5;"></div>
-        <div class="lang-slice" style="left: 76.7%; width: 12.7%; background:#89e051;"></div>
-        <div class="lang-slice" style="left: 89.4%; width:  7.4%; background:#384d54;"></div>
-        <div class="lang-slice" style="left: 96.8%; width:  3.2%; background:#00a9cf;"></div>
-      </div>
-      <div class="lang-legend">
-        <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 53.6%</span>
-        <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 23.1%</span>
-        <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 12.7%</span>
-        <span><span class="lang-dot" style="background:#384d54"></span><strong>Dockerfile</strong> 7.4%</span>
-        <span><span class="lang-dot" style="background:#00a9cf"></span><strong>CMake</strong> 3.2%</span>
-      </div>
-    </div>
-
-    <!-- buttons: PDF first (primary), GitHub second -->
-    <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read&nbsp;Thesis&nbsp;↗</a>
-    <a href="https://github.com/Eliot-Abramo/ERC_EL_BroCo" class="btn" target="_blank">GitHub&nbsp;↗</a>
-  </div>
-</div>
-
 <!-- Real-Time Fractal Pong card with static language widget -->
     <div class="card reveal" data-repo="Eliot-Abramo/Best_DSD_Team">
-      <img src="img/project5.png" alt="Real-Time Fractal Pong image">
+      <img src="img/pong.png" alt="Real-Time Fractal Pong image">
       <div class="card-content">
         <h3>Real-Time Fractal Pong</h3>
         <p>A high-performance FPGA demo combining live Mandelbrot fractals with a playable Pong game, fully implemented in VHDL on the PYNQ-Z2 platform. Features pipelined fixed-point fractal generation, dual-port BRAM framebuffer, clock-domain crossing, and advanced FSM-driven game logic.</p>
@@ -162,7 +192,7 @@
       </div>
     </div>
 
-    <!-- ERC_AV_SW Flight Software -->
+    <!-- ERC_AV_SW Flight Software
     <div class="card reveal" data-repo="Eliot-Abramo/ERC_AV_SW">
       <img src="img/project3.png" alt="ERC AV SW image">
       <div class="card-content">
@@ -170,7 +200,6 @@
         <p>Flight-software skeleton and CI pipeline for a rocket avionics board, including HAL drivers, telemetry, and HIL tests.</p>
         <div class="tags"><span>Flight SW</span><span>CI/CD</span></div>
         
-        <!-- static language widget -->
         <div class="lang-widget">
           <div class="lang-title">Languages</div>
           <div class="lang-bar">
@@ -187,14 +216,49 @@
 
         <a href="https://github.com/Eliot-Abramo/ERC_AV_SW" class="btn" target="_blank">GitHub ↗</a>
       </div>
+    </div> -->
+  
+    <!-- CNN Convolution Accelerator on PYNQ-Z2 -->
+<div class="card reveal" data-repo="Eliot-Abramo/lab_hw_sw_midterm">
+  <img src="img/cnn_accel.png" alt="CNN Accelerator image">
+  <div class="card-content">
+    <h3>CNN Convolution Accelerator (PYNQ-Z2)</h3>
+    <p>3×3 convolution, bias and ReLU fused into a single HLS kernel with multi-row caching and four-filter parallelism—reaching 50× speed-up over ARM software.</p>
+
+    <div class="tags">
+      <span>FPGA</span><span>HLS</span><span>CNN</span><span>PYNQ</span><span>AXI-DMA</span>
     </div>
+
+    <!-- static language widget -->
+    <div class="lang-widget">
+      <div class="lang-title">Languages</div>
+      <div class="lang-bar">
+        <div class="lang-slice" style="left:  0%; width: 52.1%; background:#f34b7d;"></div> <!-- C++ -->
+        <div class="lang-slice" style="left: 52.1%; width: 19.4%; background:#89e051;"></div> <!-- Shell -->
+        <div class="lang-slice" style="left: 71.5%; width: 14.2%; background:#555555;"></div> <!-- C -->
+        <div class="lang-slice" style="left: 85.7%; width:  8.4%; background:#e4cc98;"></div> <!-- Tcl -->
+        <div class="lang-slice" style="left: 94.1%; width:  5.9%; background:#427819;"></div> <!-- Makefile -->
+      </div>
+      <div class="lang-legend">
+        <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 52.1%</span>
+        <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 19.4%</span>
+        <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 14.2%</span>
+        <span><span class="lang-dot" style="background:#e4cc98"></span><strong>Tcl</strong> 8.4%</span>
+        <span><span class="lang-dot" style="background:#427819"></span><strong>Makefile</strong> 5.9%</span>
+      </div>
+    </div>
+
+    <a href="https://github.com/Eliot-Abramo/lab_hw_sw_midterm" class="btn" target="_blank">GitHub ↗</a>
+  </div>
+</div>
+
 
     <!-- Microcontroller Experiments -->
     <div class="card reveal" data-repo="Eliot-Abramo/microcontrolleur">
       <img src="img/project4.png" alt="MCU experiments">
       <div class="card-content">
-        <h3>Microcontroller Experiments</h3>
-        <p>Collection of low-level firmware experiments on STM32 &amp; ESP32—covering RTOS scheduling, DMA drivers, and peripheral optimisation.</p>
+        <h3>ATmega128 Alarm/Timer/Sprinkler</h3>
+        <p>AVR Assembly–driven alarm clock, ms-precision timer, and sprinkler control with custom fixed-point math and Taylor libraries.</p>
         <div class="tags"><span>C</span><span>RTOS</span><span>HAL</span></div>
         
         <!-- static language widget -->
