@@ -219,3 +219,28 @@ footer{
   margin-top:1.4rem;          /* or 2rem, tweak as you wish */
   align-self:flex-start;
 }
+
+@media (max-width: 920px) {
+  .about-grid {
+    /* keep it a single column, but reset explicit row defs */
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto;       /* allow as many rows as you need */
+    grid-auto-rows: auto;
+  }
+
+  /* force every child back into the single column flow */
+  .about-grid > * {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    justify-self: stretch;
+    align-self: stretch;
+    margin-bottom: 1.5rem;          /* add some breathing room */
+  }
+
+  /* center & size the portrait nicely */
+  .portrait-frame {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1.5rem !important;
+  }
+}

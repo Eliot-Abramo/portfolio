@@ -63,6 +63,65 @@
       </div>
     </div>
 
+    <!-- Avionics-COTS Communication Stack -->
+    <div class="card reveal" data-repo="Eliot-Abramo/avionics_cots">
+      <img src="img/project2.png" alt="Avionics COTS image">
+      <div class="card-content">
+        <h3>Avionics-COTS Communication Stack</h3>
+        <p>Deterministic UART/SPI stack with zero-copy buffers and transport fail-over, powering EPFL Xplore rover avionics.</p>
+        <div class="tags"><span>SPI</span><span>UART</span><span>Real-Time</span></div>
+        
+        <!-- static language widget -->
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left:   0%; width: 96.4%; background:#f34b7d;"></div>
+            <div class="lang-slice" style="left: 96.4%; width:  3.2%; background:#89e051;"></div>
+            <div class="lang-slice" style="left: 99.6%; width:  0.4%; background:#555555;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 96.4%</span>
+            <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 3.2%</span>
+            <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 0.4%</span>
+          </div>
+        </div>
+
+        <a href="https://github.com/Eliot-Abramo/avionics_cots" class="btn" target="_blank">GitHub ↗</a>
+      </div>
+    </div>
+
+<!-- Thesis LWE -->
+<div class="card reveal"
+     data-repo="Eliot-Abramo/ERC_EL_BroCo"  
+     onclick="if(!event.target.closest('a')) window.open('THESIS_ABRAMO.pdf','_blank');">
+  <img src="img/project5.png" alt="Thesis image">
+
+  <div class="card-content">
+    <h3>Research Analog Neural Networks</h3>
+    <p>Research on physical nonlinearities for low-power deep learning: GHz metasurface phase shifters &amp; optical GELU emulation.</p>
+
+    <div class="tags">
+      <span>Research</span><span>RF</span><span>Optics</span>
+    </div>
+
+    <div class="lang-widget">
+      <div class="lang-title">Languages</div>
+      <div class="lang-bar">
+        <div class="lang-slice" style="left:   0%; width: 98.1%; background:#F37626;"></div> <!-- Jupyter Notebook -->
+        <div class="lang-slice" style="left: 98.1%; width:  1.9%; background:#3572A5;"></div> <!-- Python -->
+      </div>
+      <div class="lang-legend">
+        <span><span class="lang-dot" style="background:#F37626"></span><strong>Jupyter Notebook</strong> 98.1%</span>
+        <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 1.9%</span>
+      </div>
+    </div>
+
+    <!-- buttons: PDF first (primary), GitHub second -->
+    <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read&nbsp;Thesis&nbsp;↗</a>
+    <a href="https://github.com/Eliot-Abramo/LWE_rgb_matrix.git" class="btn" target="_blank">GitHub&nbsp;↗</a>
+  </div>
+</div>
+
 
 <!-- Galaxy-Detect: FPGA + ARM Radio Astronomy Accelerator -->
 <div class="card reveal" data-repo="Eliot-Abramo/lab_hw_sw_final.git">
@@ -101,64 +160,36 @@
   </div>
 </div>
 
-<!-- Thesis LWE -->
-<div class="card reveal"
-     data-repo="Eliot-Abramo/ERC_EL_BroCo"  
-     onclick="if(!event.target.closest('a')) window.open('THESIS_ABRAMO.pdf','_blank');">
-  <img src="img/project5.png" alt="Thesis image">
+<!-- RoCo – Rover Communication API -->
+<div class="card reveal" data-repo="Eliot-Abramo/BRoCo">
+  <img src="img/Broco.png" alt="RoCo Communication API">
 
   <div class="card-content">
-    <h3>Research Analog Neural Networks</h3>
-    <p>Research on physical nonlinearities for low-power deep learning: GHz metasurface phase shifters &amp; optical GELU emulation.</p>
-
+    <h3>RoCo – Rover Communication API</h3>
+    <p>A C++ CAN MessageBus framework for static, zero‐overhead packet exchange across Xplore’s rover subsystems, featuring packed packet definitions, protocol versioning, and a portable IOBus/NetworkBus layer.</p>
+    
     <div class="tags">
-      <span>Research</span><span>RF</span><span>Optics</span>
+      <span>C++</span><span>Embedded</span><span>Protocol</span><span>API</span>
     </div>
 
     <div class="lang-widget">
       <div class="lang-title">Languages</div>
       <div class="lang-bar">
-        <div class="lang-slice" style="left:   0%; width: 98.1%; background:#F37626;"></div> <!-- Jupyter Notebook -->
-        <div class="lang-slice" style="left: 98.1%; width:  1.9%; background:#3572A5;"></div> <!-- Python -->
+        <div class="lang-slice" style="left:   0%; width: 89.3%; background:#f34b7d;"></div> <!-- C++ -->
+        <div class="lang-slice" style="left: 89.3%; width:  8.7%; background:#555555;"></div> <!-- C -->
+        <div class="lang-slice" style="left: 98.0%; width:  2.0%; background:#00a9cf;"></div> <!-- CMake -->
       </div>
       <div class="lang-legend">
-        <span><span class="lang-dot" style="background:#F37626"></span><strong>Jupyter Notebook</strong> 98.1%</span>
-        <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 1.9%</span>
+        <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 89.3%</span>
+        <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 8.7%</span>
+        <span><span class="lang-dot" style="background:#00a9cf"></span><strong>CMake</strong> 2.0%</span>
       </div>
     </div>
 
-    <!-- buttons: PDF first (primary), GitHub second -->
-    <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read&nbsp;Thesis&nbsp;↗</a>
-    <a href="https://github.com/Eliot-Abramo/LWE_rgb_matrix.git" class="btn" target="_blank">GitHub&nbsp;↗</a>
+    <a href="https://github.com/Eliot-Abramo/BRoCo" class="btn" target="_blank">GitHub ↗</a>
   </div>
 </div>
 
-    <!-- Avionics-COTS Communication Stack -->
-    <div class="card reveal" data-repo="Eliot-Abramo/avionics_cots">
-      <img src="img/project2.png" alt="Avionics COTS image">
-      <div class="card-content">
-        <h3>Avionics-COTS Communication Stack</h3>
-        <p>Deterministic UART/SPI stack with zero-copy buffers and transport fail-over, powering EPFL Xplore rover avionics.</p>
-        <div class="tags"><span>SPI</span><span>UART</span><span>Real-Time</span></div>
-        
-        <!-- static language widget -->
-        <div class="lang-widget">
-          <div class="lang-title">Languages</div>
-          <div class="lang-bar">
-            <div class="lang-slice" style="left:   0%; width: 96.4%; background:#f34b7d;"></div>
-            <div class="lang-slice" style="left: 96.4%; width:  3.2%; background:#89e051;"></div>
-            <div class="lang-slice" style="left: 99.6%; width:  0.4%; background:#555555;"></div>
-          </div>
-          <div class="lang-legend">
-            <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 96.4%</span>
-            <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 3.2%</span>
-            <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 0.4%</span>
-          </div>
-        </div>
-
-        <a href="https://github.com/Eliot-Abramo/avionics_cots" class="btn" target="_blank">GitHub ↗</a>
-      </div>
-    </div>
 
 <!-- Real-Time Fractal Pong card with static language widget -->
     <div class="card reveal" data-repo="Eliot-Abramo/Best_DSD_Team">
