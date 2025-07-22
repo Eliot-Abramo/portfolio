@@ -34,10 +34,9 @@
 
     <!-- BroCo – ROS 2 Serial Bridge -->
     <div class="card reveal" data-repo="Eliot-Abramo/ERC_EL_BroCo">
-      <img src="img/project1.png" alt="BroCo image">
       <div class="card-content">
-        <h3>BroCo – ROS 2 Serial Bridge</h3>
-        <p>Full custom ESP32 ↔ ROS 2 bridge with CRC-framed packets, enabling rover nodes to leverage ROS for high speed, reliable communicaiton in an embedded architecture.</p>
+        <h3>Custom ROS 2 ↔ Embedded MCU Communication Bridge</h3>
+        <p>A fully custom ROS 2 communication bridge for embedded microcontrollers, featuring CRC-framed packet protocols over UART or SPI. Enables reliable, high-throughput messaging between ROS-based systems and bare-metal or RTOS-driven nodes in resource-constrained environments.</p>
         <div class="tags"><span>Embedded</span><span>ROS 2</span><span>C++</span></div>
         
         <!-- static language widget -->
@@ -65,10 +64,9 @@
 
     <!-- Avionics-COTS Communication Stack -->
     <div class="card reveal" data-repo="Eliot-Abramo/avionics_cots">
-      <img src="img/project2.png" alt="Avionics COTS image">
       <div class="card-content">
-        <h3>Avionics-COTS Communication Stack</h3>
-        <p>Deterministic UART/SPI stack with zero-copy buffers and transport fail-over, powering EPFL Xplore rover avionics.</p>
+        <h3>Full Custom Avionics Communication Stack</h3>
+        <p>A deterministic SPI communication layer with UART failover with zero-copy circular buffers, CRC validation, and transport failover, designed for robust, low-latency inter-node messaging in the EPFL Xplore rover’s avionics network.</p>
         <div class="tags"><span>SPI</span><span>UART</span><span>Real-Time</span></div>
         
         <!-- static language widget -->
@@ -94,11 +92,14 @@
 <div class="card reveal"
      data-repo="Eliot-Abramo/ERC_EL_BroCo"  
      onclick="if(!event.target.closest('a')) window.open('THESIS_ABRAMO.pdf','_blank');">
-  <img src="img/project5.png" alt="Thesis image">
 
   <div class="card-content">
-    <h3>Research Analog Neural Networks</h3>
-    <p>Research on physical nonlinearities for low-power deep learning: GHz metasurface phase shifters &amp; optical GELU emulation.</p>
+    <h3>Physical Nonlinear Activation Functions for Low-Power Analog Deep Learning</h3>
+    <p>
+      Explores physical nonlinearities as activation functions for analog deep learning. Two approaches:<br>
+      1. GHz binary tunable metasurface utilizing coupled resonators with PIN-diode-controlled RF phase shifting<br>
+      2. Optical setup emulating GELU activation through structured incoherent light and Fresnel transmission.
+    </p>
 
     <div class="tags">
       <span>Research</span><span>RF</span><span>Optics</span>
@@ -125,10 +126,9 @@
 
 <!-- Galaxy-Detect: FPGA + ARM Radio Astronomy Accelerator -->
 <div class="card reveal" data-repo="Eliot-Abramo/lab_hw_sw_final.git">
-  <img src="img/galaxy-detect.png" alt="Galaxy-Detect Project Image">
   <div class="card-content">
-    <h3>Galaxy-Detect: FPGA + ARM Radio Astronomy Accelerator</h3>
-    <p>Real-time FFT and convolution pipeline on PYNQ-Z2 and ARM Cortex-A53, designed for high-throughput radio-telescope stream processing using Vitis and AXI-stream hardware chaining.</p>
+    <h3>FPGA + ARM Radio Astronomy Accelerator</h3>
+    <p>A fully pipelined FPGA-accelerated DSP system for real-time extraction of Doppler-shifted 21 cm hydrogen lines from raw radio telescope data, optimized across latency, energy, and spectral resolution.</p>
     <div class="tags">
       <span>FPGA</span><span>Vitis</span><span>AXI</span><span>ARM</span><span>HLS</span>
     </div>
@@ -137,22 +137,21 @@
     <div class="lang-widget">
       <div class="lang-title">Languages</div>
       <div class="lang-bar">
-        <div class="lang-slice" style="left:   0%; width: 42.8%; background:#f1e05a;"></div> <!-- Verilog -->
-        <div class="lang-slice" style="left: 42.8%; width: 26.2%; background:#adb2cb;"></div> <!-- VHDL -->
-        <div class="lang-slice" style="left: 69.0%; width: 17.1%; background:#f34b7d;"></div> <!-- C++ -->
-        <div class="lang-slice" style="left: 86.1%; width:  5.6%; background:#555555;"></div> <!-- C -->
-        <div class="lang-slice" style="left: 91.7%; width:  2.8%; background:#3572A5;"></div> <!-- Python -->
-        <div class="lang-slice" style="left: 94.5%; width:  2.0%; background:#427819;"></div> <!-- Makefile -->
-        <div class="lang-slice" style="left: 96.5%; width:  3.5%; background:#cccccc;"></div> <!-- Other -->
+        <div class="lang-slice" style="left: 0%;     width: 55.1%; background:#f34b7d;"></div>  <!-- C++ -->
+        <div class="lang-slice" style="left: 55.1%;  width: 18.0%; background:#555555;"></div>  <!-- C -->
+        <div class="lang-slice" style="left: 73.1%;  width:  9.1%; background:#3572A5;"></div>  <!-- Python -->
+        <div class="lang-slice" style="left: 82.2%;  width:  6.5%; background:#427819;"></div>  <!-- Makefile -->
+        <div class="lang-slice" style="left: 88.7%;  width:  5.9%; background:#89e051;"></div>  <!-- Shell -->
+        <div class="lang-slice" style="left: 94.6%;  width:  5.4%; background:#cccccc;"></div>  <!-- Tcl -->
       </div>
+
       <div class="lang-legend">
-        <span><span class="lang-dot" style="background:#f1e05a"></span><strong>Verilog</strong> 42.8%</span>
-        <span><span class="lang-dot" style="background:#adb2cb"></span><strong>VHDL</strong> 26.2%</span>
-        <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 17.1%</span>
-        <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 5.6%</span>
-        <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 2.8%</span>
-        <span><span class="lang-dot" style="background:#427819"></span><strong>Makefile</strong> 2.0%</span>
-        <span><span class="lang-dot" style="background:#cccccc"></span><strong>Other</strong> 3.5%</span>
+        <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 55.1%</span>
+        <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 18.0%</span>
+        <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 9.1%</span>
+        <span><span class="lang-dot" style="background:#427819"></span><strong>Makefile</strong> 6.5%</span>
+        <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 5.9%</span>
+        <span><span class="lang-dot" style="background:#cccccc"></span><strong>Tcl</strong> 5.4%</span>
       </div>
     </div>
 
@@ -162,10 +161,9 @@
 
 <!-- RoCo – Rover Communication API -->
 <div class="card reveal" data-repo="Eliot-Abramo/BRoCo">
-  <img src="img/Broco.png" alt="RoCo Communication API">
 
   <div class="card-content">
-    <h3>RoCo – Rover Communication API</h3>
+    <h3>Custom CAN Communication API</h3>
     <p>A C++ CAN MessageBus framework for static, zero‐overhead packet exchange across Xplore’s rover subsystems, featuring packed packet definitions, protocol versioning, and a portable IOBus/NetworkBus layer.</p>
     
     <div class="tags">
@@ -191,7 +189,7 @@
 </div>
 
 
-<!-- Real-Time Fractal Pong card with static language widget -->
+<!-- Real-Time Fractal Pong card with static language widget
     <div class="card reveal" data-repo="Eliot-Abramo/Best_DSD_Team">
       <img src="img/pong.png" alt="Real-Time Fractal Pong image">
       <div class="card-content">
@@ -204,7 +202,6 @@
           <span>PYNQ-Z2</span>
         </div>
 
-        <!-- static language widget -->
         <div class="lang-widget">
           <div class="lang-title">Languages</div>
           <div class="lang-bar">
@@ -222,6 +219,7 @@
         <a href="https://github.com/Eliot-Abramo/Best_DSD_Team" class="btn" target="_blank">GitHub ↗</a>
       </div>
     </div>
+ -->
 
     <!-- ERC_AV_SW Flight Software
     <div class="card reveal" data-repo="Eliot-Abramo/ERC_AV_SW">
@@ -250,7 +248,8 @@
     </div> -->
   
     <!-- CNN Convolution Accelerator on PYNQ-Z2 -->
-<div class="card reveal" data-repo="Eliot-Abramo/lab_hw_sw_midterm">
+
+    <!-- <div class="card reveal" data-repo="Eliot-Abramo/lab_hw_sw_midterm">
   <img src="img/cnn_accel.png" alt="CNN Accelerator image">
   <div class="card-content">
     <h3>CNN Convolution Accelerator (PYNQ-Z2)</h3>
@@ -260,15 +259,14 @@
       <span>FPGA</span><span>HLS</span><span>CNN</span><span>PYNQ</span><span>AXI-DMA</span>
     </div>
 
-    <!-- static language widget -->
     <div class="lang-widget">
       <div class="lang-title">Languages</div>
       <div class="lang-bar">
-        <div class="lang-slice" style="left:  0%; width: 52.1%; background:#f34b7d;"></div> <!-- C++ -->
-        <div class="lang-slice" style="left: 52.1%; width: 19.4%; background:#89e051;"></div> <!-- Shell -->
-        <div class="lang-slice" style="left: 71.5%; width: 14.2%; background:#555555;"></div> <!-- C -->
-        <div class="lang-slice" style="left: 85.7%; width:  8.4%; background:#e4cc98;"></div> <!-- Tcl -->
-        <div class="lang-slice" style="left: 94.1%; width:  5.9%; background:#427819;"></div> <!-- Makefile -->
+        <div class="lang-slice" style="left:  0%; width: 52.1%; background:#f34b7d;"></div>
+        <div class="lang-slice" style="left: 52.1%; width: 19.4%; background:#89e051;"></div> 
+        <div class="lang-slice" style="left: 71.5%; width: 14.2%; background:#555555;"></div> 
+        <div class="lang-slice" style="left: 85.7%; width:  8.4%; background:#e4cc98;"></div>
+        <div class="lang-slice" style="left: 94.1%; width:  5.9%; background:#427819;"></div> 
       </div>
       <div class="lang-legend">
         <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 52.1%</span>
@@ -282,17 +280,16 @@
     <a href="https://github.com/Eliot-Abramo/lab_hw_sw_midterm" class="btn" target="_blank">GitHub ↗</a>
   </div>
 </div>
-
+ -->
 
     <!-- Microcontroller Experiments -->
-    <div class="card reveal" data-repo="Eliot-Abramo/microcontrolleur">
+    <!-- <div class="card reveal" data-repo="Eliot-Abramo/microcontrolleur">
       <img src="img/project4.png" alt="MCU experiments">
       <div class="card-content">
         <h3>ATmega128 Alarm/Timer/Sprinkler</h3>
         <p>AVR Assembly–driven alarm clock, ms-precision timer, and sprinkler control with custom fixed-point math and Taylor libraries.</p>
         <div class="tags"><span>C</span><span>RTOS</span><span>HAL</span></div>
         
-        <!-- static language widget -->
         <div class="lang-widget">
           <div class="lang-title">Languages</div>
           <div class="lang-bar">
@@ -306,7 +303,7 @@
         <a href="https://github.com/Eliot-Abramo/microcontrolleur" class="btn" target="_blank">GitHub ↗</a>
       </div>
     </div>
-
+ -->
 
 
   </div>

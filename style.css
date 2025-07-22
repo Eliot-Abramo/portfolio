@@ -7,7 +7,7 @@
   --accent:#58a6ff;
   --card-bg:#161b22;
   --radius:12px;
-  --max-width:960px;
+  --max-width:1240px;
   font-family:"Inter",sans-serif;
 }
 *{box-sizing:border-box}
@@ -75,7 +75,7 @@ footer{
 .projects-grid{
   display:grid;
   gap:2rem;
-  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  grid-template-columns:repeat(auto-fill,minmax(400px,1fr));
 }
 @media(min-width:1024px){.projects-grid{grid-template-columns:repeat(3,1fr);}}
 
