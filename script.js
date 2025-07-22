@@ -56,3 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', updateTraces);
   updateTraces();
 });
+
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.projects-grid .card').forEach(card=>{
+    // Prefer first primary link: pdf > github > any <a>
+    const link = card.querySelector('a[href$=".pdf"], a[href*="github.com"], a[href^="http"], a[href$=".html"]');
+    if(!link) return;
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', e=>{
+      if(e.target.closest('a')) return; // keep normal anchor behavior
+      const target = link.getAttribute('target') || '_blank';
+      window.open(link.href, target);
+    });
+  });
+});

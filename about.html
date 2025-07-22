@@ -1,74 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Eliot Abramo</title>
-
-  <!-- Core styles -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="about.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="about.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Header/Nav -->
-  <header>
-    <div class="container header-inner">
-      <h1><a href="index.html">Eliot Abramo</a></h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="about.html" class="active">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="ABRAMO_RESUME.pdf" target="_blank">CV</a>
-      </nav>
-    </div>
-  </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-flex">
-      <div class="hero-box">
-        <h3>Systems Leadership</h3>
-        <p>Led the EPFL Xplore Rover project—CRC‑hardened SPI/serial on STM32/ESP32, coordinating a 120‑member team.</p>
-      </div>
+<header>
+  <div class="container">
+      <h1 style="font-size:1.4rem;"><a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">Eliot Abramo</a></h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="ABRAMO_RESUME.pdf" target="_blank">CV</a>
+    </nav>
+  </div>
+</header>
 
-      <div class="profile-wrapper">
-        <div class="profile-pic">
-          <img src="img/face.jpg" alt="Eliot Abramo">
+  <section class="hero about-hero">
+    <div class="container about-hero__inner">
+      <div class="intro-copy">
+        <p class="lede">
+          I turn tough constraints into reliable hardware — from embedded boards to RF experiments
+          and FPGA DSP. Working shoulder-to-shoulder with teammates, I focus on clear interfaces,
+          measurable performance and calm integrations.
+        </p>
+
+        <p class="intro-tag">
+          Embedded systems • RF / analog computing • FPGA acceleration • Team coordination
+        </p>
+
+        <div class="metrics">
+          <div class="metric"><span>120+</span><label>people aligned across subsystems</label></div>
+          <div class="metric"><span>2.4 GHz</span><label>tunable metasurface prototype</label></div>
+          <div class="metric"><span>50×</span><label>DSP speed-up on Zynq FPGA</label></div>
+          <div class="metric"><span>0 CRC</span><label>errors on custom SPI stack (testing)</label></div>
         </div>
-        <p class="tagline">Embedded Systems Lead • Analog Computing Researcher • Passionate Innovator</p>
       </div>
 
-      <div class="hero-box">
-        <h3>Analog Computing</h3>
-        <p>Designed a 2.4 GHz metasurface & optical GELU emulator—CST FEM, microwave PCB, VNA & Python/C++ pipelines.</p>
+      <div class="portrait-card">
+        <div class="portrait-frame">
+          <img src="img/face.jpg" alt="Portrait of Eliot Abramo" />
+        </div>
+        <p class="subtitle">Design the failure paths first – and leave clear traces for whoever comes next.</p>
+        <a href="projects.html" class="btn" style="margin-top:1rem;">See projects ↗</a>
       </div>
+    </div>
+    <div class="glow-blob blob-a"></div>
+    <div class="glow-blob blob-b"></div>
+  </section>
+
+  <!-- =============== STORY STRIP =============== -->
+  <section class="strip">
+    <div class="container strip__grid">
+      <!-- Xplore Rover -->
+      <article class="strip-card">
+        <h3>Lead System Engineer, EPFL Xplore Rover</h3>
+        <p>
+          Coordinated the rover’s electronics & embedded stack with fellow subsystem leads:
+          STM32/ESP32 avionics, a CRC-hardened SPI layer and integration reviews. The real win was
+          ~120 teammates across 7 subsystems plugging together without drama.
+        </p>
+      </article>
+
+      <!-- Analog / Optical Computing -->
+      <article class="strip-card">
+        <h3>Analog & Optical ML Prototypes</h3>
+        <p>
+          In a small research team we built a 2.4 GHz tunable metasurface and an optical GELU
+          emulator to explore low-power activations – guided by CST sims, VNA sweeps and
+          Python/C++ pipelines.
+        </p>
+      </article>
+
+      <!-- FPGA / DSP -->
+      <article class="strip-card">
+        <h3>Real-Time DSP on FPGA (Radio Astronomy)</h3>
+        <p>
+          With astronomers at EPFL we pipelined a Zynq-based DSP chain that extracts
+          Doppler-shifted 21 cm hydrogen lines in real time, iterating side-by-side on latency,
+          power and spectral resolution.
+        </p>
+      </article>
+
+      <!-- Team / Process -->
+      <article class="strip-card">
+        <h3>Tools & Docs that Scale Teams</h3>
+        <p>
+          CI for firmware, interface docs, checklists – the “boring” glue that keeps people moving.
+          As IEEE EPFL comms lead I helped grow engagement 30%, and on Xplore the same habits kept
+          subsystems aligned.
+        </p>
+      </article>
     </div>
   </section>
 
-  <!-- Additional Info Cards -->
-  <section class="about-grid-section">
-    <div class="container about-grid">
-      <article class="about-card">
-        <h3>Collaborative Impact</h3>
-        <p>Presented an environmental‑sensing platform at the UN Geneva Forum and led IEEE teams to mission‑critical hardware delivery.</p>
-      </article>
-      <article class="about-card">
-        <h3>Core Skills</h3>
-        <p>C/C++, Rust • KiCad PCB • FreeRTOS/Zephyr • GitHub Actions • Fluent English & French • Conversational Spanish.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
+  <!-- =============== PRINCIPLES / VALUES =============== -->
+  <section class="principles">
     <div class="container">
-      <span>© 2025 Eliot Abramo</span>
+      <h2 class="center">Principles I Work By</h2>
+      <ul class="principles-list">
+        <li><span>Design the failure paths first.</span> Timeouts, CRCs, asserts — demos shouldn’t be adrenaline sports.</li>
+        <li><span>Constraints are fuel.</span> Power, latency, EMI — edges that force elegant solutions.</li>
+        <li><span>If others can’t maintain it, it isn’t done.</span> Docs, diagrams and clear APIs matter.</li>
+        <li><span>Measure &gt; guess.</span> VNAs, logic analyzers, profilers — truth lives in traces.</li>
+      </ul>
     </div>
-  </footer>
+  </section>
 
-  <!-- Optional scroll-reveal script -->
+  <!-- =============== CONTACT CTA =============== -->
+  <section class="cta-section">
+    <div class="container cta-box">
+      <h2>Need something mission-critical built right?</h2>
+      <p>Happy to dig into specs, constraints and trade-offs.</p>
+      <div class="btn-group">
+        <a href="contact.html" class="btn">Contact me ↗</a>
+        <a href="projects.html" class="btn" style="background:#30363d;color:var(--fg);">Browse projects ↗</a>
+      </div>
+    </div>
+  </section>
+
+<footer>
+  &copy; 2025 Eliot Abramo
+</footer>
+
+  <script src="script.js"></script>
   <script src="about.js"></script>
 </body>
 </html>
