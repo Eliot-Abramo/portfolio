@@ -301,6 +301,66 @@
       </div>
     </div>
 
+    <!-- Add this into your Projects page where you want the Coming Soon card -->
+<style>
+  .coming-soon-card {
+    background: linear-gradient(135deg, #58a6ff 0%, #ff66d7 100%);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 400px;
+    margin: 2rem auto;
+  }
+  .coming-soon-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+  }
+  .coming-soon-card h3 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+  .coming-soon-card .highlight {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .coming-soon-card p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+  .coming-soon-card .btn {
+    background: #ffffff;
+    color: #0d1117;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+  }
+  .coming-soon-card .btn:hover {
+    background: #e4e4e4;
+    transform: translateY(-2px);
+  }
+</style>
+
+<div class="coming-soon-card">
+  <h3>New Projects<br><span class="highlight">Coming Soon</span></h3>
+  <p>I'm cooking up something special. Stay tuned for exciting updates and fresh work dropping shortly.</p>
+  <!-- <a href="#" class="btn">Notify Me</a> -->
+</div>
+
+
 
 
   </div>
