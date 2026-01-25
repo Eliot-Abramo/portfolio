@@ -3,62 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Eliot Abramo | Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>Eliot Abramo | Senior Embedded Systems Engineer</title>
+  <meta name="description" content="Senior Embedded Systems Engineer specializing in FPGA acceleration, RF systems, and mission-critical firmware for aerospace and robotics.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Reserve spot for the runaway button */
+    /* Home page specific styles */
     #runaway-placeholder { display: none; }
-    /* Smooth movement for the runaway button */
     #runaway-btn { transition: left 0.5s ease-out, top 0.5s ease-out; cursor: default; }
+
+    /* Hero enhancements */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+    .stat-label {
+      font-size: .85rem;
+      color: #64748b;
+      margin-top: .25rem;
+    }
+
+    /* Animated border button */
+    .btn-glow {
+      position: relative;
+      overflow: visible;
+    }
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      background: var(--gradient-primary);
+      border-radius: 12px;
+      z-index: -1;
+      opacity: 0;
+      filter: blur(10px);
+      transition: opacity .3s ease;
+    }
+    .btn-glow:hover::before {
+      opacity: 1;
+    }
+
+    /* Featured work preview */
+    .featured-preview {
+      padding: 5rem 0;
+      background: linear-gradient(180deg, var(--bg) 0%, rgba(88,166,255,.02) 50%, var(--bg) 100%);
+    }
+    .featured-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .featured-header h3 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: .5rem;
+    }
+    .featured-header p {
+      color: #64748b;
+    }
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .featured-card {
+      background: var(--glass);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: all .3s ease;
+    }
+    .featured-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(88,166,255,.1);
+    }
+    .featured-card h4 {
+      font-size: 1.1rem;
+      margin: 0 0 .5rem;
+      color: var(--fg);
+    }
+    .featured-card p {
+      font-size: .9rem;
+      color: #94a3b8;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .featured-card .badge {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      padding: .25rem .5rem;
+      border-radius: 4px;
+      margin-bottom: .75rem;
+    }
+    .badge-space { background: linear-gradient(135deg, #1e3a5f, #0f766e); color: #5eead4; }
+    .badge-hardware { background: linear-gradient(135deg, #5f3b1d, #876c1c); color: #fde68a; }
+    .badge-fpga { background: linear-gradient(135deg, #5f1d3b, #831c58); color: #f5b5d4; }
   </style>
 </head>
 <body>
   <header>
-  <div class="container">
-    <h1 style="font-size:1.4rem;"><a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">Eliot Abramo</a></h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="ABRAMO_RESUME.pdf" target="_blank">CV</a>
-    </nav>
-  </div>
-</header>
+    <div class="container">
+      <h1 style="font-size:1.4rem;font-weight:700;">
+        <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener" style="text-decoration:none;">
+          <span class="gradient-text">Eliot Abramo</span>
+        </a>
+      </h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="ABRAMO_RESUME.pdf" target="_blank">CV</a>
+      </nav>
+    </div>
+  </header>
 
   <section class="hero">
-    <div class="blob blob1"></div>
-    <div class="blob blob2"></div>
-    <div class="container" style="position: relative;">
-      <h2>Hi, I’m <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener" style="text-decoration:underline; text-decoration-color:var(--accent); color:inherit;"><span style="color:var(--accent);">Eliot Abramo</span></a>.</h2>
-      
-      <p class="tagline">Building reliable tech for rockets &amp; robots.</p>
-      <div id="btn-group" style="margin-top:2.5rem; display:flex; justify-content:center; align-items:center; gap:1rem;">
-        <a href="projects.html" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">See My Work ↗</a>
-        <a href="contact.html" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;">Contact Me ↗</a>
-        <span id="runaway-placeholder" class="btn" style="font-size:1rem; padding:.75rem 1.5rem;"></span>
-        <a id="runaway-btn" class="btn" style="font-size:1rem; padding:.75rem 1.5rem; transition:left 0.5s ease-out, top 0.5s ease-out;">Book a Call ↗</a>
+    <div class="particles" id="particles"></div>
+    <div class="grid-overlay"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <h2>
+        Hi, I'm <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener" style="text-decoration:none;">
+          <span class="gradient-text">Eliot Abramo</span>
+        </a>
+      </h2>
+
+      <p class="tagline">Building reliable systems for rockets, rovers & beyond.</p>
+
+      <p class="hero-subtitle">
+        Senior Embedded Systems Engineer crafting mission-critical firmware, FPGA accelerators, and space-grade electronics.
+      </p>
+
+      <div id="btn-group" style="margin-top:2.5rem; display:flex; justify-content:center; align-items:center; gap:1rem; flex-wrap:wrap;">
+        <a href="projects.html" class="btn btn-glow" style="font-size:1rem; padding:.85rem 2rem;">Explore Projects</a>
+        <a href="about.html" class="btn btn-secondary" style="font-size:1rem; padding:.85rem 2rem;">About Me</a>
+        <span id="runaway-placeholder" class="btn" style="font-size:1rem; padding:.85rem 1.8rem;"></span>
+        <a id="runaway-btn" class="btn" style="font-size:1rem; padding:.85rem 1.8rem; background:var(--glass); border:1px solid var(--card-border);">Book a Call</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-value">50x</div>
+          <div class="stat-label">FPGA Speedup</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">120+</div>
+          <div class="stat-label">Engineers Led</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">0</div>
+          <div class="stat-label">CRC Errors</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="reveal">
+  <!-- Featured Work Preview -->
+  <section class="featured-preview">
     <div class="container">
-      <h3 style="margin-bottom:1rem;">Photo Highlights</h3>
+      <div class="featured-header">
+        <h3>Featured Work</h3>
+        <p>Recent projects in space systems and embedded design</p>
+      </div>
+      <div class="featured-grid">
+        <a href="projects.html" class="featured-card">
+          <span class="badge badge-space">Space Systems</span>
+          <h4>Space Ether - CubeSat Comms</h4>
+          <p>Full-stack CubeSat communication architecture with custom RF front-end and ground station integration.</p>
+        </a>
+        <a href="projects.html" class="featured-card">
+          <span class="badge badge-hardware">Hardware Design</span>
+          <h4>Multi-PCB Design Framework</h4>
+          <p>Hierarchical PCB design system for complex multi-board assemblies with automated BOM management.</p>
+        </a>
+        <a href="projects.html" class="featured-card">
+          <span class="badge badge-fpga">FPGA/DSP</span>
+          <h4>Radio Astronomy Accelerator</h4>
+          <p>Real-time FPGA-accelerated DSP system for 21 cm hydrogen line extraction from radio telescope data.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section class="gallery-section reveal">
+    <div class="container">
+      <h3>Photo <span>Highlights</span></h3>
       <div class="gallery-wrapper">
         <div class="scroll-track">
-          <img src="gallery/photo2.jpeg" alt="Gallery image">
-          <img src="gallery/photo3.jpeg" alt="Gallery image">
-          <img src="gallery/photo4.jpeg" alt="Gallery image">
-          <img src="gallery/photo7.jpg" alt="Gallery image">
-          <img src="gallery/photo5.jpeg" alt="Gallery image">
-          <img src="gallery/photo6.jpeg" alt="Gallery image">
-          <img src="gallery/photo9.jpeg" alt="Gallery image">
-          <img src="gallery/photo10.jpeg" alt="Gallery image">
-          <img src="gallery/photo11.jpeg" alt="Gallery image">
-          <img src="gallery/photo12.jpeg" alt="Gallery image">
-          <img src="gallery/photo13.jpeg" alt="Gallery image">
           <img src="gallery/photo2.jpeg" alt="Gallery image">
           <img src="gallery/photo3.jpeg" alt="Gallery image">
           <img src="gallery/photo4.jpeg" alt="Gallery image">
@@ -75,56 +226,106 @@
     </div>
   </section>
 
+  <footer>
+    <div class="footer-links">
+      <a href="https://github.com/Eliot-Abramo" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank">LinkedIn</a>
+      <a href="ABRAMO_RESUME.pdf" target="_blank">Resume</a>
+    </div>
+    &copy; 2025 Eliot Abramo
+  </footer>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Duplicate gallery track for seamless loop
       const track = document.querySelector('.scroll-track');
-      track.innerHTML += track.innerHTML;
+      if (track) {
+        track.innerHTML += track.innerHTML;
+      }
 
+      // Create particles
+      const particlesContainer = document.getElementById('particles');
+      if (particlesContainer) {
+        for (let i = 0; i < 40; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.animationDelay = Math.random() * 15 + 's';
+          particle.style.animationDuration = (15 + Math.random() * 20) + 's';
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Runaway button logic
       const runBtn = document.getElementById('runaway-btn');
       const placeholder = document.getElementById('runaway-placeholder');
       const hero = document.querySelector('.hero');
-      const galleryRect = document.querySelector('.reveal').getBoundingClientRect();
       const padding = 20, threshold = 150, chaseDist = 100;
       let detached = false;
 
-      hero.addEventListener('mousemove', (e) => {
-        const btnRect = runBtn.getBoundingClientRect();
-        const centerX = btnRect.left + btnRect.width / 2;
-        const centerY = btnRect.top + btnRect.height / 2;
-        const dx = centerX - e.clientX;
-        const dy = centerY - e.clientY;
-        const dist = Math.hypot(dx, dy);
+      if (hero && runBtn && placeholder) {
+        hero.addEventListener('mousemove', (e) => {
+          const btnRect = runBtn.getBoundingClientRect();
+          const centerX = btnRect.left + btnRect.width / 2;
+          const centerY = btnRect.top + btnRect.height / 2;
+          const dx = centerX - e.clientX;
+          const dy = centerY - e.clientY;
+          const dist = Math.hypot(dx, dy);
 
-        if (dist < threshold) {
-          if (!detached) {
-            placeholder.style.display = 'inline-block';
-            placeholder.style.width = btnRect.width + 'px';
-            placeholder.style.height = btnRect.height + 'px';
-            placeholder.style.visibility = 'hidden';
-            runBtn.style.position = 'fixed';
-            runBtn.style.left = btnRect.left + 'px';
-            runBtn.style.top = btnRect.top + 'px';
-            detached = true;
+          if (dist < threshold) {
+            if (!detached) {
+              placeholder.style.display = 'inline-block';
+              placeholder.style.width = btnRect.width + 'px';
+              placeholder.style.height = btnRect.height + 'px';
+              placeholder.style.visibility = 'hidden';
+              runBtn.style.position = 'fixed';
+              runBtn.style.left = btnRect.left + 'px';
+              runBtn.style.top = btnRect.top + 'px';
+              detached = true;
+            }
+            let newX = btnRect.left + (dx / dist) * chaseDist;
+            let newY = btnRect.top + (dy / dist) * chaseDist;
+
+            const minX = padding;
+            const maxX = window.innerWidth - btnRect.width - padding;
+            if (newX < minX) newX = maxX;
+            else if (newX > maxX) newX = minX;
+
+            const heroRect = hero.getBoundingClientRect();
+            const minY = heroRect.top + padding;
+            const maxY = heroRect.bottom - btnRect.height - padding;
+            newY = Math.min(Math.max(newY, minY), maxY);
+
+            runBtn.style.left = newX + 'px';
+            runBtn.style.top = newY + 'px';
           }
-          let newX = btnRect.left + (dx / dist) * chaseDist;
-          let newY = btnRect.top + (dy / dist) * chaseDist;
+        });
+      }
 
-          const minX = padding;
-          const maxX = window.innerWidth - btnRect.width - padding;
-          if (newX < minX) newX = maxX;
-          else if (newX > maxX) newX = minX;
+      // Reveal on scroll
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealOnScroll = () => {
+        revealElements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.85) {
+            el.classList.add('visible');
+          }
+        });
+      };
+      window.addEventListener('scroll', revealOnScroll);
+      revealOnScroll();
 
-          const minY = hero.getBoundingClientRect().top + padding;
-          const maxY = galleryRect.top - btnRect.height - padding;
-          newY = Math.min(Math.max(newY, minY), maxY);
-
-          runBtn.style.left = newX + 'px';
-          runBtn.style.top = newY + 'px';
+      // Header scroll effect
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
         }
       });
     });
   </script>
   <script src="script.js"></script>
-  <footer>&copy; 2025 Eliot Abramo</footer>
 </body>
 </html>

@@ -3,15 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projects | Eliot Abramo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>Projects | Eliot Abramo - Embedded Systems Portfolio</title>
+  <meta name="description" content="Technical projects in embedded systems, FPGA acceleration, PCB design, and space-grade electronics by Eliot Abramo.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <div class="container">
-      <h1 style="font-size:1.4rem;"><a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">Eliot Abramo</a></h1>
+    <h1 style="font-size:1.4rem;font-weight:700;">
+      <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener" style="text-decoration:none;">
+        <span class="gradient-text">Eliot Abramo</span>
+      </a>
+    </h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
@@ -23,23 +28,154 @@
 </header>
 
 <section class="hero">
+  <div class="particles" id="particles"></div>
+  <div class="grid-overlay"></div>
   <div class="container">
-    <h2>Highlighted Projects</h2>
-    <p>A curated selection of technical work.</p>
+    <h2>Technical <span class="gradient-text">Portfolio</span></h2>
+    <p class="hero-subtitle">A curated collection of embedded systems, FPGA acceleration, PCB design, and space-grade electronics projects.</p>
   </div>
 </section>
 
-<section>
+<section class="projects-section">
   <div class="container projects-grid">
 
-    <!-- BroCo – ROS 2 Serial Bridge -->
+    <!-- ==================== SPACE / AEROSPACE PROJECTS ==================== -->
+
+    <!-- Space Ether -->
+    <div class="card featured reveal" data-repo="Eliot-Abramo/Space-Ether">
+      <span class="category-badge space">Space Systems</span>
+      <div class="card-content">
+        <h3>Space Ether - CubeSat Communication System</h3>
+        <p>Full-stack CubeSat communication architecture featuring a custom RF front-end, modulation schemes optimized for LEO passes, and ground station integration. Designed for high reliability in radiation environments with redundant communication paths.</p>
+        <div class="tags">
+          <span>CubeSat</span>
+          <span>RF Design</span>
+          <span>SDR</span>
+          <span>Ground Station</span>
+          <span>LEO</span>
+        </div>
+
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left: 0%; width: 45%; background:#f34b7d;"></div>
+            <div class="lang-slice" style="left: 45%; width: 30%; background:#3572A5;"></div>
+            <div class="lang-slice" style="left: 75%; width: 15%; background:#555555;"></div>
+            <div class="lang-slice" style="left: 90%; width: 10%; background:#89e051;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 45%</span>
+            <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 30%</span>
+            <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 15%</span>
+            <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 10%</span>
+          </div>
+        </div>
+
+        <a href="https://github.com/Eliot-Abramo/Space-Ether" class="btn" target="_blank">View Project</a>
+      </div>
+    </div>
+
+    <!-- KiCad Space Reliability -->
+    <div class="card featured reveal" data-repo="Eliot-Abramo/Kicad-Space-Reliability">
+      <span class="category-badge space">Space Systems</span>
+      <div class="card-content">
+        <h3>KiCad Space Reliability Toolkit</h3>
+        <p>A comprehensive KiCad plugin suite for space-grade PCB design. Implements ECSS standards for component derating, radiation tolerance analysis, and thermal relief validation. Automated DRC rules catch common space-qualification failures before fab.</p>
+        <div class="tags">
+          <span>KiCad Plugin</span>
+          <span>ECSS Standards</span>
+          <span>Radiation Analysis</span>
+          <span>Design Automation</span>
+        </div>
+
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left: 0%; width: 85%; background:#3572A5;"></div>
+            <div class="lang-slice" style="left: 85%; width: 15%; background:#89e051;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 85%</span>
+            <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 15%</span>
+          </div>
+        </div>
+
+        <a href="https://github.com/Eliot-Abramo/Kicad-Space-Reliability" class="btn" target="_blank">View Project</a>
+      </div>
+    </div>
+
+    <!-- ==================== HARDWARE DESIGN TOOLS ==================== -->
+
+    <!-- Multi-PCB -->
+    <div class="card featured reveal" data-repo="Eliot-Abramo/Multi-PCB">
+      <span class="category-badge hardware">Hardware Design</span>
+      <div class="card-content">
+        <h3>Multi-PCB Design Framework</h3>
+        <p>A hierarchical PCB design system for complex multi-board assemblies. Manages inter-board connections, generates consolidated BOMs, and validates connector pin assignments across distributed designs. Built for teams working on modular electronics.</p>
+        <div class="tags">
+          <span>KiCad</span>
+          <span>Multi-Board</span>
+          <span>Design Automation</span>
+          <span>BOM Management</span>
+        </div>
+
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left: 0%; width: 75%; background:#3572A5;"></div>
+            <div class="lang-slice" style="left: 75%; width: 20%; background:#89e051;"></div>
+            <div class="lang-slice" style="left: 95%; width: 5%; background:#427819;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 75%</span>
+            <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 20%</span>
+            <span><span class="lang-dot" style="background:#427819"></span><strong>Makefile</strong> 5%</span>
+          </div>
+        </div>
+
+        <a href="https://github.com/Eliot-Abramo/Multi-PCB" class="btn" target="_blank">View Project</a>
+      </div>
+    </div>
+
+    <!-- KiCad Thermal -->
+    <div class="card reveal" data-repo="Eliot-Abramo/Kicad-Thermal">
+      <span class="category-badge hardware">Hardware Design</span>
+      <div class="card-content">
+        <h3>KiCad Thermal Analysis Plugin</h3>
+        <p>Thermal simulation integration for KiCad PCB designs. Extracts copper geometry and component power dissipation to generate thermal maps, identifies hotspots, and validates thermal relief designs against operating limits.</p>
+        <div class="tags">
+          <span>KiCad</span>
+          <span>Thermal Analysis</span>
+          <span>FEA Integration</span>
+          <span>Power Dissipation</span>
+        </div>
+
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left: 0%; width: 90%; background:#3572A5;"></div>
+            <div class="lang-slice" style="left: 90%; width: 10%; background:#89e051;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 90%</span>
+            <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 10%</span>
+          </div>
+        </div>
+
+        <a href="https://github.com/Eliot-Abramo/Kicad-Thermal" class="btn" target="_blank">View Project</a>
+      </div>
+    </div>
+
+    <!-- ==================== EMBEDDED & FPGA PROJECTS ==================== -->
+
+    <!-- BroCo ROS 2 Serial Bridge -->
     <div class="card reveal" data-repo="Eliot-Abramo/ERC_EL_BroCo">
+      <span class="category-badge embedded">Embedded Systems</span>
       <div class="card-content">
         <h3>Custom ROS 2 ↔ Embedded MCU Communication Bridge</h3>
-        <p>A fully custom ROS 2 communication bridge for embedded microcontrollers, featuring CRC-framed packet protocols over UART or SPI. Enables reliable, high-throughput messaging between ROS-based systems and bare-metal or RTOS-driven nodes in resource-constrained environments.</p>
-        <div class="tags"><span>Embedded</span><span>ROS 2</span><span>C++</span></div>
-        
-        <!-- static language widget -->
+        <p>A fully custom ROS 2 communication bridge for embedded microcontrollers, featuring CRC-framed packet protocols over UART or SPI. Enables reliable, high-throughput messaging between ROS-based systems and bare-metal or RTOS-driven nodes.</p>
+        <div class="tags"><span>Embedded</span><span>ROS 2</span><span>C++</span><span>Protocol Design</span></div>
+
         <div class="lang-widget">
           <div class="lang-title">Languages</div>
           <div class="lang-bar">
@@ -58,18 +194,18 @@
           </div>
         </div>
 
-        <a href="https://github.com/Eliot-Abramo/ERC_EL_BroCo" class="btn" target="_blank">GitHub ↗</a>
+        <a href="https://github.com/Eliot-Abramo/ERC_EL_BroCo" class="btn" target="_blank">GitHub</a>
       </div>
     </div>
 
     <!-- Avionics-COTS Communication Stack -->
     <div class="card reveal" data-repo="Eliot-Abramo/avionics_cots">
+      <span class="category-badge embedded">Embedded Systems</span>
       <div class="card-content">
         <h3>Full Custom Avionics Communication Stack</h3>
-        <p>A deterministic SPI communication layer with UART failover with zero-copy circular buffers, CRC validation, and transport failover, designed for robust, low-latency inter-node messaging in the EPFL Xplore rover’s avionics network.</p>
-        <div class="tags"><span>SPI</span><span>UART</span><span>Real-Time</span></div>
-        
-        <!-- static language widget -->
+        <p>A deterministic SPI communication layer with UART failover, zero-copy circular buffers, CRC validation, and transport failover. Designed for robust, low-latency inter-node messaging in the EPFL Xplore rover's avionics network.</p>
+        <div class="tags"><span>SPI</span><span>UART</span><span>Real-Time</span><span>Avionics</span></div>
+
         <div class="lang-widget">
           <div class="lang-title">Languages</div>
           <div class="lang-bar">
@@ -84,148 +220,145 @@
           </div>
         </div>
 
-        <a href="https://github.com/Eliot-Abramo/avionics_cots" class="btn" target="_blank">GitHub ↗</a>
+        <a href="https://github.com/Eliot-Abramo/avionics_cots" class="btn" target="_blank">GitHub</a>
       </div>
     </div>
 
-<!-- Thesis LWE -->
-<div class="card reveal"
-     data-repo="Eliot-Abramo/ERC_EL_BroCo"  
-     onclick="if(!event.target.closest('a')) window.open('THESIS_ABRAMO.pdf','_blank');">
+    <!-- Thesis LWE -->
+    <div class="card reveal" onclick="if(!event.target.closest('a')) window.open('THESIS_ABRAMO.pdf','_blank');">
+      <span class="category-badge fpga">Research</span>
+      <div class="card-content">
+        <h3>Physical Nonlinear Activation Functions for Analog Deep Learning</h3>
+        <p>
+          Explores physical nonlinearities as activation functions for analog deep learning. Two approaches:<br>
+          1. GHz binary tunable metasurface utilizing coupled resonators with PIN-diode-controlled RF phase shifting<br>
+          2. Optical setup emulating GELU activation through structured incoherent light and Fresnel transmission.
+        </p>
 
-  <div class="card-content">
-    <h3>Physical Nonlinear Activation Functions for Low-Power Analog Deep Learning</h3>
-    <p>
-      Explores physical nonlinearities as activation functions for analog deep learning. Two approaches:<br>
-      1. GHz binary tunable metasurface utilizing coupled resonators with PIN-diode-controlled RF phase shifting<br>
-      2. Optical setup emulating GELU activation through structured incoherent light and Fresnel transmission.
-    </p>
+        <div class="tags">
+          <span>Research</span><span>RF</span><span>Optics</span><span>Analog Computing</span>
+        </div>
 
-    <div class="tags">
-      <span>Research</span><span>RF</span><span>Optics</span>
-    </div>
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left:   0%; width: 98.1%; background:#F37626;"></div>
+            <div class="lang-slice" style="left: 98.1%; width:  1.9%; background:#3572A5;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#F37626"></span><strong>Jupyter Notebook</strong> 98.1%</span>
+            <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 1.9%</span>
+          </div>
+        </div>
 
-    <div class="lang-widget">
-      <div class="lang-title">Languages</div>
-      <div class="lang-bar">
-        <div class="lang-slice" style="left:   0%; width: 98.1%; background:#F37626;"></div> <!-- Jupyter Notebook -->
-        <div class="lang-slice" style="left: 98.1%; width:  1.9%; background:#3572A5;"></div> <!-- Python -->
-      </div>
-      <div class="lang-legend">
-        <span><span class="lang-dot" style="background:#F37626"></span><strong>Jupyter Notebook</strong> 98.1%</span>
-        <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 1.9%</span>
-      </div>
-    </div>
-
-    <!-- buttons: PDF first (primary), GitHub second -->
-    <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read&nbsp;Thesis&nbsp;↗</a>
-    <a href="https://github.com/Eliot-Abramo/LWE_rgb_matrix.git" class="btn" target="_blank">GitHub&nbsp;↗</a>
-  </div>
-</div>
-
-
-<!-- Galaxy-Detect: FPGA + ARM Radio Astronomy Accelerator -->
-<div class="card reveal" data-repo="Eliot-Abramo/lab_hw_sw_final.git">
-  <div class="card-content">
-    <h3>FPGA + ARM Radio Astronomy Accelerator</h3>
-    <p>A fully pipelined FPGA-accelerated DSP system for real-time extraction of Doppler-shifted 21 cm hydrogen lines from raw radio telescope data, optimized across latency, energy, and spectral resolution.</p>
-    <div class="tags">
-      <span>FPGA</span><span>Vitis</span><span>AXI</span><span>ARM</span><span>HLS</span>
-    </div>
-
-    <!-- static language widget -->
-    <div class="lang-widget">
-      <div class="lang-title">Languages</div>
-      <div class="lang-bar">
-        <div class="lang-slice" style="left: 0%;     width: 55.1%; background:#f34b7d;"></div>  <!-- C++ -->
-        <div class="lang-slice" style="left: 55.1%;  width: 18.0%; background:#555555;"></div>  <!-- C -->
-        <div class="lang-slice" style="left: 73.1%;  width:  9.1%; background:#3572A5;"></div>  <!-- Python -->
-        <div class="lang-slice" style="left: 82.2%;  width:  6.5%; background:#427819;"></div>  <!-- Makefile -->
-        <div class="lang-slice" style="left: 88.7%;  width:  5.9%; background:#89e051;"></div>  <!-- Shell -->
-        <div class="lang-slice" style="left: 94.6%;  width:  5.4%; background:#cccccc;"></div>  <!-- Tcl -->
-      </div>
-
-      <div class="lang-legend">
-        <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 55.1%</span>
-        <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 18.0%</span>
-        <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 9.1%</span>
-        <span><span class="lang-dot" style="background:#427819"></span><strong>Makefile</strong> 6.5%</span>
-        <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 5.9%</span>
-        <span><span class="lang-dot" style="background:#cccccc"></span><strong>Tcl</strong> 5.4%</span>
+        <a href="THESIS_ABRAMO.pdf" class="btn" target="_blank">Read Thesis</a>
+        <a href="https://github.com/Eliot-Abramo/LWE_rgb_matrix.git" class="btn btn-secondary" target="_blank" style="margin-left:.5rem;">GitHub</a>
       </div>
     </div>
 
-    <a href="https://github.com/Eliot-Abramo/lab_hw_sw_final.git" class="btn" target="_blank">GitHub ↗</a>
-  </div>
-</div>
+    <!-- Galaxy-Detect: FPGA + ARM Radio Astronomy Accelerator -->
+    <div class="card reveal" data-repo="Eliot-Abramo/lab_hw_sw_final.git">
+      <span class="category-badge fpga">FPGA/DSP</span>
+      <div class="card-content">
+        <h3>FPGA + ARM Radio Astronomy Accelerator</h3>
+        <p>A fully pipelined FPGA-accelerated DSP system for real-time extraction of Doppler-shifted 21 cm hydrogen lines from raw radio telescope data, optimized across latency, energy, and spectral resolution.</p>
+        <div class="tags">
+          <span>FPGA</span><span>Vitis</span><span>AXI</span><span>ARM</span><span>HLS</span>
+        </div>
 
-<!-- RoCo – Rover Communication API -->
-<div class="card reveal" data-repo="Eliot-Abramo/BRoCo">
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left: 0%;     width: 55.1%; background:#f34b7d;"></div>
+            <div class="lang-slice" style="left: 55.1%;  width: 18.0%; background:#555555;"></div>
+            <div class="lang-slice" style="left: 73.1%;  width:  9.1%; background:#3572A5;"></div>
+            <div class="lang-slice" style="left: 82.2%;  width:  6.5%; background:#427819;"></div>
+            <div class="lang-slice" style="left: 88.7%;  width:  5.9%; background:#89e051;"></div>
+            <div class="lang-slice" style="left: 94.6%;  width:  5.4%; background:#cccccc;"></div>
+          </div>
 
-  <div class="card-content">
-    <h3>Custom CAN Communication API</h3>
-    <p>A C++ CAN MessageBus framework for static, zero‐overhead packet exchange across Xplore’s rover subsystems, featuring packed packet definitions, protocol versioning, and a portable IOBus/NetworkBus layer.</p>
-    
-    <div class="tags">
-      <span>C++</span><span>Embedded</span><span>Protocol</span><span>API</span>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 55.1%</span>
+            <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 18.0%</span>
+            <span><span class="lang-dot" style="background:#3572A5"></span><strong>Python</strong> 9.1%</span>
+            <span><span class="lang-dot" style="background:#427819"></span><strong>Makefile</strong> 6.5%</span>
+            <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 5.9%</span>
+            <span><span class="lang-dot" style="background:#cccccc"></span><strong>Tcl</strong> 5.4%</span>
+          </div>
+        </div>
+
+        <a href="https://github.com/Eliot-Abramo/lab_hw_sw_final.git" class="btn" target="_blank">GitHub</a>
+      </div>
     </div>
 
-    <div class="lang-widget">
-      <div class="lang-title">Languages</div>
-      <div class="lang-bar">
-        <div class="lang-slice" style="left:   0%; width: 89.3%; background:#f34b7d;"></div> <!-- C++ -->
-        <div class="lang-slice" style="left: 89.3%; width:  8.7%; background:#555555;"></div> <!-- C -->
-        <div class="lang-slice" style="left: 98.0%; width:  2.0%; background:#00a9cf;"></div> <!-- CMake -->
-      </div>
-      <div class="lang-legend">
-        <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 89.3%</span>
-        <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 8.7%</span>
-        <span><span class="lang-dot" style="background:#00a9cf"></span><strong>CMake</strong> 2.0%</span>
+    <!-- RoCo Rover Communication API -->
+    <div class="card reveal" data-repo="Eliot-Abramo/BRoCo">
+      <span class="category-badge embedded">Embedded Systems</span>
+      <div class="card-content">
+        <h3>Custom CAN Communication API</h3>
+        <p>A C++ CAN MessageBus framework for static, zero-overhead packet exchange across Xplore's rover subsystems, featuring packed packet definitions, protocol versioning, and a portable IOBus/NetworkBus layer.</p>
+
+        <div class="tags">
+          <span>C++</span><span>CAN Bus</span><span>Protocol</span><span>Zero-Copy</span>
+        </div>
+
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left:   0%; width: 89.3%; background:#f34b7d;"></div>
+            <div class="lang-slice" style="left: 89.3%; width:  8.7%; background:#555555;"></div>
+            <div class="lang-slice" style="left: 98.0%; width:  2.0%; background:#00a9cf;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 89.3%</span>
+            <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 8.7%</span>
+            <span><span class="lang-dot" style="background:#00a9cf"></span><strong>CMake</strong> 2.0%</span>
+          </div>
+        </div>
+
+        <a href="https://github.com/Eliot-Abramo/BRoCo" class="btn" target="_blank">GitHub</a>
       </div>
     </div>
-
-    <a href="https://github.com/Eliot-Abramo/BRoCo" class="btn" target="_blank">GitHub ↗</a>
-  </div>
-</div>
 
     <!-- CNN Convolution Accelerator on PYNQ-Z2 -->
-
     <div class="card reveal" data-repo="Eliot-Abramo/lab_hw_sw_midterm">
-  <div class="card-content">
-    <h3>CNN FPGA Accelerator</h3>
-    <p>3×3 convolution, bias and ReLU fused into a single HLS kernel with multi-row caching and four-filter parallelism—reaching 50× speed-up over initial software.</p>
+      <span class="category-badge fpga">FPGA/DSP</span>
+      <div class="card-content">
+        <h3>CNN FPGA Accelerator</h3>
+        <p>3x3 convolution, bias and ReLU fused into a single HLS kernel with multi-row caching and four-filter parallelism—reaching 50x speed-up over initial software baseline.</p>
 
-    <div class="tags">
-      <span>FPGA</span><span>HLS</span><span>CNN</span><span>PYNQ</span><span>AXI-DMA</span>
+        <div class="tags">
+          <span>FPGA</span><span>HLS</span><span>CNN</span><span>PYNQ</span><span>AXI-DMA</span>
+        </div>
+
+        <div class="lang-widget">
+          <div class="lang-title">Languages</div>
+          <div class="lang-bar">
+            <div class="lang-slice" style="left:  0%; width: 52.1%; background:#f34b7d;"></div>
+            <div class="lang-slice" style="left: 52.1%; width: 19.4%; background:#89e051;"></div>
+            <div class="lang-slice" style="left: 71.5%; width: 14.2%; background:#555555;"></div>
+            <div class="lang-slice" style="left: 85.7%; width:  8.4%; background:#e4cc98;"></div>
+            <div class="lang-slice" style="left: 94.1%; width:  5.9%; background:#427819;"></div>
+          </div>
+          <div class="lang-legend">
+            <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 52.1%</span>
+            <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 19.4%</span>
+            <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 14.2%</span>
+            <span><span class="lang-dot" style="background:#e4cc98"></span><strong>Tcl</strong> 8.4%</span>
+            <span><span class="lang-dot" style="background:#427819"></span><strong>Makefile</strong> 5.9%</span>
+          </div>
+        </div>
+
+        <a href="https://github.com/Eliot-Abramo/lab_hw_sw_midterm" class="btn" target="_blank">GitHub</a>
+      </div>
     </div>
 
-    <div class="lang-widget">
-      <div class="lang-title">Languages</div>
-      <div class="lang-bar">
-        <div class="lang-slice" style="left:  0%; width: 52.1%; background:#f34b7d;"></div>
-        <div class="lang-slice" style="left: 52.1%; width: 19.4%; background:#89e051;"></div> 
-        <div class="lang-slice" style="left: 71.5%; width: 14.2%; background:#555555;"></div> 
-        <div class="lang-slice" style="left: 85.7%; width:  8.4%; background:#e4cc98;"></div>
-        <div class="lang-slice" style="left: 94.1%; width:  5.9%; background:#427819;"></div> 
-      </div>
-      <div class="lang-legend">
-        <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 52.1%</span>
-        <span><span class="lang-dot" style="background:#89e051"></span><strong>Shell</strong> 19.4%</span>
-        <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 14.2%</span>
-        <span><span class="lang-dot" style="background:#e4cc98"></span><strong>Tcl</strong> 8.4%</span>
-        <span><span class="lang-dot" style="background:#427819"></span><strong>Makefile</strong> 5.9%</span>
-      </div>
-    </div>
-
-    <a href="https://github.com/Eliot-Abramo/lab_hw_sw_midterm" class="btn" target="_blank">GitHub ↗</a>
-  </div>
-</div>
-
-<!-- Real-Time Fractal Pong card with static language widget -->
+    <!-- Real-Time Fractal Pong -->
     <div class="card reveal" data-repo="Eliot-Abramo/Best_DSD_Team">
+      <span class="category-badge fpga">FPGA/DSP</span>
       <div class="card-content">
         <h3>Real-Time Fractal Pong</h3>
-        <p>A high-performance FPGA demo combining live Mandelbrot fractals with a playable Pong game, fully implemented in VHDL on the PYNQ-Z2 platform. Features pipelined fixed-point fractal generation, dual-port BRAM framebuffer, clock-domain crossing, and advanced FSM-driven game logic.</p>
+        <p>A high-performance FPGA demo combining live Mandelbrot fractals with a playable Pong game, fully implemented in VHDL. Features pipelined fixed-point fractal generation, dual-port BRAM framebuffer, clock-domain crossing, and FSM-driven game logic.</p>
         <div class="tags">
           <span>VHDL</span>
           <span>FPGA</span>
@@ -247,46 +380,18 @@
           </div>
         </div>
 
-        <a href="https://github.com/Eliot-Abramo/Best_DSD_Team" class="btn" target="_blank">GitHub ↗</a>
+        <a href="https://github.com/Eliot-Abramo/Best_DSD_Team" class="btn" target="_blank">GitHub</a>
       </div>
     </div>
 
-
-    <!-- ERC_AV_SW Flight Software
-    <div class="card reveal" data-repo="Eliot-Abramo/ERC_AV_SW">
-      <img src="img/project3.png" alt="ERC AV SW image">
-      <div class="card-content">
-        <h3>ERC_AV_SW Flight Software</h3>
-        <p>Flight-software skeleton and CI pipeline for a rocket avionics board, including HAL drivers, telemetry, and HIL tests.</p>
-        <div class="tags"><span>Flight SW</span><span>CI/CD</span></div>
-        
-        <div class="lang-widget">
-          <div class="lang-title">Languages</div>
-          <div class="lang-bar">
-            <div class="lang-slice" style="left:   0%; width: 98.0%; background:#555555;"></div>
-            <div class="lang-slice" style="left: 98.0%; width:  1.4%; background:#f34b7d;"></div>
-            <div class="lang-slice" style="left: 99.4%; width:  0.6%; background:#cccccc;"></div>
-          </div>
-          <div class="lang-legend">
-            <span><span class="lang-dot" style="background:#555555"></span><strong>C</strong> 98.0%</span>
-            <span><span class="lang-dot" style="background:#f34b7d"></span><strong>C++</strong> 1.4%</span>
-            <span><span class="lang-dot" style="background:#cccccc"></span><strong>Other</strong> 0.6%</span>
-          </div>
-        </div>
-
-        <a href="https://github.com/Eliot-Abramo/ERC_AV_SW" class="btn" target="_blank">GitHub ↗</a>
-      </div>
-    </div> -->
-  
-
-
     <!-- Microcontroller Experiments -->
     <div class="card reveal" data-repo="Eliot-Abramo/microcontrolleur">
+      <span class="category-badge embedded">Embedded Systems</span>
       <div class="card-content">
         <h3>ATmega128 Assembly Tests</h3>
-        <p>AVR Assembly–driven alarm clock, ms-precision timer, and sprinkler control with custom fixed-point math and Taylor libraries.</p>
-        <div class="tags"><span>C</span><span>RTOS</span><span>HAL</span></div>
-        
+        <p>AVR Assembly-driven alarm clock, ms-precision timer, and sprinkler control with custom fixed-point math and Taylor libraries. Low-level embedded programming fundamentals.</p>
+        <div class="tags"><span>Assembly</span><span>AVR</span><span>Bare-Metal</span></div>
+
         <div class="lang-widget">
           <div class="lang-title">Languages</div>
           <div class="lang-bar">
@@ -297,80 +402,52 @@
           </div>
         </div>
 
-        <a href="https://github.com/Eliot-Abramo/microcontrolleur" class="btn" target="_blank">GitHub ↗</a>
+        <a href="https://github.com/Eliot-Abramo/microcontrolleur" class="btn" target="_blank">GitHub</a>
       </div>
     </div>
-
-    <!-- Add this into your Projects page where you want the Coming Soon card -->
-<style>
-  .coming-soon-card {
-    background: linear-gradient(135deg, #58a6ff 0%, #ff66d7 100%);
-    border-radius: 16px;
-    padding: 3rem 2rem;
-    text-align: center;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 400px;
-    margin: 2rem auto;
-  }
-  .coming-soon-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
-  }
-  .coming-soon-card h3 {
-    font-size: 1.8rem;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-  }
-  .coming-soon-card .highlight {
-    display: block;
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .coming-soon-card p {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 1.5rem;
-    line-height: 1.4;
-  }
-  .coming-soon-card .btn {
-    background: #ffffff;
-    color: #0d1117;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: background 0.2s ease, transform 0.2s ease;
-    display: inline-block;
-  }
-  .coming-soon-card .btn:hover {
-    background: #e4e4e4;
-    transform: translateY(-2px);
-  }
-</style>
-
-<div class="coming-soon-card">
-  <h3>New Projects<br><span class="highlight">Coming Soon</span></h3>
-  <p>I'm cooking up something special. Stay tuned for exciting updates and fresh work dropping shortly.</p>
-  <!-- <a href="#" class="btn">Notify Me</a> -->
-</div>
-
-
-
 
   </div>
 </section>
 
 <footer>
+  <div class="footer-links">
+    <a href="https://github.com/Eliot-Abramo" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank">LinkedIn</a>
+    <a href="ABRAMO_RESUME.pdf" target="_blank">Resume</a>
+  </div>
   &copy; 2025 Eliot Abramo
 </footer>
 
-<!-- keep scripts for other dynamic behaviors -->
 <script src="script.js"></script>
+<script>
+// Particle animation for hero section
+document.addEventListener('DOMContentLoaded', () => {
+  const particlesContainer = document.getElementById('particles');
+  if (particlesContainer) {
+    for (let i = 0; i < 30; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 15 + 's';
+      particle.style.animationDuration = (15 + Math.random() * 20) + 's';
+      particlesContainer.appendChild(particle);
+    }
+  }
+
+  // Reveal cards on scroll
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealOnScroll = () => {
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      if (rect.top < windowHeight * 0.85) {
+        el.classList.add('visible');
+      }
+    });
+  };
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+});
+</script>
 </body>
 </html>

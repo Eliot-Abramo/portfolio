@@ -3,71 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact | Eliot Abramo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <title>Contact | Eliot Abramo - Embedded Systems Engineer</title>
+  <meta name="description" content="Get in touch with Eliot Abramo for embedded systems engineering, FPGA development, and mission-critical firmware projects.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ——— Slide-Up Fade for Hero Title ——— */
-    @keyframes slideUpFade {
-      from { transform: translateY(30px); opacity: 0; }
-      to   { transform: translateY(0);    opacity: 1; }
-    }
-    .hero h2 {
-      animation: slideUpFade 1s ease-out both;
+    /* Contact page specific styles */
+    .contact-page {
+      min-height: calc(100vh - 200px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 0;
     }
 
-    /* ——— Button Group Overrides ——— */
+    .contact-hero {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .contact-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+    .contact-hero p {
+      color: #64748b;
+      font-size: 1.15rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Enhanced form styling */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2.5rem;
+      background: rgba(255,255,255,.02);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(10px);
+    }
+    .contact-form label {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      color: #94a3b8;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      background: rgba(10,14,20,.9);
+      color: #e2e8f0;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all .25s ease;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(88,166,255,.2), 0 0 20px rgba(88,166,255,.1);
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #475569;
+    }
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    /* Button group */
     .btn-group {
       display: flex;
       gap: 1rem;
-      justify-content: center;
-      margin-top: .5rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
     }
     .btn-group .btn {
-      width: auto;               /* override full-width from style.css */ 
-      padding: .75rem 1.5rem;
+      flex: 1;
+      min-width: 140px;
+      padding: .9rem 1.5rem;
       font-size: 1rem;
-      border-radius: 6px;
-      font-weight: 600;
+      text-align: center;
+      border: none;
+      cursor: pointer;
     }
     .btn-group .social-btn {
-      background: #2867B2;
+      background: linear-gradient(135deg, #0077b5, #00a0dc);
       color: #fff;
     }
-    .btn-group .btn:not(.social-btn) {
-      background: var(--accent);
-      color: #000;
+    .btn-group .social-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,119,181,.3);
     }
 
-    /* ——— Modal Pop-Up ——— */
+    /* Modal styling */
     .modal {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.6);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; visibility: hidden;
-      transition: opacity .3s ease;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .3s ease;
+      z-index: 1000;
     }
     .modal.open {
-      opacity: 1; visibility: visible;
+      opacity: 1;
+      visibility: visible;
     }
     .modal-content {
-      background: #2b273b;
-      padding: 2rem;
-      border-radius: 8px;
+      background: linear-gradient(145deg, rgba(18,23,31,.98), rgba(12,16,22,.95));
+      border: 1px solid var(--card-border);
+      padding: 3rem;
+      border-radius: var(--radius);
       text-align: center;
+      max-width: 400px;
       animation: popIn .3s ease-out;
     }
+    .modal-content h2 {
+      font-size: 1.8rem;
+      margin: 0 0 1rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .modal-content p {
+      color: #94a3b8;
+      margin: 0 0 2rem;
+    }
     @keyframes popIn {
-      from { transform: scale(0.8); opacity: 0; }
-      to   { transform: scale(1);   opacity: 1; }
+      from { transform: scale(0.9) translateY(20px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    /* Alternative contact methods */
+    .contact-alternatives {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--card-border);
+    }
+    .contact-alternatives p {
+      color: #64748b;
+      margin-bottom: 1rem;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      color: #94a3b8;
+      padding: .5rem 1rem;
+      border-radius: 8px;
+      transition: all .25s ease;
+    }
+    .contact-links a:hover {
+      color: var(--accent);
+      background: rgba(88,166,255,.1);
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1 style="font-size:1.4rem;"><a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener" style="text-decoration:none; color:inherit;">Eliot Abramo</a></h1>
+      <h1 style="font-size:1.4rem;font-weight:700;">
+        <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener" style="text-decoration:none;">
+          <span class="gradient-text">Eliot Abramo</span>
+        </a>
+      </h1>
       <nav>
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
@@ -78,81 +198,149 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>Let’s build the next mission together.</p>
+  <section class="hero" style="padding:4rem 1.5rem 2rem;">
+    <div class="particles" id="particles"></div>
+    <div class="grid-overlay"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <h2>Let's <span class="gradient-text">Connect</span></h2>
+      <p class="hero-subtitle">Building something mission-critical? Let's discuss how I can help.</p>
     </div>
   </section>
 
-  <form id="contactForm" class="contact-form"
-        action="https://formspree.io/f/xldlrzdk"
-        method="POST">
-    <input type="hidden" name="_subject" value="New contact form submission">
-    <label>
-      <span>Name</span>
-      <input type="text" name="name" required>
-    </label>
-    <label>
-      <span>Email</span>
-      <input type="email" name="_replyto" required>
-    </label>
-    <label>
-      <span>Message</span>
-      <textarea name="message" rows="6" required></textarea>
-    </label>
+  <div class="contact-page">
+    <div class="container">
+      <form id="contactForm" class="contact-form"
+            action="https://formspree.io/f/xldlrzdk"
+            method="POST">
+        <input type="hidden" name="_subject" value="Portfolio Contact Form">
 
-    <div class="btn-group">
-      <button type="button"
-              class="btn social-btn"
-              onclick="window.open('https://www.linkedin.com/in/eliot-abramo-757592189','_blank')">
-        LinkedIn
-      </button>
-      <button type="submit" class="btn">Send 🚀</button>
+        <label>
+          <span>Your Name</span>
+          <input type="text" name="name" placeholder="John Doe" required>
+        </label>
+
+        <label>
+          <span>Email Address</span>
+          <input type="email" name="_replyto" placeholder="john@company.com" required>
+        </label>
+
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="6" placeholder="Tell me about your project, timeline, and any specific requirements..." required></textarea>
+        </label>
+
+        <div class="btn-group">
+          <button type="button"
+                  class="btn social-btn"
+                  onclick="window.open('https://www.linkedin.com/in/eliot-abramo-757592189','_blank')">
+            Connect on LinkedIn
+          </button>
+          <button type="submit" class="btn">Send Message</button>
+        </div>
+      </form>
+
+      <div class="contact-alternatives">
+        <p>Prefer other channels?</p>
+        <div class="contact-links">
+          <a href="https://github.com/Eliot-Abramo" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank">LinkedIn</a>
+          <a href="ABRAMO_RESUME.pdf" target="_blank">Download CV</a>
+        </div>
+      </div>
     </div>
-  </form>
+  </div>
 
   <div id="thankYouModal" class="modal">
     <div class="modal-content">
-      <h2>Thank you!</h2>
-      <p>Your message has been sent.</p>
-      <button class="btn" onclick="closeModal()">Close</button>
+      <h2>Message Sent!</h2>
+      <p>Thanks for reaching out. I'll get back to you as soon as possible.</p>
+      <button class="btn" onclick="closeModal()">Got it</button>
     </div>
   </div>
 
   <footer>
-    <p>© 2025 Eliot Abramo</p>
+    <div class="footer-links">
+      <a href="https://github.com/Eliot-Abramo" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank">LinkedIn</a>
+      <a href="ABRAMO_RESUME.pdf" target="_blank">Resume</a>
+    </div>
+    &copy; 2025 Eliot Abramo
   </footer>
 
   <script>
-    const form  = document.getElementById('contactForm');
+    document.addEventListener('DOMContentLoaded', () => {
+      // Create particles
+      const particlesContainer = document.getElementById('particles');
+      if (particlesContainer) {
+        for (let i = 0; i < 25; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'particle';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.animationDelay = Math.random() * 15 + 's';
+          particle.style.animationDuration = (15 + Math.random() * 20) + 's';
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Header scroll effect
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    });
+
+    const form = document.getElementById('contactForm');
     const modal = document.getElementById('thankYouModal');
 
     form.addEventListener('submit', async e => {
       e.preventDefault();
       const data = new FormData(form);
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
       try {
         const res = await fetch(form.action, {
           method: 'POST',
           body: data,
-          headers: {'Accept':'application/json'}
+          headers: { 'Accept': 'application/json' }
         });
         if (res.ok) {
           modal.classList.add('open');
           form.reset();
         } else if (res.status === 422) {
-          alert('Invalid email given');
+          alert('Please check your email address and try again.');
         } else {
-          alert('Oops! Something went wrong.');
+          alert('Something went wrong. Please try again or contact me via LinkedIn.');
         }
       } catch {
-        alert('Network error. Please try again later.');
+        alert('Network error. Please check your connection and try again.');
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
       }
     });
 
     function closeModal() {
       modal.classList.remove('open');
     }
+
+    // Close modal on background click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
   </script>
 </body>
 </html>
