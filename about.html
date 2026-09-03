@@ -1,242 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About | Eliot Abramo - Embedded Systems Engineer</title>
-  <meta name="description" content="Senior Embedded Systems Engineer specializing in FPGA acceleration, RF systems, and mission-critical firmware for aerospace and robotics applications.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="about.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Eliot Abramo</title>
+<meta name="description" content="Embedded systems engineer. Space payloads, FPGA and reconfigurable compute, rover avionics, RF and analog.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111111'/><rect x='7' y='7' width='18' height='18' fill='%23C0331B'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1 style="font-size:1.4rem;font-weight:700;">
-      <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener" style="text-decoration:none;">
-        <span class="gradient-text">Eliot Abramo</span>
-      </a>
-    </h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="ABRAMO_RESUME.pdf" target="_blank">CV</a>
-    </nav>
-  </div>
-</header>
+<main>
+  <section class="hero wrap" style="padding-bottom:2rem">
+    <h1>About</h1>
+    <p class="standfirst">
+      I build electronics and the software that runs on them — mostly for hardware that
+      has to work somewhere you cannot go and fix it.
+    </p>
+  </section>
 
-<section class="hero about-hero">
-  <div class="container about-hero__inner">
-    <div class="intro-copy">
-      <p class="intro-eyebrow">Senior Embedded Engineer</p>
+  <div class="wrap">
 
-      <h1 class="about-title">
-        I make silicon <span class="highlight">think</span>,<br>
-        signals <span class="highlight">behave</span>,<br>
-        and teams <span class="highlight">ship</span>.
-      </h1>
-
-      <p class="lede">
-        There's a particular satisfaction in watching a logic analyzer confirm that your custom protocol hit its timing constraints at 3 AM. I'm the engineer who designs those constraints, implements the hardware, debugs the edge cases, and documents it so the next person doesn't have to reverse-engineer my midnight decisions.
-      </p>
-
-      <p class="intro-tag">
-        <span>Bare-metal Firmware</span>
-        <span>FPGA/HLS Acceleration</span>
-        <span>RF & Analog Computing</span>
-        <span>System Architecture</span>
-      </p>
-
-      <div class="metrics">
-        <div class="metric reveal">
-          <span>120+</span>
-          <label>engineers coordinated across 7 subsystems</label>
-        </div>
-        <div class="metric reveal">
-          <span>50x</span>
-          <label>DSP speedup achieved on Zynq FPGA</label>
-        </div>
-        <div class="metric reveal">
-          <span>2.4 GHz</span>
-          <label>tunable metasurface prototype built</label>
-        </div>
-        <div class="metric reveal">
-          <span>0 CRC</span>
-          <label>errors on custom avionics SPI stack</label>
-        </div>
-      </div>
-    </div>
-
-    <div class="portrait-card">
-      <div class="portrait-frame">
-        <img src="img/face.jpg" alt="Portrait of Eliot Abramo" />
-      </div>
-      <p class="subtitle">Design the failure modes first. The happy path is just what's left.</p>
-      <a href="projects.html" class="btn" style="margin-top:1.5rem;">Explore my work</a>
-    </div>
-  </div>
-  <div class="glow-blob blob-a"></div>
-  <div class="glow-blob blob-b"></div>
-</section>
-
-<!-- =============== PHILOSOPHY =============== -->
-<section class="strip">
-  <div class="container">
-    <div class="strip__header">
-      <h2>What I Actually Do</h2>
-      <p>Beyond buzzwords, here's where I spend my cycles</p>
-    </div>
-    <div class="strip__grid">
-
-      <article class="strip-card reveal">
-        <h3>Write Firmware That Survives</h3>
+    <section class="block rule-top">
+      <h2>In short</h2>
+      <div class="body">
         <p>
-          Most of my code runs where printf isn't an option—STM32s strapped to rovers,
-          ESP32s in RF enclosures, Zynq fabric talking to ARM cores. I treat every register
-          write like it's being reviewed by the debugging session I'll have in six months.
+          Most of my work sits on the boundary between hardware and software: the
+          communication stack between two boards, the accelerator that has to fit in the
+          fabric you actually have, the reliability budget that decides whether a design
+          survives its review. That boundary is where the interesting failures live, and
+          it is the part nobody can hand to someone else.
         </p>
-      </article>
-
-      <article class="strip-card reveal">
-        <h3>Make FPGAs Do Real Work</h3>
         <p>
-          Whether it's pipelining FFTs for radio astronomy or fusing convolution layers
-          into single clock cycles, I use HLS and RTL to turn timing diagrams into working
-          silicon. The goal isn't "FPGA for its own sake"—it's hitting latency or power
-          budgets that software can't touch.
+          I am an MSc student in microelectronics at EPFL. Before that I read electrical
+          and electronic engineering there, bilingually in English and French.
         </p>
-      </article>
+      </div>
+    </section>
 
-      <article class="strip-card reveal">
-        <h3>Build Systems, Not Just Circuits</h3>
-        <p>
-          At EPFL Xplore, I coordinated avionics, power, and software teams—not by
-          managing spreadsheets, but by owning the interfaces between them. Clean APIs,
-          versioned protocols, and integration tests that catch bugs before they become
-          someone else's problem.
-        </p>
-      </article>
+    <section class="block">
+      <h2>What I work on</h2>
+      <div class="body">
+        <ul>
+          <li><strong>Space payload electronics.</strong> At SpaceLocker I designed, built
+            and tested payload electronics for a March 2026 orbital launch — power
+            conditioning, data handling, watchdog and safing circuitry — and wrote flight
+            software in C and Rust under ECSS constraints. The hardware went through TVAC,
+            vibration and shock qualification, and the design was defended at ESA PDR and CDR.</li>
+          <li><strong>FPGA and reconfigurable compute.</strong> At CERN openlab I worked on
+            the CMS Level-1 Trigger, building the clock-domain-crossing FIFO between
+            AXI4-Stream input and the AI Engine array on a Versal ACAP. At EPFL ESL I built
+            core pieces of HELIOS, a CGRA toolchain for the Square Kilometre Array.</li>
+          <li><strong>Rover avionics.</strong> Two years on EPFL Xplore, the last as lead
+            system engineer for the electronics and embedded systems on the rover that won
+            the European Rover Challenge 2025.</li>
+          <li><strong>RF and analog.</strong> A year at the Laboratory of Wave Engineering
+            on physical nonlinearities as analog neuron activations — a tunable 2.4 GHz
+            metasurface, and an optical GELU.</li>
+        </ul>
+      </div>
+    </section>
 
-      <article class="strip-card reveal">
-        <h3>Push Into Weird Physics</h3>
-        <p>
-          My thesis explored analog computing—using tunable metasurfaces and optical
-          setups to perform neural network activations in the physical layer. It's the
-          kind of work where a VNA sweep is your debugger and simulation is just a
-          hypothesis.
-        </p>
-      </article>
+    <section class="block">
+      <h2>How I work</h2>
+      <div class="body">
+        <ul>
+          <li><strong>Design the failure paths first.</strong> Timeouts, CRCs, asserts —
+            demos shouldn't be adrenaline sports.</li>
+          <li><strong>Constraints are fuel.</strong> Power, latency, EMI — the edges are
+            what force a design to be good rather than merely different.</li>
+          <li><strong>Measure, don't guess.</strong> VNAs, logic analysers, profilers.
+            Truth lives in traces.</li>
+          <li><strong>If others can't maintain it, it isn't done.</strong> Interface specs,
+            diagrams and clear APIs are the part that survives people leaving.</li>
+        </ul>
+      </div>
+    </section>
 
-    </div>
-  </div>
-</section>
+    <section class="block">
+      <h2>Stack</h2>
+      <div class="body">
+        <table class="specs"><tbody>
+          <tr><th>Languages</th><td>C, C++, Rust, Python, VHDL, MATLAB, Julia, Bash</td></tr>
+          <tr><th>Embedded</th><td>STM32, ESP32, Zephyr, FreeRTOS, CAN, SPI, I²C, UART, HIL/SIL</td></tr>
+          <tr><th>FPGA</th><td>Zynq / PYNQ, Versal ACAP, Vivado, Vitis HLS, AXI4-Stream, CDC design</td></tr>
+          <tr><th>Reconfigurable</th><td>CGRA toolchains — ASTRA, Compigra</td></tr>
+          <tr><th>Space</th><td>ECSS, TVAC, vibration and shock testing, PDR/CDR, redundancy and safing</td></tr>
+          <tr><th>RF &amp; analog</th><td>Metasurface design, phased-array beamforming, VNA, CST Studio, LTspice</td></tr>
+          <tr><th>Tools</th><td>KiCad, Git, STM32CubeIDE, Linux, Fusion 360</td></tr>
+          <tr><th>Languages spoken</th><td>English and French (fluent), Spanish (conversational)</td></tr>
+        </tbody></table>
+      </div>
+    </section>
 
-<!-- =============== SKILLS / TECH STACK =============== -->
-<section class="skills-section">
-  <div class="container">
-    <div class="strip__header">
-      <h2>Technical Stack</h2>
-      <p>Tools I reach for when it's time to build</p>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-category">
-        <h3>Languages</h3>
-        <div class="skill-list">
-          <span class="skill-tag">C</span>
-          <span class="skill-tag">C++</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">VHDL</span>
-          <span class="skill-tag">SystemVerilog</span>
-          <span class="skill-tag">Assembly (ARM/AVR)</span>
-          <span class="skill-tag">Rust</span>
+    <section class="block">
+      <h2>Awards</h2>
+      <div class="body">
+        <ul>
+          <li><strong>European Rover Challenge 2025</strong> — 1st place overall, and the
+            Drone Excellency Award.</li>
+          <li><strong>Young Founders Summit Asia 2019</strong> — top 9 of over 600 teams,
+            for a MOSFET design seven times smaller than commercial parts.</li>
+          <li><strong>4x4 in Schools, UAE</strong> — top 13 nationally, Innovation Award,
+            Yas Marina finals.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Elsewhere</h2>
+      <div class="body">
+        <div class="link-row">
+          <a class="link" href="ABRAMO_ELIOT_CV.pdf" target="_blank" rel="noopener">Curriculum vitae &rarr;</a>
+          <a class="link" href="work.html">Work &rarr;</a>
+          <a class="link" href="contact.html">Get in touch &rarr;</a>
         </div>
       </div>
-      <div class="skill-category">
-        <h3>Hardware</h3>
-        <div class="skill-list">
-          <span class="skill-tag">KiCad</span>
-          <span class="skill-tag">Altium</span>
-          <span class="skill-tag">Xilinx Vivado</span>
-          <span class="skill-tag">Vitis HLS</span>
-          <span class="skill-tag">STM32CubeIDE</span>
-          <span class="skill-tag">ESP-IDF</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3>Protocols</h3>
-        <div class="skill-list">
-          <span class="skill-tag">SPI/I2C/UART</span>
-          <span class="skill-tag">CAN Bus</span>
-          <span class="skill-tag">AXI/AXI-Stream</span>
-          <span class="skill-tag">JTAG/SWD</span>
-          <span class="skill-tag">Custom RF</span>
-          <span class="skill-tag">ROS 2</span>
-        </div>
-      </div>
-      <div class="skill-category">
-        <h3>Tools</h3>
-        <div class="skill-list">
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">CMake</span>
-          <span class="skill-tag">GDB/OpenOCD</span>
-          <span class="skill-tag">Logic Analyzers</span>
-          <span class="skill-tag">VNA/Spectrum</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- =============== PRINCIPLES / VALUES =============== -->
-<section class="principles">
-  <div class="container">
-    <h2 class="center">Engineering Principles</h2>
-    <ul class="principles-list">
-      <li class="reveal">
-        <span>Failure modes first.</span> Every watchdog, timeout, and CRC exists because I imagined the demo failing in front of stakeholders. Plan for the crash; the happy path takes care of itself.
-      </li>
-      <li class="reveal">
-        <span>Constraints are the creative brief.</span> Power budgets, timing margins, EMI limits—these aren't obstacles. They're the specifications that separate elegant solutions from over-engineered ones.
-      </li>
-      <li class="reveal">
-        <span>If it's not measurable, it's not real.</span> Logic analyzers, oscilloscopes, profilers. I don't trust code until I've seen it behave in the real world with real timing.
-      </li>
-      <li class="reveal">
-        <span>Documentation is a gift to your future self.</span> Interface specs, state diagrams, and clear commit messages aren't overhead—they're the only thing that survives personnel changes.
-      </li>
-      <li class="reveal">
-        <span>Ship working systems, not perfect modules.</span> A rover that drives beats a motor driver that's still being optimized. Integration reveals the bugs that unit tests miss.
-      </li>
-    </ul>
   </div>
-</section>
+</main>
 
-<!-- =============== CONTACT CTA =============== -->
-<section class="cta-section">
-  <div class="container cta-box">
-    <h2>Building something that needs to actually work?</h2>
-    <p>I'm interested in projects where reliability matters—aerospace, robotics, scientific instruments, or anything where "it works on my machine" isn't good enough.</p>
-    <div class="btn-group">
-      <a href="contact.html" class="btn">Start a conversation</a>
-      <a href="projects.html" class="btn btn-secondary">See my projects</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-links">
-    <a href="https://github.com/Eliot-Abramo" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank">LinkedIn</a>
-    <a href="ABRAMO_RESUME.pdf" target="_blank">Resume</a>
-  </div>
-  &copy; 2025 Eliot Abramo
-</footer>
-
-<script src="script.js"></script>
-<script src="about.js"></script>
+<script src="projects.js"></script>
+<script src="site.js"></script>
 </body>
 </html>
