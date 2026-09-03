@@ -59,12 +59,15 @@
     const meta = esc(p.years || '');
     const tech = (p.tech || []).map(esc).join(' · ');
     const stub = !p.study;
+    const org = p.org ? `<span class="index-org">${esc(p.org)}</span>` : '';
+    const tag = p.status ? `<span class="index-status">${esc(p.status)}</span>` : '';
 
     const inner =
       `<span class="index-num">${num}</span>
        <div>
-         <h3 class="index-title">${esc(p.title)}</h3>
+         <h3 class="index-title">${esc(p.title)}${tag}</h3>
          <p class="index-summary">${esc(p.summary)}</p>
+         ${org}
        </div>
        <span class="index-tech">${tech}</span>
        <span class="index-meta">${meta}${stub ? '' : ' <span class="arrow">&rarr;</span>'}</span>`;
@@ -112,6 +115,23 @@
     if (!figs || !figs.length) return '';
     return figs.map((f, i) => {
       const n = `<span class="fig-num">Fig. ${i + 1}</span>`;
+
+      // Hand-drawn SVG from diagrams.js. Inlined rather than <img>-linked so it
+      // inherits the page's colour tokens and follows the theme.
+      if (f.diagram) {
+        const svg = (typeof DIAGRAMS !== 'undefined') && DIAGRAMS[f.diagram];
+        if (svg) {
+          return `<figure class="fig-diagram">
+                    <div class="fig-canvas">${svg}</div>
+                    <figcaption>${n} — ${esc(f.caption)}</figcaption>
+                  </figure>`;
+        }
+        return `<figure>
+                  <div class="fig-gap">Diagram "${esc(f.diagram)}" not found</div>
+                  <figcaption>${n} — ${esc(f.caption || '')}</figcaption>
+                </figure>`;
+      }
+
       if (f.gap) {
         // A figure we know is missing. Stated, not faked.
         return `<figure>
@@ -181,6 +201,7 @@
          ${block('Numbers', specs(s.specs))}
          ${block('Figures', figures(s.figures))}
          ${block('Outcome', s.outcome ? `<p>${esc(s.outcome)}</p>` : '')}
+         ${block('What this does not show', s.limits ? `<p class="limits">${esc(s.limits)}</p>` : '')}
          <section class="block">
            <h2>Links</h2>
            <div class="body">
@@ -190,36 +211,13 @@
        </div>`;
   }
 
-  /* ---------------------------------------------------------- runaway -- */
+  /* --------------------------------------------------- page diagrams -- */
 
-  // The call button declines to be clicked. Desktop pointers only, and it
-  // stands still for anyone who asked for reduced motion.
-  function runaway() {
-    const btn = document.getElementById('runaway');
-    if (!btn) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-
-    let dodges = 0;
-    document.addEventListener('mousemove', (e) => {
-      const r = btn.getBoundingClientRect();
-      const dx = r.left + r.width / 2 - e.clientX;
-      const dy = r.top + r.height / 2 - e.clientY;
-      const d = Math.hypot(dx, dy);
-      if (d > 110) return;
-
-      // Nudge it away along the approach vector, clamped so it stays on screen.
-      const cur = { x: parseFloat(btn.style.left) || 0, y: parseFloat(btn.style.top) || 0 };
-      const lim = 130;
-      btn.style.left = Math.max(-lim, Math.min(lim, cur.x + (dx / d) * 60)) + 'px';
-      btn.style.top = Math.max(-60, Math.min(60, cur.y + (dy / d) * 40)) + 'px';
-
-      // It relents eventually — the joke shouldn't cost someone the contact link.
-      if (++dodges >= 6) {
-        btn.style.left = btn.style.top = '0px';
-        btn.textContent = 'Fine — book a call →';
-        btn.href = 'contact.html';
-      }
+  // <div data-diagram="key"> anywhere in a page gets the inline SVG.
+  function diagrams() {
+    document.querySelectorAll('[data-diagram]').forEach((el) => {
+      const svg = (typeof DIAGRAMS !== 'undefined') && DIAGRAMS[el.dataset.diagram];
+      if (svg) el.innerHTML = svg;
     });
   }
 
@@ -237,6 +235,6 @@
     const study = document.querySelector('[data-study]');
     if (study) renderStudy(study);
 
-    runaway();
+    diagrams();
   });
 })();
