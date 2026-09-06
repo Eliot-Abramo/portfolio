@@ -1,155 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About — Eliot Abramo</title>
-<meta name="description" content="FPGA and CGRA engineering, space payload electronics, rover avionics, RF and analog. MSc microelectronics, EPFL.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111111'/><rect x='7' y='7' width='18' height='18' fill='%23C0331B'/></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Eliot Abramo</title>
+  <meta name="description"
+    content="FPGA and CGRA engineering, space payload electronics, rover avionics, RF and analog. MSc microelectronics, EPFL.">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111111'/><rect x='7' y='7' width='18' height='18' fill='%23C0331B'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
 </head>
+
 <body>
 
-<main>
-  <section class="hero wrap" style="padding-bottom:2rem">
-    <h1>About</h1>
-    <p class="standfirst">
-      I build electronics and the software that runs on them — mostly for hardware
-      that has to work somewhere you cannot go and fix it.
-    </p>
-  </section>
-
-  <div class="wrap">
-
-    <section class="block rule-top">
-      <h2>In short</h2>
-      <div class="body">
-        <p>
-          My work sits on the boundary between hardware and software: the clock-domain
-          crossing between programmable logic and an AI Engine array, the accelerator
-          that has to fit in the fabric you actually have, the reliability budget that
-          decides whether a design survives its review. That boundary is where the
-          interesting failures live, and it is the part nobody can hand to someone else.
-        </p>
-        <p>
-          The throughline is reconfigurable hardware for real-time inference under
-          constraints that do not negotiate — a fixed trigger latency, a fixed power
-          budget, a launch date. I am an MSc student in microelectronics at EPFL, and a
-          research assistant on a CGRA toolchain at EPFL ESL. Before that I read
-          electrical and electronic engineering here, bilingually in English and French.
-        </p>
-      </div>
+  <main>
+    <section class="hero wrap" style="padding-bottom:2rem">
+      <h1>About Me</h1>
+      <!-- <p class="standfirst">
+        I pride myself on being a full-stack engineer, with projects ranging RTL and HW design on FPGAs and SOCs
+        to custom automation tools for Kicad coded in python. I consider that I understand and can design a full
+        architecture system for high constraint environments.
+      </p> -->
     </section>
 
-    <section class="block">
-      <h2>What I work on</h2>
-      <div class="body">
-        <ul>
-          <li><strong>FPGA and reconfigurable compute.</strong> At CERN openlab I built
-            the programmable-logic streaming path feeding a transformer to the AI Engine
-            array on a Versal ACAP, and measured it in hardware at 34.02 µs — within
-            1.25 % of simulation. At EPFL ESL I work on a CGRA toolchain: the ASTRA
-            work targeting Square Kilometre Array signal processing, and currently the
-            DMA engine and HELIOS.</li>
-          <li><strong>Space payload electronics.</strong> At SpaceLocker I designed,
-            built and qualified payload electronics — power conditioning, data handling,
-            watchdog and safing — and wrote flight software in C and Rust under ECSS
-            constraints. The hardware cleared ESA PDR and CDR and passed thermal vacuum,
-            vibration and shock qualification.</li>
-          <li><strong>Rover avionics.</strong> Two years on EPFL Xplore, the last as lead
-            system engineer for the electronics and embedded systems on the rover that
-            won the European Rover Challenge 2025 — first of 25 on-site teams.</li>
-          <li><strong>RF and analog.</strong> A year at the Laboratory of Wave Engineering
-            on physical nonlinearities as analog neuron activations — a tunable 2.4 GHz
-            PIN-diode metasurface, and an optical GELU.</li>
-          <li><strong>Design tooling.</strong> Three published KiCad plugins covering
-            multi-board projects, ECSS reliability budgets and thermal analysis for
-            vacuum — each one written because the manual workflow was costing a design
-            cycle.</li>
-        </ul>
-      </div>
-    </section>
+    <div class="wrap">
 
-    <section class="block">
-      <h2>How I work</h2>
-      <div class="body">
-        <ul>
-          <li><strong>Design the failure paths first.</strong> Timeouts, CRCs, asserts —
-            demos should not be adrenaline sports.</li>
-          <li><strong>Constraints are fuel.</strong> Power, latency, EMI — the edges are
-            what force a design to be good rather than merely different.</li>
-          <li><strong>Measure, do not guess.</strong> VNAs, logic analysers, in-fabric
-            probes. Truth lives in traces, and a simulation is a hypothesis until the
-            board agrees with it.</li>
-          <li><strong>Say what a result does not show.</strong> Every case study here
-            ends with its own limits. A number you cannot bound is not a number.</li>
-          <li><strong>If others cannot maintain it, it is not done.</strong> Interface
-            specs, diagrams and clear APIs are the part that survives people leaving.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="block">
-      <h2>Stack</h2>
-      <div class="body">
-        <table class="specs"><tbody>
-          <tr><th>Reconfigurable</th><td>Versal ACAP and AI Engine, Zynq / PYNQ, Vivado, Vitis HLS, AXI4-Stream, CDC design</td></tr>
-          <tr><th>Compilers &amp; CGRA</th><td>MLIR, Compigra, ILP mapping and modulo scheduling, design-space exploration</td></tr>
-          <tr><th>Languages</th><td>C, C++, Rust, Python, VHDL, MATLAB, Julia, Bash</td></tr>
-          <tr><th>Embedded</th><td>STM32, ESP32, Zephyr, FreeRTOS, CAN, SPI, I²C, UART, HIL/SIL</td></tr>
-          <tr><th>Space</th><td>ECSS, IEC TR 62380, TVAC, vibration and shock testing, PDR/CDR, redundancy and safing</td></tr>
-          <tr><th>RF &amp; analog</th><td>Metasurface design, phased-array beamforming, VNA, CST Studio, LTspice</td></tr>
-          <tr><th>Tools</th><td>KiCad, Git, STM32CubeIDE, Linux, Fusion 360</td></tr>
-          <tr><th>Languages spoken</th><td>English and French (fluent), Spanish (conversational)</td></tr>
-        </tbody></table>
-      </div>
-    </section>
-
-    <section class="block">
-      <h2>Education</h2>
-      <div class="body">
-        <table class="specs"><tbody>
-          <tr><th>EPFL — MSc</th><td>Electrical &amp; Electronic Engineering, microelectronics · 2025–</td></tr>
-          <tr><th>EPFL — BSc</th><td>Electrical &amp; Electronic Engineering, bilingual EN/FR · 2022–2025</td></tr>
-          <tr><th>JESS Dubai — IB</th><td>43 / 45 · 2018–2022</td></tr>
-        </tbody></table>
-      </div>
-    </section>
-
-    <section class="block">
-      <h2>Awards</h2>
-      <div class="body">
-        <ul>
-          <li><strong>European Rover Challenge 2025</strong> — 1st place overall, first of
-            25 on-site teams with 2180.4 of 3000 points, plus the Drone Excellency Award.</li>
-          <li><strong>Young Founders Summit Asia 2019</strong> — top 9 of over 600 teams
-            at the Beijing finals, for a MOSFET design seven times smaller than
-            commercial parts.</li>
-          <li><strong>4x4 in Schools, UAE</strong> — top 13 nationally, Innovation Award,
-            Yas Marina finals.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="block">
-      <h2>Elsewhere</h2>
-      <div class="body">
-        <div class="link-row">
-          <a class="link" href="ABRAMO_ELIOT_CV.pdf" target="_blank" rel="noopener">Curriculum vitae &rarr;</a>
-          <a class="link" href="work.html">Work &rarr;</a>
-          <a class="link" href="contact.html">Get in touch &rarr;</a>
+      <section class="block rule-top">
+        <h2>In short</h2>
+        <div class="body">
+          <p>
+            I pride myself on being a full-stack engineer that can comfortably sit at the boundary between hardware and
+            software. With projects ranging RTL and HW design on FPGAs and SOCs to custom automation tools for Kicad
+            coded in python, I understand and can design a full architecture system for high constraint environments as
+            well as the insfrastructure surrounding them.
+          </p>
         </div>
-      </div>
-    </section>
+        <h2>Qualifications</h2>
+        <div class="body">
+          <p>
+            MSc student in Electrical & Electronic Engineering (Microelectronics) at EPFL. Building reconfigurable
+            hardware for real-time AI inference in extreme environments and high performance/ultra-low latency
+            computing.
+          </p>
+          <p>
+            Most recently at CERN openlab where I built the FPGA programmable-logic pipeline feeding a real-time
+            anomaly-detection model on the CMS Level-1 trigger.
+          </p>
+          <p>
+            EPFL's Embedded Systems Lab, building a CGRA toolchain
+            for HPC under the SEAMS SKA project.
+          <p>
+            Also shipped flight electronics for an orbital payload at SpaceLocker, and
+            led electronics and avionics for the rover that won the 2025 European Rover Challenge.
+          </p>
+        </div>
 
-  </div>
-</main>
+      </section>
 
-<script src="diagrams.js"></script>
-<script src="projects.js"></script>
-<script src="site.js"></script>
+      <section class="block">
+        <h2>What I work on</h2>
+        <div class="body">
+          <ul>
+            <li><strong>FPGA and reconfigurable compute.</strong> At CERN openlab I built
+              the programmable-logic streaming path feeding a transformer to the AI Engine
+              array on a Versal ACAP, and measured it in hardware at 34.02 µs — within
+              1.25 % of simulation. At EPFL ESL I work on a CGRA toolchain: the ASTRA
+              work targeting Square Kilometre Array signal processing, and currently the
+              DMA engine and HELIOS.</li>
+            <li><strong>Space payload electronics.</strong> At SpaceLocker I designed,
+              built and qualified payload electronics — power conditioning, data handling,
+              watchdog and safing — and wrote flight software in C and Rust under ECSS
+              constraints. The hardware cleared ESA PDR and CDR and passed thermal vacuum,
+              vibration and shock qualification.</li>
+            <li><strong>Rover avionics.</strong> Two years on EPFL Xplore, the last as lead
+              system engineer for the electronics and embedded systems on the rover that
+              won the European Rover Challenge 2025 — first of 25 on-site teams.</li>
+            <li><strong>RF and analog.</strong> A year at the Laboratory of Wave Engineering
+              on physical nonlinearities as analog neuron activations — a tunable 2.4 GHz
+              PIN-diode metasurface, and an optical GELU.</li>
+            <li><strong>Design tooling.</strong> Three published KiCad plugins covering
+              multi-board projects, ECSS reliability budgets and thermal analysis for
+              vacuum — each one written because the manual workflow was costing a design
+              cycle.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>How I work</h2>
+        <div class="body">
+          <ul>
+            <li><strong>Design the failure paths first.</strong> Timeouts, CRCs, asserts —
+              demos should not be adrenaline sports.</li>
+            <li><strong>Constraints are fuel.</strong> Power, latency, EMI — the edges are
+              what force a design to be good rather than merely different.</li>
+            <li><strong>Measure, do not guess.</strong> VNAs, logic analysers, in-fabric
+              probes. Truth lives in traces, and a simulation is a hypothesis until the
+              board agrees with it.</li>
+            <li><strong>Say what a result does not show.</strong> Every case study here
+              ends with its own limits. A number you cannot bound is not a number.</li>
+            <li><strong>If others cannot maintain it, it is not done.</strong> Interface
+              specs, diagrams and clear APIs are the part that survives people leaving.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Stack</h2>
+        <div class="body">
+          <table class="specs">
+            <tbody>
+              <tr>
+                <th>Reconfigurable</th>
+                <td>Versal ACAP and AI Engine, Zynq / PYNQ, Vivado, Vitis HLS, AXI4-Stream, CDC design</td>
+              </tr>
+              <tr>
+                <th>Compilers &amp; CGRA</th>
+                <td>MLIR, Compigra, ILP mapping and modulo scheduling, design-space exploration</td>
+              </tr>
+              <tr>
+                <th>Languages</th>
+                <td>C, C++, Rust, Python, VHDL, MATLAB, Julia, Bash</td>
+              </tr>
+              <tr>
+                <th>Embedded</th>
+                <td>STM32, ESP32, Zephyr, FreeRTOS, CAN, SPI, I²C, UART, HIL/SIL</td>
+              </tr>
+              <tr>
+                <th>Space</th>
+                <td>ECSS, IEC TR 62380, TVAC, vibration and shock testing, PDR/CDR, redundancy and safing</td>
+              </tr>
+              <tr>
+                <th>RF &amp; analog</th>
+                <td>Metasurface design, phased-array beamforming, VNA, CST Studio, LTspice</td>
+              </tr>
+              <tr>
+                <th>Tools</th>
+                <td>KiCad, Git, STM32CubeIDE, Linux, Fusion 360</td>
+              </tr>
+              <tr>
+                <th>Languages spoken</th>
+                <td>English and French (fluent), Spanish (conversational)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Education</h2>
+        <div class="body">
+          <table class="specs">
+            <tbody>
+              <tr>
+                <th>EPFL — MSc</th>
+                <td>Electrical &amp; Electronic Engineering, microelectronics · 2025–</td>
+              </tr>
+              <tr>
+                <th>EPFL — BSc</th>
+                <td>Electrical &amp; Electronic Engineering, bilingual EN/FR · 2022–2025</td>
+              </tr>
+              <tr>
+                <th>JESS Dubai — IB</th>
+                <td>43 / 45 · 2018–2022</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Awards</h2>
+        <div class="body">
+          <ul>
+            <li><strong>European Rover Challenge 2025</strong> — 1st place overall, first of
+              25 on-site teams with 2180.4 of 3000 points, plus the Drone Excellency Award.</li>
+            <li><strong>Young Founders Summit Asia 2019</strong> — top 9 of over 600 teams
+              at the Beijing finals, for a MOSFET design seven times smaller than
+              commercial parts.</li>
+            <li><strong>4x4 in Schools, UAE</strong> — top 13 nationally, Innovation Award,
+              Yas Marina finals.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Elsewhere</h2>
+        <div class="body">
+          <div class="link-row">
+            <a class="link" href="ABRAMO_ELIOT_CV.pdf" target="_blank" rel="noopener">Curriculum vitae &rarr;</a>
+            <a class="link" href="work.html">Work &rarr;</a>
+            <a class="link" href="contact.html">Get in touch &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="diagrams.js"></script>
+  <script src="projects.js"></script>
+  <script src="site.js"></script>
 </body>
+
 </html>
