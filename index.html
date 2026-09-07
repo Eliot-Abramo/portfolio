@@ -32,6 +32,13 @@
     <!-- Four numbers, above the fold. Each one has a unit and an owner. -->
     <div class="proof">
       <div>
+        <span class="figure">1.25<span class="unit"> %</span></span>
+        <p class="label">Gap between hardware-measured latency and the vendor
+          simulation flow, through an AI Engine array on a Versal ACAP. The
+          agreement is the result: the model was right before the board existed.</p>
+        <span class="src">CERN · CMS L1 trigger</span>
+      </div>
+      <div>
         <span class="figure">1st<span class="unit"> of 25</span></span>
         <p class="label">European Rover Challenge 2025, 2180.4 of 3000 points.
           Lead engineer for the rover&rsquo;s electronics.</p>
@@ -181,6 +188,48 @@
   <section class="wrap">
     <div class="section-head rule-top">
       <span class="num">04</span>
+      <h2>Technical notes</h2>
+    </div>
+    <div class="lede">
+      <p>
+        Short write-ups of things I measured or argued, published so they can be read
+        rather than claimed. Each one names what it does not establish as clearly as
+        what it does.
+      </p>
+    </div>
+    <div class="index" style="margin-top:2.25rem">
+      <a class="index-row" href="note-versal-latency.html">
+        <span class="index-num">N01</span>
+        <div>
+          <h3 class="index-title">Measured against your own flow: a VEK280 latency note</h3>
+          <p class="index-summary">Hardware latency landed 1.25 % from aiesimulator, but
+            only because both probes sat inside the programmable-logic domain. Includes
+            the honest crossover where an AI Engine array stops beating a plain DSP
+            implementation.</p>
+          <span class="index-org">CERN openlab · CMS Level-1 Trigger</span>
+        </div>
+        <span class="index-tech">Versal ACAP · AI Engine · AXI4-Stream · Vitis</span>
+        <span class="index-meta">2026 <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="index-row" href="note-orbital-compute.html">
+        <span class="index-num">N02</span>
+        <div>
+          <h3 class="index-title">Reconfigurable compute under orbital thermal and radiation constraints</h3>
+          <p class="index-summary">In an orbital data centre the radiator, not the die,
+            sets sustained throughput. Why that argues for a fabric with a real degraded
+            mode, and where fault-recovery authority has to live.</p>
+          <span class="index-org">Written September 2026</span>
+        </div>
+        <span class="index-tech">CGRA · thermal · SEU mitigation · ECSS</span>
+        <span class="index-meta">2026 <span class="arrow">&rarr;</span></span>
+      </a>
+    </div>
+    <p style="margin-top:2rem"><a class="link" href="notes.html">All notes &rarr;</a></p>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head rule-top">
+      <span class="num">05</span>
       <h2>What I am looking for</h2>
     </div>
     <div class="seeking">
@@ -195,8 +244,20 @@
           radio astronomy, safety-critical embedded systems.</span>
       </div>
       <div class="row">
+        <span class="k">Format</span>
+        <span class="v">A long internship, a master thesis, or a first full-time role.
+          I am not treating those as different ambitions.</span>
+      </div>
+      <div class="row">
+        <span class="k">Available</span>
+        <span class="v">Placements from early 2027, and available now to talk about
+          one.</span>
+      </div>
+      <div class="row">
         <span class="k">Based</span>
-        <span class="v">Lausanne, Switzerland.</span>
+        <span class="v">Lausanne, Switzerland. Swiss and EU citizenship, so no
+          sponsorship is needed anywhere in Switzerland or the EU. Relocation
+          elsewhere is my problem, not yours.</span>
       </div>
       <div class="row">
         <span class="k">Best way in</span>
@@ -205,6 +266,7 @@
     </div>
     <p style="margin-top:2.5rem" class="link-row">
       <a class="link" href="mailto:eliot.abramo@epfl.ch">eliot.abramo@epfl.ch &rarr;</a>
+      <a class="link" href="notes.html">Technical notes &rarr;</a>
       <a class="link" href="about.html">About &rarr;</a>
       <a class="link" href="ABRAMO_ELIOT_CV.pdf" target="_blank" rel="noopener">Curriculum vitae &rarr;</a>
     </p>

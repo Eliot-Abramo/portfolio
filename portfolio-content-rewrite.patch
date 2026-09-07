@@ -1,0 +1,566 @@
+diff --git a/index.html b/index.html
+index 3422d8d..07baf69 100644
+--- a/index.html
++++ b/index.html
+@@ -31,6 +31,13 @@
+ 
+     <!-- Four numbers, above the fold. Each one has a unit and an owner. -->
+     <div class="proof">
++      <div>
++        <span class="figure">1.25<span class="unit"> %</span></span>
++        <p class="label">Gap between hardware-measured latency and the vendor
++          simulation flow, through an AI Engine array on a Versal ACAP. The
++          agreement is the result: the model was right before the board existed.</p>
++        <span class="src">CERN · CMS L1 trigger</span>
++      </div>
+       <div>
+         <span class="figure">1st<span class="unit"> of 25</span></span>
+         <p class="label">European Rover Challenge 2025, 2180.4 of 3000 points.
+@@ -181,6 +188,48 @@
+   <section class="wrap">
+     <div class="section-head rule-top">
+       <span class="num">04</span>
++      <h2>Technical notes</h2>
++    </div>
++    <div class="lede">
++      <p>
++        Short write-ups of things I measured or argued, published so they can be read
++        rather than claimed. Each one names what it does not establish as clearly as
++        what it does.
++      </p>
++    </div>
++    <div class="index" style="margin-top:2.25rem">
++      <a class="index-row" href="note-versal-latency.html">
++        <span class="index-num">N01</span>
++        <div>
++          <h3 class="index-title">Measured against your own flow: a VEK280 latency note</h3>
++          <p class="index-summary">Hardware latency landed 1.25 % from aiesimulator, but
++            only because both probes sat inside the programmable-logic domain. Includes
++            the honest crossover where an AI Engine array stops beating a plain DSP
++            implementation.</p>
++          <span class="index-org">CERN openlab · CMS Level-1 Trigger</span>
++        </div>
++        <span class="index-tech">Versal ACAP · AI Engine · AXI4-Stream · Vitis</span>
++        <span class="index-meta">2026 <span class="arrow">&rarr;</span></span>
++      </a>
++      <a class="index-row" href="note-orbital-compute.html">
++        <span class="index-num">N02</span>
++        <div>
++          <h3 class="index-title">Reconfigurable compute under orbital thermal and radiation constraints</h3>
++          <p class="index-summary">In an orbital data centre the radiator, not the die,
++            sets sustained throughput. Why that argues for a fabric with a real degraded
++            mode, and where fault-recovery authority has to live.</p>
++          <span class="index-org">Written September 2026</span>
++        </div>
++        <span class="index-tech">CGRA · thermal · SEU mitigation · ECSS</span>
++        <span class="index-meta">2026 <span class="arrow">&rarr;</span></span>
++      </a>
++    </div>
++    <p style="margin-top:2rem"><a class="link" href="notes.html">All notes &rarr;</a></p>
++  </section>
++
++  <section class="wrap">
++    <div class="section-head rule-top">
++      <span class="num">05</span>
+       <h2>What I am looking for</h2>
+     </div>
+     <div class="seeking">
+@@ -194,9 +243,21 @@
+         <span class="v">Particle physics instrumentation, space and payload electronics,
+           radio astronomy, safety-critical embedded systems.</span>
+       </div>
++      <div class="row">
++        <span class="k">Format</span>
++        <span class="v">A long internship, a master thesis, or a first full-time role.
++          I am not treating those as different ambitions.</span>
++      </div>
++      <div class="row">
++        <span class="k">Available</span>
++        <span class="v">Placements from early 2027, and available now to talk about
++          one.</span>
++      </div>
+       <div class="row">
+         <span class="k">Based</span>
+-        <span class="v">Lausanne, Switzerland.</span>
++        <span class="v">Lausanne, Switzerland. Swiss and EU citizenship, so no
++          sponsorship is needed anywhere in Switzerland or the EU. Relocation
++          elsewhere is my problem, not yours.</span>
+       </div>
+       <div class="row">
+         <span class="k">Best way in</span>
+@@ -205,6 +266,7 @@
+     </div>
+     <p style="margin-top:2.5rem" class="link-row">
+       <a class="link" href="mailto:eliot.abramo@epfl.ch">eliot.abramo@epfl.ch &rarr;</a>
++      <a class="link" href="notes.html">Technical notes &rarr;</a>
+       <a class="link" href="about.html">About &rarr;</a>
+       <a class="link" href="ABRAMO_ELIOT_CV.pdf" target="_blank" rel="noopener">Curriculum vitae &rarr;</a>
+     </p>
+diff --git a/note-orbital-compute.html b/note-orbital-compute.html
+new file mode 100644
+index 0000000..ef8ba8c
+--- /dev/null
++++ b/note-orbital-compute.html
+@@ -0,0 +1,141 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++<meta charset="utf-8">
++<meta name="viewport" content="width=device-width, initial-scale=1">
++<title>Reconfigurable compute under orbital thermal and radiation constraints — Eliot Abramo</title>
++<meta name="description" content="In an orbital data centre the radiator, not the die, sets sustained throughput. Why that argues for reconfigurable fabric with a real degraded mode, and where fault-recovery authority must live.">
++<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111111'/><rect x='7' y='7' width='18' height='18' fill='%23C0331B'/></svg>">
++<meta property="og:title" content="Reconfigurable compute under orbital thermal and radiation constraints">
++<meta property="og:description" content="The radiator, not the die, sets sustained throughput in orbit.">
++<meta property="og:type" content="article">
++<link rel="preconnect" href="https://fonts.googleapis.com">
++<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
++<link rel="stylesheet" href="site.css">
++</head>
++<body>
++
++<main>
++  <div class="wrap">
++    <header class="study-header">
++      <p class="eyebrow">Note N02 &middot; September 2026</p>
++      <h1>The radiator sets the throughput</h1>
++      <p class="deck">
++        In an orbital data centre the thermal envelope, not the die, decides sustained
++        compute. That makes duty cycle a control problem rather than a provisioning
++        one, and it is the strongest argument for reconfigurable fabric in orbit.
++      </p>
++    </header>
++
++    <section class="block rule-top">
++      <h2>The claim</h2>
++      <div class="body">
++        <p>
++          A radiator rejects heat as a fixed function of area and emissivity. Compute
++          demand does not hold still. That mismatch is the whole design problem, and it
++          is the one place where a reconfigurable fabric beats fixed silicon outright:
++          the fabric can trade area for power at runtime, and a fixed accelerator
++          cannot.
++        </p>
++      </div>
++    </section>
++
++    <section class="block">
++      <h2>Three constraints that behave differently in orbit</h2>
++      <div class="body">
++        <p>
++          <strong>Power is cheap, heat rejection is not.</strong>
++          Continuous-illumination orbits make solar energy abundant. Rejecting the
++          waste heat is radiative only, and radiator mass scales with peak load rather
++          than average load. Sizing for peak means carrying mass you rarely use.
++          Sizing for average is cheaper but requires compute with a degraded mode that
++          is real rather than a throttle.
++        </p>
++        <p>
++          <strong>Radiation sets the service interval, not the failure rate.</strong>
++          Single-event upsets are recoverable. Single-event functional interrupts cost
++          availability, because recovery needs something outside the failed domain to
++          notice and act. On a five-year mission there is no patch window and no
++          hands-on service, so the recovery path has to be hardware that cannot itself
++          be the thing that hung.
++        </p>
++        <p>
++          <strong>Data movement dominates the energy budget before arithmetic does.</strong>
++          On the CMS Level-1 trigger datapath I built at CERN, the accelerator array was
++          never the constraint. Keeping it fed across a clock-domain boundary was. The
++          same shape appears in an orbital rack: inter-satellite optical links and the
++          on-board memory hierarchy decide utilisation long before multiplier count
++          does.
++        </p>
++      </div>
++    </section>
++
++    <section class="block">
++      <h2>What I have built against each</h2>
++      <div class="body">
++        <p>
++          <strong>Degraded-mode compute.</strong> At EPFL's Embedded Systems Laboratory
++          I work on ASTRA, a CGRA toolchain targeting the Square Kilometre Array, and I
++          am building a DMA engine for on-array data movement plus the compiler support
++          in HELIOS to drive it. SKA and an orbital data centre are the same class of
++          problem: a fixed power and cooling budget, a workload that must fit inside it,
++          and a requirement that the mapping change after deployment without new
++          silicon. A CGRA is one of few substrates where running the same kernel at half
++          the power is a compile-time decision rather than a clock gate.
++        </p>
++        <p>
++          <strong>Recovery that does not depend on the thing that failed.</strong> At
++          SpaceLocker I designed an analog safety board with voting logic, watchdogs and
++          safe-mode fallbacks that recovers a payload autonomously from
++          dead-on-arrival conditions. It is discrete logic on purpose. It has no
++          firmware to corrupt. Alongside it I implemented a triple-redundant flash
++          scheme with a self-healing bootloader, and 2-of-3 EEPROM voting with
++          complement shadow fields for upset resilience. The complement shadow matters
++          because plain triplication reports a stuck-at pattern as a clean majority.
++          That hardware cleared ESA PDR and CDR and passed thermal vacuum, vibration
++          and shock qualification.
++        </p>
++        <p>
++          <strong>Datapath, measured rather than simulated.</strong> At CERN openlab I
++          built the programmable-logic pipeline feeding a transformer anomaly-detection
++          model on an AMD Versal ACAP, with cycle-accurate latency probes in hardware.
++          Measured end-to-end latency landed within 1.25 % of the Vitis estimate, which
++          is the number I care about, because it means the model of the system was
++          right before the board existed.
++        </p>
++      </div>
++    </section>
++
++    <section class="block">
++      <h2>Three questions I would ask first</h2>
++      <div class="body">
++        <ul>
++          <li>What is the radiator area per kilowatt at the current design point, and
++            what does the sustained-to-peak compute ratio look like once that is
++            fixed?</li>
++          <li>Is the degraded mode a frequency and voltage scale, or a different mapping
++            of the workload? The second is worth far more and is much harder to
++            retrofit.</li>
++          <li>Where does fault-recovery authority live today, and does it share a power
++            domain or a clock with the compute it is supposed to recover?</li>
++        </ul>
++        <p>
++          These are the questions I asked about a payload at SpaceLocker. The scale is
++          different. The failure modes are not.
++        </p>
++        <div class="link-row" style="margin-top:1.75rem">
++          <a class="link" href="note-versal-latency.html">Previous note &rarr;</a>
++          <a class="link" href="notes.html">All notes &rarr;</a>
++          <a class="link" href="contact.html">Get in touch &rarr;</a>
++        </div>
++      </div>
++    </section>
++  </div>
++</main>
++
++<script src="diagrams.js"></script>
++<script src="projects.js"></script>
++<script src="site.js"></script>
++</body>
++</html>
+diff --git a/note-versal-latency.html b/note-versal-latency.html
+new file mode 100644
+index 0000000..a349b41
+--- /dev/null
++++ b/note-versal-latency.html
+@@ -0,0 +1,166 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++<meta charset="utf-8">
++<meta name="viewport" content="width=device-width, initial-scale=1">
++<title>Measured against your own flow: a VEK280 latency note — Eliot Abramo</title>
++<meta name="description" content="Hardware-measured AI Engine latency on a Versal VEK280 landed 1.25 % from aiesimulator, but only with both probes inside the PL domain. Plus the honest AIE versus DSP crossover.">
++<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111111'/><rect x='7' y='7' width='18' height='18' fill='%23C0331B'/></svg>">
++<meta property="og:title" content="Measured against your own flow: a VEK280 latency note">
++<meta property="og:description" content="Probe placement decides whether an AI Engine latency measurement means anything.">
++<meta property="og:type" content="article">
++<link rel="preconnect" href="https://fonts.googleapis.com">
++<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
++<link rel="stylesheet" href="site.css">
++</head>
++<body>
++
++<main>
++  <div class="wrap">
++    <header class="study-header">
++      <p class="eyebrow">Note N01 &middot; CERN openlab &middot; CMS Level-1 Trigger</p>
++      <h1>Measured against your own flow</h1>
++      <p class="deck">
++        End-to-end latency through an AI Engine array on a Versal VEK280, measured on
++        hardware, came in 1.25 % from what Vitis predicted. The agreement is the
++        result. It only held because of where the probes went.
++      </p>
++    </header>
++
++    <div class="keynums">
++      <div>
++        <span class="keynum">34.02<span class="keyunit"> µs</span></span>
++        <p class="keylabel">Measured on VEK280 hardware</p>
++      </div>
++      <div>
++        <span class="keynum">33.60<span class="keyunit"> µs</span></span>
++        <p class="keylabel">Vitis hw_emu and aiesimulator</p>
++      </div>
++      <div>
++        <span class="keynum">1.25<span class="keyunit"> %</span></span>
++        <p class="keylabel">Deviation, four-head attention, four sequential AIE passes</p>
++      </div>
++    </div>
++
++    <section class="block rule-top">
++      <h2>Scope</h2>
++      <div class="body">
++        <p>
++          At CERN openlab, for the CMS Level-1 trigger upgrade toward the
++          High-Luminosity LHC, I built the programmable-logic side of a real-time
++          transformer-based anomaly-detection pipeline on a Versal AI Edge VEK280
++          (VE2802). The model was someone else's. The path that keeps it fed was mine.
++        </p>
++        <p>
++          Stating that boundary precisely matters, because the interesting claim in
++          this note is about measurement rather than about machine learning.
++        </p>
++      </div>
++    </section>
++
++    <section class="block">
++      <h2>What was built</h2>
++      <div class="body">
++        <ul>
++          <li><code>axis_fifo_core</code>, a dual-clock AXI4-Stream FIFO with
++            block-burst admission logic, bridging AXI4-Stream input into the AI
++            Engine array.</li>
++          <li>An asynchronous FIFO for clock-domain crossing, plus an elastic output
++            buffer.</li>
++          <li><code>axis_broadcast</code>, distributing the input stream to two AIE
++            input PLIOs through two input FIFOs.</li>
++          <li>Two latency probes, both in the programmable-logic domain, placed before
++            the input FIFO and after the output FIFO.</li>
++          <li>The full memory streaming path: PS to PL FIFO to AIE to PL FIFO to PS.</li>
++          <li>PCIe-based external host control, with the freed PS core repurposed for
++            telemetry and health monitoring.</li>
++          <li>A Python generation flow around <code>build.toml</code>:
++            <code>gen_link.py</code>, <code>package_xo.py</code>,
++            <code>workspace.py</code>, <code>build.py</code>.</li>
++        </ul>
++      </div>
++    </section>
++
++    <section class="block">
++      <h2>The finding</h2>
++      <div class="body">
++        <p>
++          The agreement between hardware and simulation only holds if both probes sit
++          entirely inside the programmable-logic domain. Instrumenting across the
++          processing-system boundary folds host-side scheduling jitter into the
++          measurement, and the number stops meaning anything. It does not fail loudly.
++          It produces a confident figure that is wrong.
++        </p>
++        <p>
++          Anyone benchmarking AI Engine designs against <code>aiesimulator</code> and
++          finding a large discrepancy should check probe placement before concluding
++          anything about the tool.
++        </p>
++      </div>
++    </section>
++
++    <section class="block">
++      <h2>What this does not claim</h2>
++      <div class="body">
++        <p>
++          34.02 µs is not a competitive latency figure, and I am not presenting it as
++          one. The workload was four-head attention run as four sequential AIE passes,
++          one per head, and that sequential decomposition is the reason. A mapping with
++          fewer passes and higher data reuse would look materially different.
++        </p>
++        <p>
++          What the result establishes is that the model of the system was correct
++          before the board existed, which is a claim about rigour rather than about
++          speed.
++        </p>
++      </div>
++    </section>
++
++    <section class="block">
++      <h2>The honest crossover</h2>
++      <div class="body">
++        <p>
++          I also established the condition under which the AIE-ML array outperforms a
++          programmable-logic DSP implementation of the same workload, rather than
++          assuming it does. The crossover depends on arithmetic intensity and on how
++          many AIE passes the mapping needs.
++        </p>
++        <p>
++          For workloads that decompose into few passes with high reuse, the array wins
++          clearly. For a four-pass sequential decomposition it is much closer, and a
++          DSP implementation stays competitive. Sustained utilisation on the real
++          mapping decides this, not peak throughput.
++        </p>
++      </div>
++    </section>
++
++    <section class="block">
++      <h2>What I would work on next</h2>
++      <div class="body">
++        <p>
++          The generation flow around <code>build.toml</code> was the part I rebuilt,
++          because the stock path did not fit a multi-PLIO broadcast topology. The gap
++          between what an array can do and what a competent engineer can get it to do
++          in an afternoon is where adaptive compute wins or loses designs.
++        </p>
++        <p>
++          That gap is now my research: compiler and runtime support for a CGRA
++          toolchain at EPFL's Embedded Systems Laboratory, currently an on-array DMA
++          engine and the compiler support that decides to use it.
++        </p>
++        <div class="link-row" style="margin-top:1.75rem">
++          <a class="link" href="note-orbital-compute.html">Next note &rarr;</a>
++          <a class="link" href="notes.html">All notes &rarr;</a>
++          <a class="link" href="contact.html">Get in touch &rarr;</a>
++        </div>
++      </div>
++    </section>
++  </div>
++</main>
++
++<script src="diagrams.js"></script>
++<script src="projects.js"></script>
++<script src="site.js"></script>
++</body>
++</html>
+diff --git a/notes.html b/notes.html
+new file mode 100644
+index 0000000..17cb6a1
+--- /dev/null
++++ b/notes.html
+@@ -0,0 +1,72 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++<meta charset="utf-8">
++<meta name="viewport" content="width=device-width, initial-scale=1">
++<title>Technical notes — Eliot Abramo</title>
++<meta name="description" content="Short technical write-ups: measured AI Engine latency on a Versal ACAP, and reconfigurable compute under orbital thermal and radiation constraints.">
++<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111111'/><rect x='7' y='7' width='18' height='18' fill='%23C0331B'/></svg>">
++<meta property="og:title" content="Technical notes — Eliot Abramo">
++<meta property="og:description" content="Measured results and the arguments behind them, published so they can be read rather than claimed.">
++<meta property="og:type" content="website">
++<link rel="preconnect" href="https://fonts.googleapis.com">
++<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
++<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
++<link rel="stylesheet" href="site.css">
++</head>
++<body>
++
++<main>
++  <section class="hero wrap" style="padding-bottom:2rem">
++    <h1>Technical notes</h1>
++    <p class="standfirst">
++      Short write-ups of things I measured or argued.
++      <span class="muted">Published as pages rather than PDFs, so they can be read
++      rather than claimed. Each one states what it does not establish as clearly as
++      what it does.</span>
++    </p>
++  </section>
++
++  <div class="wrap">
++    <div class="index">
++      <a class="index-row" href="note-versal-latency.html">
++        <span class="index-num">N01</span>
++        <div>
++          <h3 class="index-title">Measured against your own flow: a VEK280 latency note</h3>
++          <p class="index-summary">End-to-end latency on hardware came in 1.25 % from the
++            Vitis simulation estimate, but only because both latency probes sat inside
++            the programmable-logic domain. Also: the honest crossover condition where
++            an AI Engine array stops beating a plain DSP implementation.</p>
++          <span class="index-org">CERN openlab &middot; CMS Level-1 Trigger</span>
++        </div>
++        <span class="index-tech">Versal ACAP &middot; AI Engine &middot; AXI4-Stream &middot; Vitis &middot; PCIe</span>
++        <span class="index-meta">2026 <span class="arrow">&rarr;</span></span>
++      </a>
++      <a class="index-row" href="note-orbital-compute.html">
++        <span class="index-num">N02</span>
++        <div>
++          <h3 class="index-title">Reconfigurable compute under orbital thermal and radiation constraints</h3>
++          <p class="index-summary">In an orbital data centre the radiator, not the die,
++            sets sustained throughput. That makes duty cycle a control problem, argues
++            for a fabric with a genuine degraded mode, and decides where fault-recovery
++            authority has to live.</p>
++          <span class="index-org">Written September 2026</span>
++        </div>
++        <span class="index-tech">CGRA &middot; thermal envelope &middot; SEU mitigation &middot; ECSS</span>
++        <span class="index-meta">2026 <span class="arrow">&rarr;</span></span>
++      </a>
++    </div>
++
++    <p style="margin-top:3rem" class="link-row">
++      <a class="link" href="work.html">Work &rarr;</a>
++      <a class="link" href="ABRAMO_ELIOT_CV.pdf" target="_blank" rel="noopener">Curriculum vitae &rarr;</a>
++      <a class="link" href="contact.html">Get in touch &rarr;</a>
++    </p>
++  </div>
++</main>
++
++<script src="diagrams.js"></script>
++<script src="projects.js"></script>
++<script src="site.js"></script>
++</body>
++</html>
+diff --git a/site.css b/site.css
+index 851f437..f0e7a60 100644
+--- a/site.css
++++ b/site.css
+@@ -683,3 +683,45 @@ figure.fig-diagram { margin-bottom: 2.5rem; }
+ .lede { max-width: 68ch; }
+ .lede p { font-size: 1.05rem; line-height: 1.6; margin: 0 0 1.1rem; }
+ .lede p:last-child { margin-bottom: 0; }
++
++
++/* ------------------------------------------------------ technical notes */
++
++/* Three figures at the head of a note. Same idea as .proof on the index,
++   but sized for a page where the number is the argument rather than a badge. */
++.keynums {
++  display: grid;
++  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
++  gap: 2rem;
++  padding: 0 0 3rem;
++}
++.keynum {
++  font-family: var(--mono);
++  font-size: clamp(1.8rem, 4vw, 2.6rem);
++  font-weight: 500;
++  letter-spacing: -.03em;
++  line-height: 1;
++  display: block;
++  color: var(--ink);
++}
++.keyunit {
++  font-size: .5em;
++  color: var(--ink-2);
++  letter-spacing: 0;
++}
++.keylabel {
++  font-size: .82rem;
++  line-height: 1.45;
++  color: var(--ink-2);
++  margin: .7rem 0 0;
++  max-width: 30ch;
++}
++
++/* Inline code inside note prose. */
++.block .body code {
++  font-family: var(--mono);
++  font-size: .86em;
++  background: var(--paper-2);
++  padding: .12em .35em;
++  border-radius: 2px;
++}
+diff --git a/site.js b/site.js
+index e6440a1..4dd03f6 100644
+--- a/site.js
++++ b/site.js
+@@ -12,6 +12,7 @@
+   const NAV = [
+     ['index.html', 'Index'],
+     ['work.html', 'Work'],
++    ['notes.html', 'Notes'],
+     ['about.html', 'About'],
+     ['contact.html', 'Contact'],
+     ['ABRAMO_ELIOT_CV.pdf', 'CV']
+@@ -43,7 +44,7 @@
+       `<div class="wrap">
+          <nav>
+            <a href="https://github.com/Eliot-Abramo" target="_blank" rel="noopener">GitHub</a>
+-           <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener">LinkedIn</a>
++           <a href="https://www.linkedin.com/in/eliot-abramo/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:eliot.abramo@epfl.ch">eliot.abramo@epfl.ch</a>
+            <a href="ABRAMO_ELIOT_CV.pdf" target="_blank" rel="noopener">CV</a>
+          </nav>
