@@ -17,6 +17,62 @@
 const DIAGRAMS = {
 
 /* -------------------------------------------------------------------------
+   L3 — compiler representations and the runtime that executes their output.
+   ------------------------------------------------------------------------- */
+'l3-pipeline': `
+<svg viewBox="0 0 900 328" role="img" xmlns="http://www.w3.org/2000/svg"
+     aria-label="L3 source passes through high CPS optimization, closure conversion and hoisting, flat CPS optimization, register allocation and assembly generation, then executes on a C VM with mark-and-sweep garbage collection.">
+  <defs>
+    <marker id="l3-flow-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="currentColor"/>
+    </marker>
+  </defs>
+  <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="var(--signal)" letter-spacing="1.2">
+    <text x="16" y="22">SCALA / COMPILATION</text>
+    <text x="604" y="184">C / EXECUTION</text>
+  </g>
+  <g fill="var(--paper-2)" stroke="var(--rule)">
+    <rect x="16" y="44" width="270" height="90"/>
+    <rect x="310" y="44" width="270" height="90"/>
+    <rect x="604" y="44" width="280" height="90"/>
+    <rect x="16" y="204" width="270" height="90"/>
+    <rect x="310" y="204" width="270" height="90"/>
+    <rect x="604" y="204" width="280" height="90" stroke="var(--signal)"/>
+  </g>
+  <g fill="currentColor" font-size="15" font-weight="500">
+    <text x="32" y="72">L₃ source → core tree</text>
+    <text x="326" y="72">High CPS + optimization</text>
+    <text x="620" y="72">Values, closures, hoisting</text>
+    <text x="32" y="232">Flat CPS + optimization</text>
+    <text x="326" y="232">Registers → assembly</text>
+    <text x="620" y="232">C virtual machine</text>
+  </g>
+  <g fill="currentColor" opacity=".65" font-family="IBM Plex Mono, monospace" font-size="11">
+    <text x="32" y="99">expand modules · parse</text>
+    <text x="32" y="117">resolve names</text>
+    <text x="326" y="99">explicit continuations</text>
+    <text x="326" y="117">simplify · inline</text>
+    <text x="620" y="99">tag values · capture environments</text>
+    <text x="620" y="117">lift nested functions</text>
+    <text x="32" y="259">optimize lowered operations</text>
+    <text x="32" y="277">bound code growth</text>
+    <text x="326" y="259">allocate registers · emit code</text>
+    <text x="326" y="277">resolve labels · encode</text>
+    <text x="620" y="259">execute 32-bit instructions</text>
+    <text x="620" y="277">trace roots · mark · sweep</text>
+  </g>
+  <g fill="none" stroke="currentColor" stroke-width="1.3" marker-end="url(#l3-flow-arrow)">
+    <path d="M286 89H306"/>
+    <path d="M580 89H600"/>
+    <path d="M744 134V162H151V200"/>
+    <path d="M286 249H306"/>
+    <path d="M580 249H600"/>
+  </g>
+</svg>`,
+
+
+/* -------------------------------------------------------------------------
    Capability stack — the argument the whole site is making, in one picture:
    the same person works at every layer from wave physics to the compiler.
    ------------------------------------------------------------------------- */

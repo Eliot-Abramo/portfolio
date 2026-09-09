@@ -12,6 +12,7 @@
   const NAV = [
     ['index.html', 'Index'],
     ['work.html', 'Work'],
+    ['notes.html', 'Notes'],
     ['about.html', 'About'],
     ['contact.html', 'Contact'],
     ['ABRAMO_ELIOT_CV.pdf', 'CV']
@@ -43,7 +44,7 @@
       `<div class="wrap">
          <nav>
            <a href="https://github.com/Eliot-Abramo" target="_blank" rel="noopener">GitHub</a>
-           <a href="https://www.linkedin.com/in/eliot-abramo-757592189" target="_blank" rel="noopener">LinkedIn</a>
+           <a href="https://www.linkedin.com/in/eliot-abramo/" target="_blank" rel="noopener">LinkedIn</a>
            <a href="mailto:eliot.abramo@epfl.ch">eliot.abramo@epfl.ch</a>
            <a href="ABRAMO_ELIOT_CV.pdf" target="_blank" rel="noopener">CV</a>
          </nav>

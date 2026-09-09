@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Measured against your own flow: a VEK280 latency note — Eliot Abramo</title>
+<meta name="description" content="Hardware-measured AI Engine latency on a Versal VEK280 landed 1.25 % from aiesimulator, but only with both probes inside the PL domain. Plus the honest AIE versus DSP crossover.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111111'/><rect x='7' y='7' width='18' height='18' fill='%23C0331B'/></svg>">
+<meta property="og:title" content="Measured against your own flow: a VEK280 latency note">
+<meta property="og:description" content="Probe placement decides whether an AI Engine latency measurement means anything.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<main>
+  <div class="wrap">
+    <header class="study-header">
+      <p class="eyebrow">Note N01 &middot; CERN openlab &middot; CMS Level-1 Trigger</p>
+      <h1>Measured against your own flow</h1>
+      <p class="deck">
+        End-to-end latency through an AI Engine array on a Versal VEK280, measured on
+        hardware, came in 1.25 % from what Vitis predicted. The agreement is the
+        result. It only held because of where the probes went.
+      </p>
+    </header>
+
+    <div class="keynums">
+      <div>
+        <span class="keynum">34.02<span class="keyunit"> µs</span></span>
+        <p class="keylabel">Measured on VEK280 hardware</p>
+      </div>
+      <div>
+        <span class="keynum">33.60<span class="keyunit"> µs</span></span>
+        <p class="keylabel">Vitis hw_emu and aiesimulator</p>
+      </div>
+      <div>
+        <span class="keynum">1.25<span class="keyunit"> %</span></span>
+        <p class="keylabel">Deviation, four-head attention, four sequential AIE passes</p>
+      </div>
+    </div>
+
+    <section class="block rule-top">
+      <h2>Scope</h2>
+      <div class="body">
+        <p>
+          At CERN openlab, for the CMS Level-1 trigger upgrade toward the
+          High-Luminosity LHC, I built the programmable-logic side of a real-time
+          transformer-based anomaly-detection pipeline on a Versal AI Edge VEK280
+          (VE2802). The model was someone else's. The path that keeps it fed was mine.
+        </p>
+        <p>
+          Stating that boundary precisely matters, because the interesting claim in
+          this note is about measurement rather than about machine learning.
+        </p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>What was built</h2>
+      <div class="body">
+        <ul>
+          <li><code>axis_fifo_core</code>, a dual-clock AXI4-Stream FIFO with
+            block-burst admission logic, bridging AXI4-Stream input into the AI
+            Engine array.</li>
+          <li>An asynchronous FIFO for clock-domain crossing, plus an elastic output
+            buffer.</li>
+          <li><code>axis_broadcast</code>, distributing the input stream to two AIE
+            input PLIOs through two input FIFOs.</li>
+          <li>Two latency probes, both in the programmable-logic domain, placed before
+            the input FIFO and after the output FIFO.</li>
+          <li>The full memory streaming path: PS to PL FIFO to AIE to PL FIFO to PS.</li>
+          <li>PCIe-based external host control, with the freed PS core repurposed for
+            telemetry and health monitoring.</li>
+          <li>A Python generation flow around <code>build.toml</code>:
+            <code>gen_link.py</code>, <code>package_xo.py</code>,
+            <code>workspace.py</code>, <code>build.py</code>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>The finding</h2>
+      <div class="body">
+        <p>
+          The agreement between hardware and simulation only holds if both probes sit
+          entirely inside the programmable-logic domain. Instrumenting across the
+          processing-system boundary folds host-side scheduling jitter into the
+          measurement, and the number stops meaning anything. It does not fail loudly.
+          It produces a confident figure that is wrong.
+        </p>
+        <p>
+          Anyone benchmarking AI Engine designs against <code>aiesimulator</code> and
+          finding a large discrepancy should check probe placement before concluding
+          anything about the tool.
+        </p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>What this does not claim</h2>
+      <div class="body">
+        <p>
+          34.02 µs is not a competitive latency figure, and I am not presenting it as
+          one. The workload was four-head attention run as four sequential AIE passes,
+          one per head, and that sequential decomposition is the reason. A mapping with
+          fewer passes and higher data reuse would look materially different.
+        </p>
+        <p>
+          What the result establishes is that the model of the system was correct
+          before the board existed, which is a claim about rigour rather than about
+          speed.
+        </p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>The honest crossover</h2>
+      <div class="body">
+        <p>
+          I also established the condition under which the AIE-ML array outperforms a
+          programmable-logic DSP implementation of the same workload, rather than
+          assuming it does. The crossover depends on arithmetic intensity and on how
+          many AIE passes the mapping needs.
+        </p>
+        <p>
+          For workloads that decompose into few passes with high reuse, the array wins
+          clearly. For a four-pass sequential decomposition it is much closer, and a
+          DSP implementation stays competitive. Sustained utilisation on the real
+          mapping decides this, not peak throughput.
+        </p>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>What I would work on next</h2>
+      <div class="body">
+        <p>
+          The generation flow around <code>build.toml</code> was the part I rebuilt,
+          because the stock path did not fit a multi-PLIO broadcast topology. The gap
+          between what an array can do and what a competent engineer can get it to do
+          in an afternoon is where adaptive compute wins or loses designs.
+        </p>
+        <p>
+          That gap is now my research: compiler and runtime support for a CGRA
+          toolchain at EPFL's Embedded Systems Laboratory, currently an on-array DMA
+          engine and the compiler support that decides to use it.
+        </p>
+        <div class="link-row" style="margin-top:1.75rem">
+          <a class="link" href="note-orbital-compute.html">Next note &rarr;</a>
+          <a class="link" href="notes.html">All notes &rarr;</a>
+          <a class="link" href="contact.html">Get in touch &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="diagrams.js"></script>
+<script src="projects.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

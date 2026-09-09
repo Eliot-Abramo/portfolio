@@ -515,6 +515,76 @@ const PROJECTS = [
     }
   },
 
+  /* ========================================================= L3 compiler */
+  {
+    slug: 'l3-compiler',
+    title: 'L₃ — From Functional Language to Garbage-Collected Runtime',
+    org: 'EPFL · Compiler construction',
+    role: 'Compiler passes and garbage collector',
+    years: '2026',
+    featured: true,
+    tech: ['Scala', 'C17', 'CPS', 'Garbage collection'],
+    repo: 'https://github.com/Eliot-Abramo/compiler',
+    summary: 'Implemented CPS translation, closure conversion, optimization and a mark-and-sweep ' +
+             'collector for a functional language targeting a custom 32-bit virtual machine. ' +
+             'Verified with 248 compiler checks and 43 VM fixtures.',
+    study: {
+      problem:
+        'A functional language hides much of the machinery needed to execute it: functions ' +
+        'capture their surroundings, expressions return into an implicit call stack, and ' +
+        'allocated values outlive the expressions that created them. In the EPFL L₃ project, ' +
+        'I implemented the compiler passes that make those operations explicit, then the ' +
+        'memory manager that keeps reachable values alive while reclaiming the rest.',
+      constraints: [
+        'Preserve source-language behaviour through CPS translation, optimization, value ' +
+          'representation and closure conversion, including recursion and tail calls.',
+        'Target the supplied 32-bit register-machine instruction set and its tagged-value layout.',
+        'Bound inlining so optimization does not turn small programs into large assembly files.',
+        'Distinguish heap references from tagged immediates and raw code addresses during collection.'
+      ],
+      build: [
+        'A Scala translation from the core language to continuation-passing style, separating ' +
+          'tail calls, value-producing expressions and conditional control flow.',
+        'Tagged-value lowering and worker/wrapper closure conversion. Known calls can pass ' +
+          'captured values directly to workers; indirect calls use a closure environment.',
+        'Function hoisting and optimizers for high and flat CPS: constant folding, algebraic ' +
+          'simplification, dead-code elimination, common-subexpression elimination and bounded inlining.',
+        'A non-moving mark-and-sweep collector in C, with bitmap marking, an explicit mark stack, ' +
+          '32 segregated free lists, block splitting and coalescing during sweep.',
+        'Repeatable build and demo commands, a Python standard-library runner for the supplied ' +
+          'VM fixtures, and CI configuration for compiler, runtime and sanitizer checks.'
+      ],
+      specs: [
+        ['Toolchain', 'Scala 3.8.1 · C17 · JDK 21'],
+        ['Target', 'Custom 32-bit register VM'],
+        ['Compiler verification', '248 checks across 6 backends · passed September 2026'],
+        ['C VM verification', '43 fixtures · release and sanitizer builds passed September 2026'],
+        ['Inlining bounds', '8 rounds · accepted tree at most 1.5× initially shrunk size'],
+        ['Heap allocation', '32 segregated free lists · non-moving mark-and-sweep'],
+        ['Source-to-VM checks', 'Hello, world · N-queens · big integers · two maze generators']
+      ],
+      figures: [
+        { diagram: 'l3-pipeline',
+          caption: 'Control flow is optimized in CPS before values and closures are lowered. ' +
+                   'The C VM executes the resulting assembly; its collector traces reachable ' +
+                   'heap blocks from register frames.' }
+      ],
+      outcome:
+        'The compiler emits assembly without executing the source program, and the C VM runs ' +
+        'the result. Freshly compiled Hello, world, N-queens, big-integer factorial and both maze ' +
+        'programs matched their expected output. All 248 compiler checks and 43 standalone VM ' +
+        'fixtures passed locally in September 2026, including the VM suite under address and ' +
+        'undefined-behaviour sanitizers.',
+      limits:
+        'This is an educational compiler built on EPFL infrastructure. The parser, name ' +
+        'analysis, reference interpreters, register allocation and assembly infrastructure, ' +
+        'VM execution engine, library and original fixtures were supplied; my implementation ' +
+        'work is the passes and collector described above. The target is the L₃ VM, not native ' +
+        'host code. These results establish agreement on the tested programs, not a proof of ' +
+        'correctness or a performance comparison with production compilers.'
+    }
+  },
+
   /* ====================================================== KiCad multi-board */
   {
     slug: 'kicad-multi-pcb',

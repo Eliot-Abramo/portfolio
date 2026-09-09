@@ -140,6 +140,40 @@ section { padding-bottom: 5rem; }
 /* Block padding only — the horizontal gutter comes from .wrap and must survive. */
 .hero { padding-top: 6rem; padding-bottom: 4rem; }
 
+/* Name and standfirst on the left. The portrait takes the rest of the row and
+   sits centred in it, so it lands halfway between the text and the page edge,
+   on the vertical centre of the name-plus-standfirst block. */
+.intro {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 0 3.5rem;
+}
+
+/* Never grows past its own text, so the space left over for the circle starts
+   at the end of the writing rather than at some invisible column edge. */
+.intro-text { flex: 0 1 auto; }
+.intro-text .standfirst { margin-bottom: 0; }
+
+.intro-portrait {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.portrait {
+  flex: none;
+  width: clamp(180px, 24vw, 340px);
+  height: clamp(180px, 24vw, 340px);
+  border-radius: 50%;
+  object-fit: cover;
+  /* Crop window sits low enough to clear the top of the head and keep the
+     face on the middle of the circle. */
+  object-position: 50% 40%;
+  border: var(--rule-w) solid var(--rule);
+  background: var(--paper-2);
+}
+
 .hero h1 {
   font-size: clamp(2.6rem, 7.5vw, 5.75rem);
   line-height: .96;
@@ -510,6 +544,10 @@ button.link {
 /* ------------------------------------------------------------ responsive */
 
 @media (max-width: 900px) {
+  /* Not enough room for two columns — the portrait drops under the name. */
+  .intro { flex-direction: column; align-items: flex-start; gap: 2rem; }
+  .intro-portrait { justify-content: flex-start; }
+  .portrait { width: clamp(160px, 38vw, 240px); height: clamp(160px, 38vw, 240px); }
   .index-row { grid-template-columns: 2.25rem 1fr; }
   .index-tech, .index-meta { display: none; }
   .block { grid-template-columns: 1fr; gap: .75rem; }
@@ -683,3 +721,45 @@ figure.fig-diagram { margin-bottom: 2.5rem; }
 .lede { max-width: 68ch; }
 .lede p { font-size: 1.05rem; line-height: 1.6; margin: 0 0 1.1rem; }
 .lede p:last-child { margin-bottom: 0; }
+
+
+/* ------------------------------------------------------ technical notes */
+
+/* Three figures at the head of a note. Same idea as .proof on the index,
+   but sized for a page where the number is the argument rather than a badge. */
+.keynums {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  padding: 0 0 3rem;
+}
+.keynum {
+  font-family: var(--mono);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 500;
+  letter-spacing: -.03em;
+  line-height: 1;
+  display: block;
+  color: var(--ink);
+}
+.keyunit {
+  font-size: .5em;
+  color: var(--ink-2);
+  letter-spacing: 0;
+}
+.keylabel {
+  font-size: .82rem;
+  line-height: 1.45;
+  color: var(--ink-2);
+  margin: .7rem 0 0;
+  max-width: 30ch;
+}
+
+/* Inline code inside note prose. */
+.block .body code {
+  font-family: var(--mono);
+  font-size: .86em;
+  background: var(--paper-2);
+  padding: .12em .35em;
+  border-radius: 2px;
+}
